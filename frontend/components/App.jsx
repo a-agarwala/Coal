@@ -10,6 +10,7 @@ import {
     Link,
     HashRouter
 } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
     <HashRouter>
@@ -20,7 +21,7 @@ const App = () => (
         </header>
         <Switch>
             <Route exact path='/login' component={SigninAndInfo} />
-            <Route exact path='/join' component={CreateAccountContainer} />
+            <AuthRoute exact path='/join' component={CreateAccountContainer} />
             <Route exact path="/" component={Storefront} />
         </Switch>
     </div>
