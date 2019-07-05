@@ -182,7 +182,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["HashRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Steam Clone (coming from App.jsx)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_display_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["HashRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Steam Clone (coming from App.jsx)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_display_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_6__["AuthRoute"], {
     exact: true,
     path: "/login",
     component: _signin_and_info__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -429,9 +429,6 @@ function (_React$Component) {
       }
 
       ;
-      var logged_out_display = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/login"
-      }, "login"));
       return display;
     }
   }]);
@@ -527,8 +524,7 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SignInAndCreate).call(this, props));
     _this.state = {
       username: '',
-      password: '',
-      loggedIn: false
+      password: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -537,40 +533,26 @@ function (_React$Component) {
   _createClass(SignInAndCreate, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this2 = this;
-
       e.preventDefault();
       var user = Object.assign({}, this.state);
-      this.props.signin(user).then(function () {
-        return _this2.setState({
-          loggedIn: true
-        });
-      });
-      this.setState({
-        username: '',
-        password: '',
-        loggedIn: false
-      });
+      this.props.signin(user);
     }
   }, {
     key: "update",
     value: function update(field) {
-      var _this3 = this;
+      var _this2 = this;
 
       return function (e) {
-        return _this3.setState(_defineProperty({}, field, e.currentTarget.value));
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {}
+  }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
-
-      if (this.state.loggedIn === true) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
-          to: "/"
-        });
-      }
+      var _this3 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signin-error-box"
@@ -596,7 +578,7 @@ function (_React$Component) {
         className: "create-acc-box"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Create"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "A new free account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "It's free to join and easy to use.  Continue on to create your Steam account and get Steam, the leading digital solution for PC and Mac gamers."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
-          return _this4.props.history.push('/join');
+          return _this3.props.history.push('/join');
         }
       }, "Join Steam"))));
     }

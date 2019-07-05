@@ -20,7 +20,7 @@ const App = () => (
             <SessionDisplayContainer />
         </header>
         <Switch>
-            <Route exact path='/login' component={SigninAndInfo} />
+            <AuthRoute exact path='/login' component={SigninAndInfo} />
             <AuthRoute exact path='/join' component={CreateAccountContainer} />
             <Route exact path="/" component={Storefront} />
         </Switch>

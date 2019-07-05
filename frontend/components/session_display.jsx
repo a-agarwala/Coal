@@ -7,8 +7,6 @@ class SessionDisplay extends React.Component {
         super(props);
     }
 
-    
-
     render() {
 
         let display = {};
@@ -27,13 +25,6 @@ class SessionDisplay extends React.Component {
                 </div>
             )
         };
-
-
-        const logged_out_display = (
-            <div>
-                <Link to='/login'>login</Link>
-            </div>
-        );
 
         return display;
     }

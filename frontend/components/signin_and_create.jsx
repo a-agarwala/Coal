@@ -7,7 +7,6 @@ class SignInAndCreate extends React.Component {
         this.state = {
             username: '',
             password: '',
-            loggedIn: false
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -16,14 +15,6 @@ class SignInAndCreate extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.signin(user)
-            .then(() => this.setState({
-                loggedIn: true
-            }));
-        this.setState({
-            username: '',
-            password: '',
-            loggedIn: false
-        })
     }
 
     update(field) {
@@ -32,10 +23,11 @@ class SignInAndCreate extends React.Component {
         });
     }
 
+    componentWillUnmount() {
+
+    }
+
     render() {
-        if (this.state.loggedIn === true) {
-            return <Redirect to='/' />
-        }
         return (
         <div>
             <div className="signin-error-box">
