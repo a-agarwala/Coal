@@ -401,109 +401,6 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ "./frontend/components/header/language_menu.jsx":
-/*!******************************************************!*\
-  !*** ./frontend/components/header/language_menu.jsx ***!
-  \******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-var LanguageMenu =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(LanguageMenu, _React$Component);
-
-  function LanguageMenu(props) {
-    var _this;
-
-    _classCallCheck(this, LanguageMenu);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(LanguageMenu).call(this, props));
-    _this.state = {
-      showMenu: false
-    };
-    _this.showMenu = _this.showMenu.bind(_assertThisInitialized(_this));
-    _this.closeMenu = _this.closeMenu.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(LanguageMenu, [{
-    key: "showMenu",
-    value: function showMenu(event) {
-      var _this2 = this;
-
-      event.preventDefault();
-      this.setState({
-        showMenu: true
-      }, function () {
-        document.addEventListener('click', _this2.closeMenu);
-      });
-    }
-  }, {
-    key: "closeMenu",
-    value: function closeMenu(event) {
-      var _this3 = this;
-
-      if (!this.dropdownMenu.contains(event.target)) {
-        this.setState({
-          showMenu: false
-        }, function () {
-          document.removeEventListener('click', _this3.closeMenu);
-        });
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this4 = this;
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "upper-right-nav-bar-text",
-        onClick: this.showMenu
-      }, "language"), this.state.showMenu ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "language-menu",
-        ref: function ref(element) {
-          _this4.dropdownMenu = element;
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "upper-right-nav-bar-text"
-      }, " English "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "upper-right-nav-bar-text"
-      }, " Sorry ")) : null);
-    }
-  }]);
-
-  return LanguageMenu;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["default"] = (LanguageMenu);
-
-/***/ }),
-
 /***/ "./frontend/components/header/upper_right_nav_bar.jsx":
 /*!************************************************************!*\
   !*** ./frontend/components/header/upper_right_nav_bar.jsx ***!
@@ -516,7 +413,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _language_menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./language_menu */ "./frontend/components/header/language_menu.jsx");
+/* harmony import */ var _username_menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./username_menu */ "./frontend/components/header/username_menu.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -558,12 +455,10 @@ function (_React$Component) {
       if (this.props.currentUser) {
         display = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "upper-right-nav-bar"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "upper-right-nav-bar-text"
-        }, this.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "upper-right-nav-bar-text",
-          onClick: this.props.logout
-        }, "Logout"));
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_username_menu__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          username: this.props.currentUser.username,
+          logout: this.props.logout
+        }));
       } else {
         display = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "upper-right-nav-bar"
@@ -621,6 +516,119 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_upper_right_nav_bar__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/header/username_menu.jsx":
+/*!******************************************************!*\
+  !*** ./frontend/components/header/username_menu.jsx ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var UsernameMenu =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(UsernameMenu, _React$Component);
+
+  function UsernameMenu(props) {
+    var _this;
+
+    _classCallCheck(this, UsernameMenu);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UsernameMenu).call(this, props));
+    _this.state = {
+      showDropdownMenu: false
+    };
+    _this.showDropdownMenu = _this.showDropdownMenu.bind(_assertThisInitialized(_this));
+    _this.hideDropdownMenu = _this.hideDropdownMenu.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(UsernameMenu, [{
+    key: "showDropdownMenu",
+    value: function showDropdownMenu(event) {
+      var _this2 = this;
+
+      event.preventDefault();
+      this.setState({
+        showDropdownMenu: true
+      }, function () {
+        document.addEventListener('click', _this2.hideDropdownMenu);
+      });
+    }
+  }, {
+    key: "hideDropdownMenu",
+    value: function hideDropdownMenu(event) {
+      var _this3 = this;
+
+      if (!this.dropdownMenu.contains(event.target)) {
+        this.setState({
+          showDropdownMenu: false
+        }, function () {
+          document.removeEventListener('click', _this3.hideDropdownMenu);
+        });
+      }
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      document.removeEventListener('click', this.hideDropdownMenu);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "dropdown-menu-button upper-right-nav-bar-text",
+        onClick: this.showDropdownMenu
+      }, this.props.username), this.state.showDropdownMenu ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "username-menu-wrapper",
+        ref: function ref(element) {
+          _this4.dropdownMenu = element;
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "username-menu-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "menu-item"
+      }, " Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "menu-item"
+      }, " Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "menu-item",
+        onClick: this.props.logout
+      }, "Logout"))) : null);
+    }
+  }]);
+
+  return UsernameMenu;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (UsernameMenu);
 
 /***/ }),
 

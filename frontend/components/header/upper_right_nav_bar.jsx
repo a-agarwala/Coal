@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LanguageMenu from './language_menu';
+import UsernameMenu from './username_menu';
 
 class UpperRightNavBar extends React.Component {
 
@@ -15,8 +15,8 @@ class UpperRightNavBar extends React.Component {
         if (this.props.currentUser) {
             display = (
                 <div className="upper-right-nav-bar">
-                    <button className="upper-right-nav-bar-text">{this.props.currentUser.username}</button>
-                    <button className="upper-right-nav-bar-text" onClick={this.props.logout}>Logout</button>
+                    < UsernameMenu username={this.props.currentUser.username} logout={this.props.logout}/>
+                
                 </div>
             );
         } else {

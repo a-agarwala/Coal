@@ -47,7 +47,6 @@ div#upper-right-nav-bar {
     line-height: 24px;
     vertical-align: top;
     display: flex;
-    color: #b8b6b4;
     font-size: 11px;
 }
 
@@ -61,14 +60,45 @@ div#upper-right-nav-bar {
     padding-right: 4px;
 }
 
-#language-menu {
-    padding-left: 4px;
-    margin-right: 5px;
+#username-menu-wrapper {
+    padding: 0;
+    margin: 0;
     top: 25px;
-    left: 50px;
     display: block;
     opacity: 1;
     z-index: 200;
+    right: 35px;
     position: absolute;
     box-shadow: 0 0 12px #000000;
+}
+
+#username-menu-body {
+    width: 150px;
+    padding: 6px 0px;
+    border: 1px solid #171a21;
+    position: relative;
+    background-color: #171a21;
+}
+
+.menu-item {
+    font-size: 13px;
+    padding: 5px 12px;
+    line-height: normal;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu-item:hover {
+    text-decoration: none;
+	color: #ffffff;
+}
+
+.dropdown-menu-button {
+    padding-right: 18px;
+    padding-left: 5px;
+    background-image: url( 'https://steamstore-a.akamaihd.net/public/shared/images/popups/btn_arrow_down_padded.png' );
+    background-position: right center;
+    background-repeat: no-repeat;
 }
