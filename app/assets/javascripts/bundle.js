@@ -462,7 +462,10 @@ function (_React$Component) {
       } else {
         display = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "upper-right-nav-bar"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          id: "green-install-button",
+          className: "install-button upper-right-nav-bar-text"
+        }, "Green Button"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           id: "login",
           className: "upper-right-nav-bar-text",
           to: "/login"
@@ -605,6 +608,9 @@ function (_React$Component) {
       var _this4 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "gray-install-button",
+        className: "install-button upper-right-nav-bar-text"
+      }, "Gray Button"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "dropdown-menu-button upper-right-nav-bar-text",
         onClick: this.showDropdownMenu
       }, this.props.username), this.state.showDropdownMenu ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -615,11 +621,11 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "username-menu-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "menu-item"
+        className: "username-menu-item menu-item"
       }, " Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "menu-item"
+        className: "username-menu-item menu-item"
       }, " Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "menu-item",
+        className: "username-menu-item menu-item",
         onClick: this.props.logout
       }, "Logout"))) : null);
     }

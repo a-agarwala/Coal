@@ -36,6 +36,9 @@ class UsernameMenu extends React.Component {
     render() {
         return (
             <div>
+                <button id="gray-install-button"
+                    className="install-button upper-right-nav-bar-text"
+                >Gray Button</button>
                 <button className="dropdown-menu-button upper-right-nav-bar-text" onClick={this.showDropdownMenu}>
                     {this.props.username}
                  </button>
@@ -50,10 +53,10 @@ class UsernameMenu extends React.Component {
                                 }}>
                                 
                                 <div id="username-menu-body">
-                                    <button className="menu-item"> Placeholder </button>
-                                    <button className="menu-item"> Placeholder </button>
+                                    <button className="username-menu-item menu-item"> Placeholder </button>
+                                    <button className="username-menu-item menu-item"> Placeholder </button>
                                     <button 
-                                        className="menu-item" 
+                                        className="username-menu-item menu-item" 
                                         onClick={this.props.logout}>Logout</button>
                                 </div>
                                 

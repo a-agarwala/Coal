@@ -22,6 +22,9 @@ class UpperRightNavBar extends React.Component {
         } else {
             display = (
                 <div id="upper-right-nav-bar">
+                    <button id="green-install-button"
+                    className="install-button upper-right-nav-bar-text"
+                        >Green Button</button>
                     <Link id="login" className="upper-right-nav-bar-text" to='/login'>login</Link> 
                 </div>
             )

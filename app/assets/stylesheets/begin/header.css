@@ -90,6 +90,11 @@ div#upper-right-nav-bar {
     text-overflow: ellipsis;
 }
 
+.username-menu-item {
+    height: 19px;
+    width: 126px;
+}
+
 .menu-item:hover {
     text-decoration: none;
 	color: #ffffff;
@@ -101,4 +106,23 @@ div#upper-right-nav-bar {
     background-image: url( 'https://steamstore-a.akamaihd.net/public/shared/images/popups/btn_arrow_down_padded.png' );
     background-position: right center;
     background-repeat: no-repeat;
+}
+
+.install-button {
+    padding-left: 35px;
+	padding-right: 9px;
+	background-position: 10px 5px;
+	background-image: url( 'https://steamstore-a.akamaihd.net/public/shared/images/header/btn_header_installsteam_download.png?v=1' );
+    background-repeat:	no-repeat;
+    margin-right: 3px;
+    color: #e5e4dc;
+}
+
+#green-install-button {
+    background-color: #5c7e10;
+}
+
+#gray-install-button {
+    background-color: #616a72;
+    height: 24px;
 }
