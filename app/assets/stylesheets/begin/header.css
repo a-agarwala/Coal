@@ -1,0 +1,74 @@
+ div#global-header {
+    width: 100%;
+    min-width: 940px;
+    background: #171a21;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    color: #c6d4df;
+    display: block;
+	font-family: "Motiva Sans", Sans-serif;
+    font-weight: normal; 
+	font-size: 14px;
+}
+
+div#global-header .content {
+    background: #171a21;
+	position: relative;
+	width: 940px;
+	height: 104px;
+	margin: 0px auto;
+    transition-property: right;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+	z-index: 402;
+}
+
+div#upper-right-nav-bar-wrapper {
+    position: absolute;
+    right: 0px;
+    top: 6px;
+    height: 21px;
+    line-height: 21px;
+    color: #b8b6b4;
+    font-size: 11px;
+    z-index: 401;
+    padding: 0;
+    margin: 0;
+}
+
+div#upper-right-nav-bar {
+    line-height: 24px;
+    vertical-align: top;
+    display: flex;
+    color: #b8b6b4;
+    font-size: 11px;
+}
+
+.upper-right-nav-bar-text:hover {
+    text-decoration: none;
+	color: #ffffff;
+}
+
+#login {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#language-menu {
+    padding-left: 4px;
+    margin-right: 5px;
+    top: 25px;
+    left: 50px;
+    display: block;
+    opacity: 1;
+    z-index: 200;
+    position: absolute;
+    box-shadow: 0 0 12px #000000;
+}

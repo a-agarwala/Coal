@@ -1,8 +1,9 @@
 import React from 'react';
-import SessionDisplayContainer from './session_display_container';
-import SigninAndInfo from './signin_and_info';
-import CreateAccountContainer from './create_account_container';
+import Header from './header/header';
+import SigninAndInfo from './signin_create_page/signin_and_info';
+import CreateAccountContainer from './create_acc_page/create_account_container';
 import Storefront from './storefront';
+
 import {
     Route,
     Redirect,
@@ -13,11 +14,9 @@ import {
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
-    <HashRouter>
     <div>
         <header>
-            <h1>Steam Clone (coming from App.jsx)</h1>
-            <SessionDisplayContainer />
+            <Header/>
         </header>
         <Switch>
             <AuthRoute exact path='/login' component={SigninAndInfo} />
@@ -25,7 +24,6 @@ const App = () => (
             <Route exact path="/" component={Storefront} />
         </Switch>
     </div>
-    </HashRouter>
 );
 
 export default App;

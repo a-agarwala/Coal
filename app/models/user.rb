@@ -22,6 +22,7 @@ class User < ApplicationRecord
 
     #associations!
 
+    has_one_attached :img
 
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)
