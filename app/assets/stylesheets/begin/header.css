@@ -6,15 +6,14 @@
     padding-right: 16px;
     padding-top: 0px;
     padding-bottom: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
+    margin: 0;
     color: #c6d4df;
     display: block;
 	font-family: "Motiva Sans", Sans-serif;
     font-weight: normal; 
-	font-size: 14px;
+    font-size: 14px;
+    position: absolute;
+    height: 104px;
 }
 
 div#global-header .content {
@@ -67,7 +66,6 @@ div#upper-right-nav-bar {
     display: block;
     opacity: 1;
     z-index: 200;
-    right: 35px;
     position: absolute;
     box-shadow: 0 0 12px #000000;
 }

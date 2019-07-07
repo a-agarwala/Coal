@@ -14,7 +14,7 @@ import {
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
-    <div>
+    <div id="app">
         <header>
             <Header/>
         </header>
@@ -23,6 +23,9 @@ const App = () => (
             <AuthRoute exact path='/join' component={CreateAccountContainer} />
             <Route exact path="/" component={Storefront} />
         </Switch>
+        <footer id="global-footer">
+
+        </footer>
     </div>
 );
 

@@ -26,7 +26,7 @@ class CreateAccount extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="body-wrapper">
                 <div>
                     <Link to="/">Home</Link>
                 </div>

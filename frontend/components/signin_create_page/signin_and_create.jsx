@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+
 
 class SignInAndCreate extends React.Component {
     constructor(props) {
@@ -9,11 +9,17 @@ class SignInAndCreate extends React.Component {
             password: '',
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.demoUser = this.demoUser.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
+        this.props.signin(user)
+    }
+
+    demoUser() {
+        const user = {username: 'DemoUser', password: 'demopassword'};
         this.props.signin(user)
     }
 
@@ -30,66 +36,73 @@ class SignInAndCreate extends React.Component {
     render() {
         return (
         <div>
-            <div className="signin-error-box">
-                The account name or password that you have entered is incorrect.
+            <div id="signin-error-area">
+                <div id="signin-error-box">
+                    The account name or password that you have entered is incorrect.
+                </div>
             </div>
 
-            <div>
+            <div id="signin-create-box">
+                <div id="signin-create-box-content">
+                    <div id="signin-form-box">
 
-                <div>
-                    <div className="signin-form-box">
-
-                        <h2>Sign In</h2>
+                        <h2 className="signin-create-header">SIGN IN</h2>
                         <p>To an existing Steam account</p>
                         <br/>
                         <form onSubmit={this.handleSubmit}>
-                        <br/>
                         
                             <div className="login-form">
 
-                                <br/>
 
-                                <label>Steam account name
+                                <label> Steam account name
                                 <input type="text"
                                     value={this.state.username}
                                     onChange={this.update('username')}
-                                    className="text-input"
+                                    className="signin-input"
                                 />
                                 </label>
 
                                 <br/>
 
-                                <label>Password
+                                <label> Password
                                 <input type="password"
                                     value={this.state.password}
                                     onChange={this.update('password')}
-                                    className="text-input"
+                                    className="signin-input"
                                 />
                                 </label>
 
                                 <br/>
                                 
                             </div>
-                            <button type="submit" >Sign In</button>
-                        
+                            <button className="signin-create-button" type="submit" >Sign In</button>
+                            <button className="signin-create-button" 
+                            id="demo-user-button" 
+                            onClick={() => this.demoUser()}
+                            >Demo User</button>
+
                         </form>
 
                     </div>
+
+                    <div id="signin-create-box-separator"></div>
+
+                    <div id="create-acc-box">
+                        <h2 className="signin-create-header">CREATE</h2>
+                        <p>A new free account</p>
+                        <br/>
+                        <br/>
+                        <div id="create-paragraph">
+                            <p>
+                            It's free to join and easy to use.  Continue on to create your Steam 
+                            account and get Steam, the leading digital solution for PC and Mac 
+                            gamers.						
+                            </p>
+                        </div>
+                      
+                            <button id="join-steam-button" className="signin-create-button" onClick={() => this.props.history.push('/join')}>Join Steam</button>
+                    </div>
                 </div>
-
-
-                <div className="create-acc-box">
-                    <h2>Create</h2>
-                    <p>A new free account</p>
-                    <br/>
-                    <p>
-                    It's free to join and easy to use.  Continue on to create your Steam 
-                    account and get Steam, the leading digital solution for PC and Mac 
-                    gamers.						
-                    </p>
-                    <button onClick={() => this.props.history.push('/join')}>Join Steam</button>
-                </div>
-
             </div>
         </div>
         )

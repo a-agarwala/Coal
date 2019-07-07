@@ -1,0 +1,145 @@
+#signin-info-main {
+    background: #1b2939;
+}
+
+#signin-error-area {
+    margin-top: 100px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+#signin-create-box {
+    display: block;
+    position: relative;
+    width: 616px;
+    height: 382px;
+    background-color: rgba(0,0,0,0.2);
+    color: #c6d4df;
+    font-size: 12px;
+    margin: 0 auto;
+
+}
+
+#signin-create-box-content {
+    min-height: 352px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 14px;
+}
+
+#signin-form-box {
+    flex: 1;
+    position: relative;
+    min-width: 274px;
+}
+
+.signin-create-header {
+    font-size: 18px;
+    letter-spacing: 1px;
+    padding-bottom: 5px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    display: block;
+    color: #ffffff;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.signin-input-label {
+    display: block;
+
+}
+
+.signin-input {
+    background-color: rgba( 0, 0, 0, 0.2 );
+    color: #fff;
+    border: 1px solid #000;
+    border-radius: 3px;
+    box-shadow: 1px 1px 0px #45556c;
+    width: 500px;
+    padding: 5px;
+    margin: 4px 0;
+    font-size: 16px;
+    line-height: 21px;
+    max-width: calc( 100% - 12px );
+    text-align: start;
+    cursor: text;
+    margin-top: 4px;
+    margin-bottom: 23px;
+}
+
+.signin-input:focus {
+    border: 3px groove #1661d9;
+    border-radius: 5px;
+    margin-top: 2px;
+    margin-bottom: 21px;
+}
+
+.login-form {
+    margin-top: 8px;
+}
+
+#create-acc-box {
+    flex: 1;
+    width: 274px;
+    position: relative;
+}
+
+#signin-create-box-separator {
+    flex: 0;
+    border-left: 1px solid #264959;
+    width: 2px;
+    height: 210px;
+    margin: 0 16px;
+    display: block;
+}
+
+#create-paragraph {
+    line-height: 140%;
+}
+
+.signin-create-button {
+    position: absolute;
+    bottom: 50px;
+    left: 5px;
+    border-radius: 2px;
+    border: none;
+    padding: 1px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: #67c1f5;
+    background: rgba( 103, 193, 245, 0.2 );
+    font-size: 15px;
+    width: 76px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+#join-steam-button {
+    width: 105px
+}
+
+#demo-user-button {
+    left: 125px;
+    width: 105px;
+}
+
+.signin-create-button:hover {
+    color: #fff;
+    background: linear-gradient( -60deg, #417a9b 5%,#67c1f5 95%);
+}
+
+#signin-error-box {
+    color: rgb(204, 51, 0);
+    padding: 16px;
+    background: rgba( 0, 0, 0, 0.2 );
+    
+    font-weight: 300;
+    margin: auto;
+    height: 17px;
+    width: 584px;
+    font-size: 12px;
+}

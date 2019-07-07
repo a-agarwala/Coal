@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { signin } from '../../actions/session_actions';
+import { signin, signup } from '../../actions/session_actions';
 import SignInAndCreate from './signin_and_create';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -7,7 +7,8 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    signin: (user) => dispatch(signin(user))
+    signin: (user) => dispatch(signin(user)),
+    signup: (user) => dispatch(signup(user))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignInAndCreate);

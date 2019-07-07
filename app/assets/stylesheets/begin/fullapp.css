@@ -1,0 +1,37 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #1b2939;
+    font-family: "Motiva Sans", Sans-serif;
+    position: relative;
+    
+}
+#root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-width: 940px;
+}
+
+.body-wrapper {
+    top: 104px;
+    bottom: 152px;
+    right: auto;
+    left: auto;
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+}
+
+#global-footer {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    height: 152px;
+    background: #0f1922;
+    min-width: 973px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
