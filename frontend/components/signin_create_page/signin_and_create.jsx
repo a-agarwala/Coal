@@ -24,7 +24,8 @@ class SignInAndCreate extends React.Component {
 
     demoUser() {
         const user = {username: 'DemoUser', password: 'demopassword'};
-        this.props.signin(user)
+        this.props.signin(user);
+   
         this.setState({
             username: '',
             password: ''
