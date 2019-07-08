@@ -14,7 +14,7 @@ import {
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
-    <div id="app">
+    <div id="flex-container">
         <header>
             <Header/>
         </header>

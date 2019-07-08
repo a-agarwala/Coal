@@ -1,0 +1,95 @@
+#create-acc-wrapper {
+    margin: 0 auto;
+    width: 616px;
+}
+
+#create-top-content {
+    color: #8f98a0;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.make-brighter:hover {
+    text-decoration: none;
+	color: #ffffff;
+}
+
+#home-button{
+    font-size: 12px;   
+}
+
+.game-name {
+    font-size: 30px;
+    color: #d6d7d8;
+    height: 40px;
+    line-height: 40px;
+}
+
+
+.create-input-label {
+    display: block;
+    margin-left: 20px;
+}
+.create-acc-from {
+    max-width: 584px;
+}
+
+.create-input {
+    background-color: rgba( 0, 0, 0, 0.2 );
+    color: #fff;
+    border: 1px solid #000;
+    border-radius: 3px;
+    box-shadow: 1px 1px 0px #45556c;
+    width: 212px;
+    padding: 5px;
+    margin: 4px 2px;
+    font-size: 16px;
+    line-height: 21px;
+    text-align: start;
+    cursor: text;
+    margin-top: 4px;
+    margin-bottom: 23px;
+    font-size: 11px;
+}
+
+.create-input:focus {
+    border: 3px groove #1661d9;
+    border-radius: 5px;
+    margin-top: 2px;
+    margin-bottom: 21px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.create-input-row {
+    display: flex;
+    flex-direction: row;
+    width: 584px;
+    margin: auto
+}
+
+.create-input-side-text {
+    width: 346px;
+    margin-left: 15px;
+}
+
+#create-acc-button {
+    bottom: 16px;
+    right: 16px;
+    width: 150px;
+}
+
+#create-error-area {
+    margin-bottom: 8px;
+    display: block;
+}
+
+#create-error-display {
+    border: 2px solid #b44040;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    background-color: rgba( 0, 0, 0, .5 );
+    color: #fff;
+}
+

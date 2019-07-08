@@ -3,12 +3,11 @@
 }
 
 #signin-error-area {
-    margin-top: 100px;
     margin-bottom: 8px;
     display: block;
 }
 
-#signin-create-box {
+.signin-create-box {
     display: block;
     position: relative;
     width: 616px;
@@ -101,8 +100,7 @@
 
 .signin-create-button {
     position: absolute;
-    bottom: 50px;
-    left: 5px;
+    
     border-radius: 2px;
     border: none;
     padding: 1px;
@@ -118,12 +116,20 @@
     text-align: center;
 }
 
+#actual-signin-button {
+    bottom: 50px;
+    left: 5px;
+}
+
 #join-steam-button {
-    width: 105px
+    width: 105px;
+    bottom: 50px;
+    left: 5px;
 }
 
 #demo-user-button {
     left: 125px;
+    bottom: 50px;
     width: 105px;
 }
 

@@ -15,12 +15,20 @@ class SignInAndCreate extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.signin(user)
+        this.props.signin(user);
+        this.setState({
+            username: '',
+            password: ''
+        })
     }
 
     demoUser() {
         const user = {username: 'DemoUser', password: 'demopassword'};
         this.props.signin(user)
+        this.setState({
+            username: '',
+            password: ''
+        })
     }
 
     update(field) {
@@ -30,19 +38,29 @@ class SignInAndCreate extends React.Component {
     }
 
     componentWillUnmount() {
-
+        this.props.clearSessionErrors();
     }
 
     render() {
+
+        let error_message = null
+
+        if (this.props.error !== '') {
+            error_message = (
+                <div id="signin-error-area">
+                    <div id="signin-error-box">
+                        {this.props.error}
+                    </div>
+                </div>
+            );
+        }
+
         return (
         <div>
-            <div id="signin-error-area">
-                <div id="signin-error-box">
-                    The account name or password that you have entered is incorrect.
-                </div>
-            </div>
+            
+            {error_message}
 
-            <div id="signin-create-box">
+            <div className="signin-create-box">
                 <div id="signin-create-box-content">
                     <div id="signin-form-box">
 
@@ -75,7 +93,7 @@ class SignInAndCreate extends React.Component {
                                 <br/>
                                 
                             </div>
-                            <button className="signin-create-button" type="submit" >Sign In</button>
+                            <button id="actual-signin-button" className="signin-create-button" type="submit" >Sign In</button>
                             <button className="signin-create-button" 
                             id="demo-user-button" 
                             onClick={() => this.demoUser()}

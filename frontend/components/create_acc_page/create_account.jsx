@@ -24,65 +24,99 @@ class CreateAccount extends React.Component {
         });
     }
 
+    componentWillUnmount() {
+        this.props.clearSessionErrors();
+    }
+
     render() {
+
+        let error_display = null;
+
+        if (this.props.errors.length !== 0) {
+            error_display = (
+                <div id="create-error-area">
+                    <div id="create-error-display">
+                        <ul>
+                            {this.props.errors.map((error) => (<li>{error}</li>))}
+                        </ul>
+                    </div>
+                </div>
+            );
+        }
+
         return (
+
             <div className="body-wrapper">
-                <div>
-                    <Link to="/">Home</Link>
-                </div>
+                <div id="create-acc-wrapper">
+                    <div id="create-top-content">
+                        <div >
+                            <Link id="home-button" className="make-brighter" to="/">Home</Link>
+                        </div>
 
-                <div>
-                    <h1>Create an Account</h1>
-                </div>
+                        <div className="game-name">
+                            Create an Account
+                        </div>
+                    </div>
 
-                <div>
-                    <div className="create-form-box">
+                    {error_display}
 
-                        <form onSubmit={this.handleSubmit}>
-                            <br />
+                    <div>
+                        <div className="signin-create-box">
 
-                            <div className="create-acc-form">
-
+                            <form onSubmit={this.handleSubmit}>
                                 <br />
 
-                                <label>Your email address
-                                    <input type="text"
-                                        value={this.state.email_address}
-                                        onChange={this.update('email_address')}
-                                        className="text-input"
-                                    />
-                                    <p>Your email address is used to confirm 
-                                        purchases and help you manage access to 
-                                        your Steam account.</p>
-                                </label>
+                                <div className="create-acc-form">
 
-                                <br />
+                                    <br />
 
-                                <label>Create a username
-                                    <input type="text"
-                                        value={this.state.username}
-                                        onChange={this.update('username')}
-                                        className="text-input"
-                                    />
-                                </label>
+                                    <div className="create-input-label">Your current email address</div>
+                                    <div id="email-address-input" className="create-input-row">
+                                        <input type="text"
+                                            value={this.state.email_address}
+                                            onChange={this.update('email_address')}
+                                            className="create-input"
+                                        />
+                                        <div className="create-input-side-text">
+                                        Your email address is used to confirm
+                                        purchases and help you manage access to
+                                            your Steam account.
+                                        </div>
+                                    </div> 
+                                    
 
-                                <br />
+                                    
+                                    <div className="create-input-label">Create a username</div>
+                                    <div className="create-input-row">
+                                        <input type="text"
+                                            value={this.state.username}
+                                            onChange={this.update('username')}
+                                        className="create-input"
+                                        />
+                                    <div className="create-input-side-text">You must create a unique username.</div>
+                                    </div> 
+                
+                                   
+                                    <div className="create-input-label">Create a password</div>
+                                    <div className="create-input-row">
+                                        <input type="password"
+                                            value={this.state.password}
+                                            onChange={this.update('password')}
+                                        className="create-input"
+                                        />
+                                    <div className="create-input-side-text">
+                                       Your password must be at least eight characters long.
+                                        </div>
+                                    </div>
+                                   
+                                    <br />
 
-                                <label>Create a password
-                                    <input type="password"
-                                        value={this.state.password}
-                                        onChange={this.update('password')}
-                                        className="text-input"
-                                    />
-                                </label>
+                                </div>
+                                <button id="create-acc-button" className="signin-create-button" type="submit" >Create Account</button>
 
-                                <br />
+                            </form>
 
-                            </div>
-                            <button type="submit" >Create Account</button>
-
-                        </form>
-
+                        </div>
                     </div>
                 </div>
             </div>

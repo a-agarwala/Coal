@@ -1,4 +1,5 @@
  div#global-header {
+    flex: 0;
     width: 100%;
     min-width: 940px;
     background: #171a21;
@@ -6,14 +7,14 @@
     padding-right: 16px;
     padding-top: 0px;
     padding-bottom: 0px;
-    margin: 0;
+    margin-bottom: 15px;
     color: #c6d4df;
-    display: block;
+    /* display: block; */
 	font-family: "Motiva Sans", Sans-serif;
     font-weight: normal; 
     font-size: 14px;
-    position: absolute;
-    height: 104px;
+    /* position: absolute;
+    height: 104px; */
 }
 
 div#global-header .content {
