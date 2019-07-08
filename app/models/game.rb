@@ -10,6 +10,11 @@
 
 class Game < ApplicationRecord
 
+    #validations
+
+    validates :title, presence: true
+
+    #associations
     has_many :game_ownerships,
         foreign_key: :game_id,
         class_name: :GameOwnership
@@ -17,5 +22,13 @@ class Game < ApplicationRecord
     has_many :owners,
         through: :game_ownerships,
         source: :owner
+    
+    has_many :reviews,
+        foreign_key: :game_id,
+        class_name: :Review
+    
+    has_many :reviewers,
+        through: :reviews,
+        source: :author
 
 end

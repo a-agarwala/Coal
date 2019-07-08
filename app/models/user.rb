@@ -27,6 +27,14 @@ class User < ApplicationRecord
     has_many :games,
         through: :game_ownerships,
         source: :game
+    
+    has_many :reviews,
+        foreign_key: :author_id,
+        class_name: :Review
+    
+    has_many :reviewed_games,
+        through: :reviews,
+        source: :game
 
     #associations!
 
