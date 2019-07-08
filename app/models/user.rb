@@ -20,6 +20,14 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 8 }, allow_nil: true
     
 
+    has_many :game_ownerships,
+        foreign_key: :owner_id,
+        class_name: :GameOwnership
+    
+    has_many :games,
+        through: :game_ownerships,
+        source: :game
+
     #associations!
 
     has_one_attached :img
