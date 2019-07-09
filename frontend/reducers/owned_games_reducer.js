@@ -9,7 +9,7 @@ const ownedGamesReducer = (state = {}, action) => {
         case RECEIVE_CURRENT_USER:
             return action.currentUser.ownedGames;
         case LOGOUT_CURRENT_USER:
-            newState= {};
+            newState = {};
             return newState;
         default:
             return state;

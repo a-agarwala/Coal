@@ -1,4 +1,8 @@
 
+json.gameInfo do
+    json.merge! @game.attributes
+end
+
 gameReviews = Array.new
 
 @game.reviews.each do |review|
