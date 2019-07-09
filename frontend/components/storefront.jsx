@@ -6,6 +6,14 @@ class Storefront extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        this.props.leaveGamePurchasePage();
+
+        if (this.props.currentUser) {
+            this.props.refreshUserInfo(this.props.currentUser.id);
+        };
+    }
+
     render() {
         return(
             <div>

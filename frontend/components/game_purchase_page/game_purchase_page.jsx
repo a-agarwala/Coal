@@ -1,5 +1,4 @@
 import React from 'react';
-import { throws } from 'assert';
 
 class GamePurchasePage extends React.Component {
     constructor(props) {
@@ -10,11 +9,38 @@ class GamePurchasePage extends React.Component {
         this.props.getGameInfoAndReviews(this.props.gameId);
     }
 
+    componentWillUnmount() {
+        this.props.leaveGamePurchasePage();
+    }
+
     render() {
+       
+        let secondRow = {};
+
+        if (this.props.currentUser && this.props.ownsGame && !this.props.hasReviewedGame) {
+            secondRow = (
+                <div>
+                    write review form
+                </div>
+            )
+        } else if (this.props.currentUser && this.props.hasReviwedGame) {
+            secondRow = (
+                <div>
+                    edit review display
+                </div>
+            )
+        } else {
+            secondRow = (
+                <div>
+                    purchase display
+                </div>
+            )
+        };
+
         return (
-            <div>
+            <div className="body-wrapper">
                 <div>Game Display Top Row</div>
-                <div>Purchase Button or Review Form</div>
+                <div>{secondRow}</div>
                 <div>Game Further Info</div>
                 <div>Review List</div>
             </div>

@@ -1,6 +1,3 @@
-# json.partial! "api/users/user", user: @user
-
-# json.extract! @user, :id, :username
 json.userinfo do
     json.id @user.id
     json.username @user.username
@@ -20,7 +17,3 @@ end
 
 json.ownedGames ownedGames
 json.reviews reviews
-
-# json.extract! @owned_games, :id
-
-# json.extract! @reviewed_games, :id

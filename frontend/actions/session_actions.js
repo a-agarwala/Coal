@@ -40,3 +40,10 @@ export const logout = () => dispatch => (
         .then(() => (dispatch(logoutCurrentUser())),
         err => (dispatch(receiveErrors(err.responseJSON))))
 );
+
+export const refreshUserInfo = (currentUserId) => dispatch => {
+    // debugger
+    return(
+    SessionAPIUtil.refresh(currentUserId)
+        .then(user => (dispatch(receiveCurrentUser(user)))))
+};

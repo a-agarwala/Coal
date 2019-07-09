@@ -14,6 +14,14 @@ export const login = user => (
     })
 );
 
+export const refresh = currentUserId => {
+    return(
+    $.ajax({
+        method: 'GET',
+        url: `api/users/${currentUserId}`
+    }))
+}
+
 export const logout = () => (
     $.ajax({
         method: 'DELETE',
@@ -21,7 +29,5 @@ export const logout = () => (
     })
 );
 
-window.signup = signup;
-window.login = login;
-window.logout = logout;
+
 
