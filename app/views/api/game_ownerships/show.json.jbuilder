@@ -1,0 +1,1 @@
+json.extract! @owned_games, :id

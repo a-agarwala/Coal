@@ -21,6 +21,7 @@ const App = () => (
         <Switch>
             <AuthRoute exact path='/login' component={SigninAndInfo} />
             <AuthRoute exact path='/join' component={CreateAccountContainer} />
+            
             <Route exact path="/" component={Storefront} />
         </Switch>
         <footer id="global-footer">

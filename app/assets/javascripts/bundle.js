@@ -86,6 +86,102 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/game_actions.js":
+/*!******************************************!*\
+  !*** ./frontend/actions/game_actions.js ***!
+  \******************************************/
+/*! exports provided: FETCH_GAME_REVIEWS, fetchGameReviews, getAllGameReviews */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_GAME_REVIEWS", function() { return FETCH_GAME_REVIEWS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchGameReviews", function() { return fetchGameReviews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllGameReviews", function() { return getAllGameReviews; });
+/* harmony import */ var _util_games_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/games_api_util */ "./frontend/util/games_api_util.js");
+
+var FETCH_GAME_REVIEWS = 'FETCH_GAME_REVIEWS';
+var fetchGameReviews = function fetchGameReviews(gameReviews) {
+  return {
+    type: FETCH_GAME_REVIEWS,
+    gameReviews: gameReviews
+  };
+};
+var getAllGameReviews = function getAllGameReviews(gameId) {
+  return function (dispatch) {
+    return _util_games_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchGameReviews"](gameId).then(function (reviews) {
+      return dispatch(fetchGameReviews(reviews));
+    });
+  };
+};
+
+/***/ }),
+
+/***/ "./frontend/actions/review_actions.js":
+/*!********************************************!*\
+  !*** ./frontend/actions/review_actions.js ***!
+  \********************************************/
+/*! exports provided: CREATE_NEW_REVIEW, UPDATE_REVIEW, DELETE_REVIEW, createNewReview, updateReview, deleteReview, createReview, editReview, removeReview */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_NEW_REVIEW", function() { return CREATE_NEW_REVIEW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_REVIEW", function() { return UPDATE_REVIEW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_REVIEW", function() { return DELETE_REVIEW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createNewReview", function() { return createNewReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateReview", function() { return updateReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteReview", function() { return deleteReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editReview", function() { return editReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeReview", function() { return removeReview; });
+/* harmony import */ var _util_reviews_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/reviews_api_util */ "./frontend/util/reviews_api_util.js");
+
+var CREATE_NEW_REVIEW = 'CREATE_NEW_REVIEW';
+var UPDATE_REVIEW = 'UPDATE_REVIEW';
+var DELETE_REVIEW = 'DELETE_REVIEW';
+var createNewReview = function createNewReview(review) {
+  return {
+    type: CREATE_NEW_REVIEW,
+    review: review
+  };
+};
+var updateReview = function updateReview(review) {
+  return {
+    type: UPDATE_REVIEW,
+    review: review
+  };
+};
+var deleteReview = function deleteReview(reviewId) {
+  return {
+    type: DELETE_REVIEW,
+    reviewId: reviewId
+  };
+};
+var createReview = function createReview(review) {
+  return function (dispatch) {
+    return _util_reviews_api_util__WEBPACK_IMPORTED_MODULE_0__["createNewReview"](review).then(function (review) {
+      return dispatch(createNewReview(review));
+    });
+  };
+};
+var editReview = function editReview(review) {
+  return function (dispatch) {
+    return _util_reviews_api_util__WEBPACK_IMPORTED_MODULE_0__["updateReview"](review).then(function (review) {
+      return dispatch(updateReview(review));
+    });
+  };
+};
+var removeReview = function removeReview(reviewId) {
+  return function (dispatch) {
+    return _util_reviews_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteReview"](reviewId).then(function () {
+      return dispatch(deleteReview(reviewId));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/session_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
@@ -984,6 +1080,7 @@ var SigninAndInfo = function SigninAndInfo(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1004,6 +1101,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Storefront =
 /*#__PURE__*/
 function (_React$Component) {
@@ -1018,7 +1116,7 @@ function (_React$Component) {
   _createClass(Storefront, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Storefront");
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Storefront"));
     }
   }]);
 
@@ -1040,10 +1138,16 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _owned_games_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./owned_games_reducer */ "./frontend/reducers/owned_games_reducer.js");
+/* harmony import */ var _reviews_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reviews_reducer */ "./frontend/reducers/reviews_reducer.js");
+
+
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  ownedGames: _owned_games_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  reviews: _reviews_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -1066,6 +1170,95 @@ var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
   session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/owned_games_reducer.js":
+/*!**************************************************!*\
+  !*** ./frontend/reducers/owned_games_reducer.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+
+
+var ownedGamesReducer = function ownedGamesReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+  var newState = Object.assign({}, state);
+
+  switch (action.type) {
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
+      return action.currentUser.ownedGames;
+
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:
+      newState = {};
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ownedGamesReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/reviews_reducer.js":
+/*!**********************************************!*\
+  !*** ./frontend/reducers/reviews_reducer.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/review_actions */ "./frontend/actions/review_actions.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+var reviewsReducer = function reviewsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+  var newState = Object.assign({}, state);
+
+  switch (action.type) {
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
+      action.currentUser.reviews.forEach(function (review) {
+        newState[review.id] = review;
+      });
+      return newState;
+
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:
+      return {};
+
+    case _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["CREATE_NEW_REVIEW"]:
+      newState[action.review.id] = action.review;
+      return newState;
+
+    case _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["UPDATE_REVIEW"]:
+      newState[action.review.id] = action.review;
+      return newState;
+
+    case _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__["DELETE_REVIEW"]:
+      delete newState[action.reviewId];
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (reviewsReducer);
 
 /***/ }),
 
@@ -1155,7 +1348,7 @@ var sessionReducer = function sessionReducer() {
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return {
-        id: action.currentUser.id
+        id: action.currentUser.userinfo.id
       };
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:
@@ -1195,7 +1388,7 @@ var usersReducer = function usersReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CURRENT_USER"]:
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.currentUser.id, action.currentUser));
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.currentUser.userinfo.id, action.currentUser.userinfo));
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["LOGOUT_CURRENT_USER"]:
       newState = {};
@@ -1226,6 +1419,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_game_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions/game_actions */ "./frontend/actions/game_actions.js");
+/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./actions/review_actions */ "./frontend/actions/review_actions.js");
+
+
 
 
 
@@ -1238,6 +1435,10 @@ document.addEventListener('DOMContentLoaded', function () {
   window.logout = _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["logout"];
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+  window.getAllGameReviews = _actions_game_actions__WEBPACK_IMPORTED_MODULE_5__["getAllGameReviews"];
+  window.createReview = _actions_review_actions__WEBPACK_IMPORTED_MODULE_6__["createReview"];
+  window.editReview = _actions_review_actions__WEBPACK_IMPORTED_MODULE_6__["editReview"];
+  window.removeReview = _actions_review_actions__WEBPACK_IMPORTED_MODULE_6__["removeReview"];
   var root = document.getElementById('root');
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
@@ -1271,6 +1472,71 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/util/games_api_util.js":
+/*!*****************************************!*\
+  !*** ./frontend/util/games_api_util.js ***!
+  \*****************************************/
+/*! exports provided: fetchGameReviews */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchGameReviews", function() { return fetchGameReviews; });
+var fetchGameReviews = function fetchGameReviews(gameId) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/games/".concat(gameId)
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/reviews_api_util.js":
+/*!*******************************************!*\
+  !*** ./frontend/util/reviews_api_util.js ***!
+  \*******************************************/
+/*! exports provided: createNewReview, showReview, updateReview, deleteReview */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createNewReview", function() { return createNewReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showReview", function() { return showReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateReview", function() { return updateReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteReview", function() { return deleteReview; });
+var createNewReview = function createNewReview(review) {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/reviews',
+    data: {
+      review: review
+    }
+  });
+};
+var showReview = function showReview(reviewId) {
+  return $.ajax({
+    method: 'GET',
+    url: "api/reviews/".concat(reviewId)
+  });
+};
+var updateReview = function updateReview(review) {
+  return $.ajax({
+    method: 'PATCH',
+    url: "api/reviews/".concat(review.id),
+    data: {
+      review: review
+    }
+  });
+};
+var deleteReview = function deleteReview(reviewId) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "api/reviews/".concat(reviewId)
+  });
+};
 
 /***/ }),
 

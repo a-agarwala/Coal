@@ -1,0 +1,2 @@
+module Api::GameOwnershipsHelper
+end
