@@ -78,7 +78,7 @@
     background-color: #222b35;
     color: #d6d7d8;
     padding: 10px 11px;
-    font-size: 13px;
+    font-size: 15px;
     box-shadow: inset 0px 0px 7px rgba( 0, 0, 0, 0.5 );
     -webkit-writing-mode: horizontal-tb !important;
     text-rendering: auto;
@@ -224,6 +224,7 @@
 #delete-review-button {
     background: linear-gradient( to bottom, rgb(248, 167, 167) 5%, rgb(253, 96, 117) 95%);
     color: rgb(10, 19, 24);
+    margin-right: 20px;
 }
 
 #delete-review-button:hover {

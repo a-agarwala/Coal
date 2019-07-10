@@ -1,6 +1,7 @@
 import React from 'react';
 import NewReviewForm from './new_review_form';
 import EditReviewForm from './edit_review_form';
+import ReviewList from './review_list';
 
 class GamePurchasePage extends React.Component {
     constructor(props) {
@@ -55,6 +56,7 @@ class GamePurchasePage extends React.Component {
                     </div>
                 );
             };
+
         }
         console.log(this.props.currentUser);
         console.log(this.props.hasReviewedGame);
@@ -69,7 +71,9 @@ class GamePurchasePage extends React.Component {
 
                     <div>Game Further Info</div>
                     
-                    <div>Review List</div>
+                    <div>Review List
+                        <ReviewList allReviews={this.props.allReviews}/>
+                    </div>
                 </div> 
             }
 

@@ -23,4 +23,6 @@
 
  @import './begin/sign_in_create.css';
 
- @import './begin/new_review_form.css'
+ @import './begin/new_review_form.css';
+
+ @import './begin/review_list.css'

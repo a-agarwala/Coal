@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => {
     let gameIdNumber = Number(ownProps.match.params.gameId);
 
     const reviews = Object.values(state.entities.reviews);
-    let thisGameReview = {}
+    const allReviews = state.entities.viewedGame.gameReviews;
+    let thisGameReview = {};
     let hasReviewedGame = false;
     let ownsGame = false;
     
@@ -32,6 +33,7 @@ const mapStateToProps = (state, ownProps) => {
         ownsGame: ownsGame,
         hasReviewedGame: hasReviewedGame,
         thisGameReview: thisGameReview,
+        allReviews: allReviews,
     })
     
 };
