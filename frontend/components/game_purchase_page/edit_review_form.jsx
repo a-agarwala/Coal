@@ -1,17 +1,19 @@
 import React from 'react';
 
-class NewReviewForm extends React.Component {
+class EditReviewForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             author_id: this.props.currentUser.id,
             game_id: this.props.gameId,
-            recommended: null,
-            body: null,
+            recommended: this.props.thisGameReview.recommended,
+            body: this.props.thisGameReview.body,
+            id: this.props.thisGameReview.id,
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.recommend = this.recommend.bind(this);
-        this.notrecommend = this.notrecommend.bind(this)
+        this.notrecommend = this.notrecommend.bind(this);
+        this.deleteReview = this.deleteReview.bind(this);
     }
 
     update(field) {
@@ -34,16 +36,15 @@ class NewReviewForm extends React.Component {
         })
     }
 
+    deleteReview(e) {
+        e.preventDefault();
+        this.props.removeReview(this.props.thisGameReview.id);
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         const review = Object.assign({}, this.state);
-        this.props.createReview(review);
-        this.setState({
-            author_id: this.props.currentUser.id,
-            game_id: this.props.gameId,
-            recommended: null,
-            body: null,
-        });
+        this.props.editReview(review);
     }
 
     render() {
@@ -58,10 +59,9 @@ class NewReviewForm extends React.Component {
             </div>
             <div id="new-review-container1">
                 <div id="new-review-container2">
-                    <h1>Write a review for {this.props.gameTitle}</h1>
-                    <p>Please describe what you liked or disliked about 
-                        this game and whether you recommend it 
-                        to others. Please remember to be polite. </p>
+                    <h1>You have already reviewed this game.</h1>
+                    <p>You have reviewed this game already. You can edit your review,
+                        change your rating, or delete it. </p>
             <form onSubmit={this.handleSubmit}>
                 <textarea className="review-text-area" value={this.state.body} onChange={this.update('body')}/>
 
@@ -86,8 +86,15 @@ class NewReviewForm extends React.Component {
                         <button 
                             className="review-form-submit-button" 
                             type="submit" >
-                            <div className="review-submit-button-text">Post review</div>
-                        </button>    
+                            <div className="review-submit-button-text">Update review</div>
+                        </button>  
+
+                        <button
+                                className="review-form-submit-button"
+                                onClick={(e) => this.deleteReview(e)}
+                                id="delete-review-button" >
+                                <div className="review-submit-button-text">Delete review</div>
+                        </button>   
                 </form>   
                 </div>
             </div>
@@ -96,4 +103,4 @@ class NewReviewForm extends React.Component {
     }
 }
 
-export default NewReviewForm;
+export default EditReviewForm;

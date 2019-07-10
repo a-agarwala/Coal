@@ -527,6 +527,171 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/game_purchase_page/edit_review_form.jsx":
+/*!*********************************************************************!*\
+  !*** ./frontend/components/game_purchase_page/edit_review_form.jsx ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var EditReviewForm =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(EditReviewForm, _React$Component);
+
+  function EditReviewForm(props) {
+    var _this;
+
+    _classCallCheck(this, EditReviewForm);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EditReviewForm).call(this, props));
+    _this.state = {
+      author_id: _this.props.currentUser.id,
+      game_id: _this.props.gameId,
+      recommended: _this.props.thisGameReview.recommended,
+      body: _this.props.thisGameReview.body,
+      id: _this.props.thisGameReview.id
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.recommend = _this.recommend.bind(_assertThisInitialized(_this));
+    _this.notrecommend = _this.notrecommend.bind(_assertThisInitialized(_this));
+    _this.deleteReview = _this.deleteReview.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(EditReviewForm, [{
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
+    }
+  }, {
+    key: "recommend",
+    value: function recommend(e) {
+      e.preventDefault();
+      this.setState({
+        recommended: true
+      });
+    }
+  }, {
+    key: "notrecommend",
+    value: function notrecommend(e) {
+      e.preventDefault();
+      this.setState({
+        recommended: false
+      });
+    }
+  }, {
+    key: "deleteReview",
+    value: function deleteReview(e) {
+      e.preventDefault();
+      this.props.removeReview(this.props.thisGameReview.id);
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var review = Object.assign({}, this.state);
+      this.props.editReview(review);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "center_horizontally"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "review-top-green-bar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "review-top-green-bar-image"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "in-library"
+      }, "IN LIBRARY")), this.props.gameTitle, " is already in your Steam library"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "new-review-container1"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "new-review-container2"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "You have already reviewed this game."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "You have reviewed this game already. You can edit your review, change your rating, or delete it. "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        className: "review-text-area",
+        value: this.state.body,
+        onChange: this.update('body')
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        id: "recommend-question-text"
+      }, " Do you recommend this game?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "recommend-button-area"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick(e) {
+          return _this3.recommend(e);
+        },
+        className: this.state.recommended === null || this.state.recommended === false ? "recommend-button-container-unselected" : "recommend-button-container-selected"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: this.state.recommended === null || this.state.recommended === false ? "yes-unselected" : "yes-selected"
+      }, "  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "recommend-button-text"
+      }, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick(e) {
+          return _this3.notrecommend(e);
+        },
+        className: this.state.recommended === null || this.state.recommended === true ? "recommend-button-container-unselected" : "recommend-button-container-selected"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: this.state.recommended === null || this.state.recommended === true ? "no-unselected" : "no-selected"
+      }, "  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "recommend-button-text"
+      }, "No"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "review-form-submit-button",
+        type: "submit"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "review-submit-button-text"
+      }, "Update review")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "review-form-submit-button",
+        onClick: function onClick(e) {
+          return _this3.deleteReview(e);
+        },
+        id: "delete-review-button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "review-submit-button-text"
+      }, "Delete review"))))));
+    }
+  }]);
+
+  return EditReviewForm;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (EditReviewForm);
+
+/***/ }),
+
 /***/ "./frontend/components/game_purchase_page/game_purchase_page.jsx":
 /*!***********************************************************************!*\
   !*** ./frontend/components/game_purchase_page/game_purchase_page.jsx ***!
@@ -539,6 +704,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _new_review_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./new_review_form */ "./frontend/components/game_purchase_page/new_review_form.jsx");
+/* harmony import */ var _edit_review_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit_review_form */ "./frontend/components/game_purchase_page/edit_review_form.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -556,6 +722,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -591,31 +758,36 @@ function (_React$Component) {
     value: function render() {
       var secondRow = {};
 
-      if (this.props.currentUser && this.props.ownsGame && !this.props.hasReviewedGame) {
-        console.log("hit one");
-        secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_new_review_form__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          createReview: this.props.createReview
-        }));
-      } else if (this.props.currentUser && this.props.hasReviewedGame) {
-        console.log("hit two");
-        secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "edit review display");
-      } else {
-        console.log("hit three");
-        secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "purchase display");
+      if (this.props.gameInfo) {
+        if (this.props.currentUser && this.props.ownsGame && !this.props.hasReviewedGame) {
+          secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_new_review_form__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            createReview: this.props.createReview,
+            currentUser: this.props.currentUser,
+            gameTitle: this.props.gameInfo.title,
+            gameId: this.props.gameInfo.id
+          }));
+        } else if (this.props.currentUser && this.props.hasReviewedGame) {
+          secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_edit_review_form__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            editReview: this.props.editReview,
+            removeReview: this.props.removeReview,
+            currentUser: this.props.currentUser,
+            gameTitle: this.props.gameInfo.title,
+            gameId: this.props.gameInfo.id,
+            thisGameReview: this.props.thisGameReview
+          }));
+        } else {
+          secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "purchase display");
+        }
+
+        ;
       }
 
-      ;
       console.log(this.props.currentUser);
       console.log(this.props.hasReviewedGame);
       console.log(this.props.gameInfo);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.gameInfo && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "body-wrapper"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Game Display Top Row"), this.props.gameInfo && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_new_review_form__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        createReview: this.props.createReview,
-        currentUser: this.props.currentUser,
-        gameTitle: this.props.gameInfo.title,
-        gameId: this.props.gameInfo.id
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Game Further Info"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Review List"));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Game Display Top Row"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, secondRow), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Game Further Info"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Review List")));
     }
   }]);
 
@@ -649,6 +821,7 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var gameIdNumber = Number(ownProps.match.params.gameId);
   var reviews = Object.values(state.entities.reviews);
+  var thisGameReview = {};
   var hasReviewedGame = false;
   var ownsGame = false;
 
@@ -658,6 +831,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 
   reviews.forEach(function (review) {
     if (review.game_id === gameIdNumber) {
+      thisGameReview = review;
       return hasReviewedGame = true;
     }
   });
@@ -666,7 +840,8 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     gameInfo: state.entities.viewedGame.gameInfo,
     currentUser: state.entities.users[state.session.id],
     ownsGame: ownsGame,
-    hasReviewedGame: hasReviewedGame
+    hasReviewedGame: hasReviewedGame,
+    thisGameReview: thisGameReview
   };
 };
 
@@ -684,6 +859,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
     },
     createReview: function createReview(review) {
       return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_4__["createReview"])(review));
+    },
+    editReview: function editReview(review) {
+      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_4__["editReview"])(review));
+    },
+    removeReview: function removeReview(reviewId) {
+      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_4__["removeReview"])(reviewId));
     }
   };
 };
@@ -737,12 +918,14 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(NewReviewForm).call(this, props));
     _this.state = {
-      // author_id: this.props.currentUser.id,
+      author_id: _this.props.currentUser.id,
       game_id: _this.props.gameId,
       recommended: null,
       body: null
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.recommend = _this.recommend.bind(_assertThisInitialized(_this));
+    _this.notrecommend = _this.notrecommend.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -756,13 +939,29 @@ function (_React$Component) {
       };
     }
   }, {
+    key: "recommend",
+    value: function recommend(e) {
+      e.preventDefault();
+      this.setState({
+        recommended: true
+      });
+    }
+  }, {
+    key: "notrecommend",
+    value: function notrecommend(e) {
+      e.preventDefault();
+      this.setState({
+        recommended: false
+      });
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
       var review = Object.assign({}, this.state);
       this.props.createReview(review);
       this.setState({
-        // author_id: this.props.currentUser.id,
+        author_id: this.props.currentUser.id,
         game_id: this.props.gameId,
         recommended: null,
         body: null
@@ -796,10 +995,8 @@ function (_React$Component) {
       }, " Do you recommend this game?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "recommend-button-area"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: function onClick() {
-          return _this3.setState({
-            recommended: true
-          });
+        onClick: function onClick(e) {
+          return _this3.recommend(e);
         },
         className: this.state.recommended === null || this.state.recommended === false ? "recommend-button-container-unselected" : "recommend-button-container-selected"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -807,10 +1004,8 @@ function (_React$Component) {
       }, "  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recommend-button-text"
       }, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: function onClick() {
-          return _this3.setState({
-            recommended: false
-          });
+        onClick: function onClick(e) {
+          return _this3.notrecommend(e);
         },
         className: this.state.recommended === null || this.state.recommended === true ? "recommend-button-container-unselected" : "recommend-button-container-selected"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

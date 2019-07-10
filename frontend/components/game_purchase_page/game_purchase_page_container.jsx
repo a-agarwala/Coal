@@ -2,14 +2,14 @@ import { connect } from 'react-redux';
 import { getGameInfoAndReviews, leaveGamePurchasePage } from '../../actions/game_actions';
 import { refreshUserInfo } from '../../actions/session_actions';
 import GamePurchasePage from './game_purchase_page';
-import {createReview} from '../../actions/review_actions';
+import {createReview, editReview, removeReview} from '../../actions/review_actions';
 
 const mapStateToProps = (state, ownProps) => {
 
     let gameIdNumber = Number(ownProps.match.params.gameId);
 
     const reviews = Object.values(state.entities.reviews);
-
+    let thisGameReview = {}
     let hasReviewedGame = false;
     let ownsGame = false;
     
@@ -20,6 +20,7 @@ const mapStateToProps = (state, ownProps) => {
    
         reviews.forEach ((review) => {
             if (review.game_id === gameIdNumber) {
+                thisGameReview = review;
                 return hasReviewedGame = true;
             }
         })
@@ -30,6 +31,7 @@ const mapStateToProps = (state, ownProps) => {
         currentUser: state.entities.users[state.session.id],
         ownsGame: ownsGame,
         hasReviewedGame: hasReviewedGame,
+        thisGameReview: thisGameReview,
     })
     
 };
@@ -41,7 +43,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         getGameInfoAndReviews: (gameId) => dispatch(getGameInfoAndReviews(gameId)),
         leaveGamePurchasePage: () => dispatch(leaveGamePurchasePage()),
         refreshUserInfo: (currentUserId) => dispatch(refreshUserInfo(currentUserId)),
-        createReview: (review) => dispatch(createReview(review))
+        createReview: (review) => dispatch(createReview(review)),
+        editReview: (review) => dispatch(editReview(review)),
+        removeReview: (reviewId) => dispatch(removeReview(reviewId)),
     });
     
 };

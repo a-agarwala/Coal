@@ -220,3 +220,13 @@
     color: #ffffff;
     background: -webkit-linear-gradient( top, rgba(102,192,244,1) 5%, rgba(47,137,188,1) 95%);
 }
+
+#delete-review-button {
+    background: linear-gradient( to bottom, rgb(248, 167, 167) 5%, rgb(253, 96, 117) 95%);
+    color: rgb(10, 19, 24);
+}
+
+#delete-review-button:hover {
+    background: -webkit-linear-gradient( to bottom, rgb(253, 96, 117) 5%, rgb(248, 33, 61) 95%);
+    color: #ffffff;
+}
