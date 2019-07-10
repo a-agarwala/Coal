@@ -17,3 +17,4 @@ export const getGameInfoAndReviews = gameId => dispatch => (
         .then(gameInfoAndReviews => (dispatch(fetchGameInfoAndReviews(gameInfoAndReviews))))
 );
 
+

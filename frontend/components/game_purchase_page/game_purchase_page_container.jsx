@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import { getGameInfoAndReviews, leaveGamePurchasePage } from '../../actions/game_actions';
+import { refreshUserInfo } from '../../actions/session_actions';
 import GamePurchasePage from './game_purchase_page';
+import {createReview} from '../../actions/review_actions';
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -12,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
     let ownsGame = false;
     
     if (state.entities.ownedGames.includes(gameIdNumber)) {
-        debugger
+
         ownsGame = true
     }
    
@@ -22,7 +24,6 @@ const mapStateToProps = (state, ownProps) => {
             }
         })
 
-    debugger
     return ({
         gameId: gameIdNumber,
         gameInfo: state.entities.viewedGame.gameInfo,
@@ -38,7 +39,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
     return ({
         getGameInfoAndReviews: (gameId) => dispatch(getGameInfoAndReviews(gameId)),
-        leaveGamePurchasePage: () => dispatch(leaveGamePurchasePage())
+        leaveGamePurchasePage: () => dispatch(leaveGamePurchasePage()),
+        refreshUserInfo: (currentUserId) => dispatch(refreshUserInfo(currentUserId)),
+        createReview: (review) => dispatch(createReview(review))
     });
     
 };

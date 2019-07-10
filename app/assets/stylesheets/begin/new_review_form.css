@@ -1,0 +1,118 @@
+.center_horizontally {
+    margin: 0 auto;
+    width: 800px;
+}
+
+.review-top-green-bar {
+    height: 40px;
+    background: linear-gradient(to right, rgba(163,207,6,0.6) 0%,rgba(75,106,33,0.6) 100%);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 40px;
+    color: #a3cf06;
+    width: 800px;
+    display: block;
+}
+
+#new-review-container1 {
+    margin-bottom: 40px;
+    display: block;
+    color: #c6d4df;
+    font-size: 12px;
+    background-color: #404e5c;
+    min-height: 400px;
+    width: 800px;
+}
+
+#new-review-container2 {
+    width: 750px;
+    height: 392px;
+    margin: 0 auto;
+}
+
+#new-review-container2 > h1 {
+    margin-bottom: 3px;
+    color: #66c0f4;
+    font-size: 18px;
+    font-weight: 300;
+    padding-top: 10px;
+}
+
+#new-review-container2 > p {
+    font-size: 13px;
+    margin-bottom: 15px;
+    line-height: 17px;
+    color: #8f98a0;
+    display: block;
+    width: 700px
+}
+
+.review-text-area {
+    width: calc( 100% - 24px );
+    border: 1px solid #233c51;
+    border-radius: 3px;
+    height: 132px;
+    max-width: 680px;
+    background-color: #222b35;
+    color: #d6d7d8;
+    padding: 10px 11px;
+    font-size: 13px;
+    box-shadow: inset 0px 0px 7px rgba( 0, 0, 0, 0.5 );
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-appearance: textarea;
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+#recommend-question-text {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+#recommend-button-area {
+    float: left;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    display: block;
+    width: 170px;
+}
+
+.recommend-button-unselected {
+    font-size: 15px;
+    line-height: 30px;
+    border-radius: 2px;
+    color: #67c1f5;
+    cursor: pointer;
+    vertical-align: text-top;
+}
+
+.recommend-button-text {
+    transform: translate(20px)
+}
+
+.yes-unselected {
+    background-image: url
+    background
+}
+
+.recommend-button-container {
+    background-color: #4e6a7a;
+    display: block;
+    width: 55px;
+    height: 30px;
+    padding: 0 15px;
+}
+

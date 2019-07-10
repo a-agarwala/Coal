@@ -21,4 +21,6 @@
 
  @import './begin/header.css';
 
- @import './begin/sign_in_create.css'
+ @import './begin/sign_in_create.css';
+
+ @import './begin/new_review_form.css'
