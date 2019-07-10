@@ -34,8 +34,11 @@ class NewReviewForm extends React.Component {
 
         return (
         <div className="center_horizontally">
+            
             <div className="review-top-green-bar">
+                    <div id="review-top-green-bar-image"><div id="in-library">IN LIBRARY</div></div>
                 {this.props.gameTitle} is already in your Steam library 
+            
             </div>
             <div id="new-review-container1">
                 <div id="new-review-container2">
@@ -43,15 +46,31 @@ class NewReviewForm extends React.Component {
                     <p>Please describe what you liked or disliked about 
                         this game and whether you recommend it 
                         to others. Please remember to be polite. </p>
+            <form onSubmit={this.handleSubmit}>
                 <textarea className="review-text-area" value={this.state.body} onChange={this.update('body')}/>
+
                 <span id="recommend-question-text"> Do you recommend this game?</span>
                 <div id="recommend-button-area">
-                            <div className="recommend-button-container">
-                                <button className="recommend-button-unselected yes-unselected"
-                                ><div className="recommend-button-text">Yes</div></button>
-                            </div>
-                    
+                                <button onClick={() => this.setState({recommended: true})}
+                                className={(this.state.recommended === null || this.state.recommended === false) ?
+                                    "recommend-button-container-unselected" : "recommend-button-container-selected"}>
+                                    <div id={(this.state.recommended === null || this.state.recommended === false) ?
+                                        "yes-unselected" : "yes-selected"}>  </div>  
+                                <div className="recommend-button-text">Yes</div>
+                                </button>
+
+                            <button onClick={() => this.setState({ recommended: false })}
+                                className={(this.state.recommended === null || this.state.recommended === true) ?
+                                    "recommend-button-container-unselected" : "recommend-button-container-selected"}>
+                                    <div id={(this.state.recommended === null || this.state.recommended === true) ?
+                                        "no-unselected" : "no-selected"}>  </div>
+                                    <div className="recommend-button-text">No</div>
+                                </button>                      
                 </div>
+                        <button 
+                        className="review-form-submit-button" 
+                                type="submit" ><div className="review-submit-button-text">Post review</div></button>    
+                </form>   
                 </div>
             </div>
         </div>

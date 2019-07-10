@@ -771,15 +771,23 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "center_horizontally"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-top-green-bar"
-      }, this.props.gameTitle, " is already in your Steam library"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "review-top-green-bar-image"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "in-library"
+      }, "IN LIBRARY")), this.props.gameTitle, " is already in your Steam library"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "new-review-container1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "new-review-container2"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Write a review for ", this.props.gameTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please describe what you liked or disliked about this game and whether you recommend it to others. Please remember to be polite. "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Write a review for ", this.props.gameTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please describe what you liked or disliked about this game and whether you recommend it to others. Please remember to be polite. "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         className: "review-text-area",
         value: this.state.body,
         onChange: this.update('body')
@@ -787,13 +795,34 @@ function (_React$Component) {
         id: "recommend-question-text"
       }, " Do you recommend this game?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "recommend-button-area"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "recommend-button-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "recommend-button-unselected yes-unselected"
+        onClick: function onClick() {
+          return _this3.setState({
+            recommended: true
+          });
+        },
+        className: this.state.recommended === null || this.state.recommended === false ? "recommend-button-container-unselected" : "recommend-button-container-selected"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: this.state.recommended === null || this.state.recommended === false ? "yes-unselected" : "yes-selected"
+      }, "  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recommend-button-text"
-      }, "Yes")))))));
+      }, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return _this3.setState({
+            recommended: false
+          });
+        },
+        className: this.state.recommended === null || this.state.recommended === true ? "recommend-button-container-unselected" : "recommend-button-container-selected"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: this.state.recommended === null || this.state.recommended === true ? "no-unselected" : "no-selected"
+      }, "  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "recommend-button-text"
+      }, "No"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "review-form-submit-button",
+        type: "submit"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "review-submit-button-text"
+      }, "Post review"))))));
     }
   }]);
 

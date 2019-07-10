@@ -3,11 +3,32 @@
     width: 800px;
 }
 
+#review-top-green-bar-image {
+    position: relative;
+	float: left;
+	top: 10px;
+	left: -8px;
+    box-shadow: 1px 1px 2px #000000;
+	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAKCAYAAABi8KSDAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUNDNzBFNTUyMUM0MTFFNDk1REVFODRBNUU5RjA2MUYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUNDNzBFNTYyMUM0MTFFNDk1REVFODRBNUU5RjA2MUYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5Q0M3MEU1MzIxQzQxMUU0OTVERUU4NEE1RTlGMDYxRiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5Q0M3MEU1NDIxQzQxMUU0OTVERUU4NEE1RTlGMDYxRiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pv3vUKAAAAAlSURBVHjaYvz//z8DsYARpFhISAivjnfv3jGSp3jUGeQ4AyDAADZHNe2nyOBrAAAAAElFTkSuQmCC') no-repeat 4px 4px #a3cf06;
+    height: 18px;
+    width: 75px;
+    overflow: hidden;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    
+}
+
+#in-library {
+    color: black;
+    font-size: 10px;
+    transform: translate(16px, -12px)
+}
+
 .review-top-green-bar {
     height: 40px;
     background: linear-gradient(to right, rgba(163,207,6,0.6) 0%,rgba(75,106,33,0.6) 100%);
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 500;
     line-height: 40px;
     color: #a3cf06;
     width: 800px;
@@ -20,13 +41,13 @@
     color: #c6d4df;
     font-size: 12px;
     background-color: #404e5c;
-    min-height: 400px;
+    min-height: 330px;
     width: 800px;
 }
 
 #new-review-container2 {
     width: 750px;
-    height: 392px;
+    min-height: 315px;
     margin: 0 auto;
 }
 
@@ -34,7 +55,7 @@
     margin-bottom: 3px;
     color: #66c0f4;
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 500;
     padding-top: 10px;
 }
 
@@ -44,7 +65,8 @@
     line-height: 17px;
     color: #8f98a0;
     display: block;
-    width: 700px
+    width: 700px;
+    font-weight: 250;
 }
 
 .review-text-area {
@@ -90,29 +112,111 @@
     width: 170px;
 }
 
+
 .recommend-button-unselected {
     font-size: 15px;
     line-height: 30px;
     border-radius: 2px;
-    color: #67c1f5;
+    
     cursor: pointer;
     vertical-align: text-top;
 }
 
+.recommend-button-unselected:hover {
+    
+}
+
 .recommend-button-text {
-    transform: translate(20px)
+    transform: translate(32px, -18px);
+    max-height: 30px;
+    max-width: 30px;
 }
 
-.yes-unselected {
-    background-image: url
-    background
-}
 
-.recommend-button-container {
-    background-color: #4e6a7a;
-    display: block;
-    width: 55px;
+.recommend-button-container-unselected {
+    background-color: #435a68;
+    display: inline-block;
+    width: 75px;
     height: 30px;
-    padding: 0 15px;
+    color: #67c1f5;
+    border-radius: 2px;
+    font-size: 15px;
+    line-height: 30px;
+    margin-right: 4px;
 }
 
+.recommend-button-container-selected {
+    color: #fff ;
+    display: inline-block;
+    width: 75px;
+    height: 30px;
+    border-radius: 2px;
+    font-size: 15px;
+    line-height: 30px;
+    background-color: rgba(103, 193, 245, 0.6);
+    margin-right: 4px;
+}
+
+.recommend-button-container-unselected:hover {
+    background: -webkit-linear-gradient( 150deg, #417a9b 5%,#67c1f5 95%);
+    color: #fff;
+}
+
+#yes-unselected {
+    background: url('https://steamstore-a.akamaihd.net/public/shared/images/buttons/icons_18.png');
+    background-position: 0px 0px;
+    width: 18px;
+    height: 18px;
+    transform: translate(10px, 5px)
+}
+
+#yes-selected {
+    background: url('https://steamstore-a.akamaihd.net/public/shared/images/buttons/icons_18.png');
+    background-position: -36px 0px;	
+    width: 18px;
+    height: 18px;
+    transform: translate(10px, 5px)
+}
+
+#no-unselected {
+    background: url('https://steamstore-a.akamaihd.net/public/shared/images/buttons/icons_18.png');
+    background-position: -18px 0px;
+    width: 18px;
+    height: 18px;
+    transform: translate(10px, 5px)
+}
+
+#no-selected {
+    background: url('https://steamstore-a.akamaihd.net/public/shared/images/buttons/icons_18.png');
+    background-position: -54px 0px;	
+    width: 18px;
+    height: 18px;
+    transform: translate(10px, 5px)
+}
+
+.review-form-submit-button {
+    float: right;
+    border-radius: 4px;
+    border: 2px solid #17202f;
+    padding: 1px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: #2B5066;
+    background: linear-gradient( to bottom, rgba(193,228,249,1) 5%, rgba(148,183,202,1) 95%);   
+}
+
+.review-submit-button-text {
+    padding: 0 15px;
+    font-size: 15px;
+    line-height: 30px;
+    border-radius: 3px;
+    display: block;
+    background: transparent;
+    text-shadow: 1px 1px 0px rgba( 255, 255, 255, 0.1 );
+}
+
+.review-form-submit-button :hover {
+    color: #ffffff;
+    background: -webkit-linear-gradient( top, rgba(102,192,244,1) 5%, rgba(47,137,188,1) 95%);
+}
