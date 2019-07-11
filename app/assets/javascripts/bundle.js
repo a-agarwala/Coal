@@ -194,7 +194,7 @@ var removeReview = function removeReview(reviewId) {
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_SESSION_ERRORS, CLEAR_SESSION_ERRORS, receiveCurrentUser, logoutCurrentUser, receiveErrors, clearSessionErrors, signup, signin, logout, refreshUserInfo */
+/*! exports provided: RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_SESSION_ERRORS, CLEAR_SESSION_ERRORS, receiveCurrentUser, logoutCurrentUser, receiveErrors, clearSessionErrors, signup, signin, logout, refreshUserInfo, updateUserWallet, purchaseGame */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -211,7 +211,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signin", function() { return signin; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "refreshUserInfo", function() { return refreshUserInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateUserWallet", function() { return updateUserWallet; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "purchaseGame", function() { return purchaseGame; });
 /* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/session_api_util */ "./frontend/util/session_api_util.js");
+/* harmony import */ var _util_users_api_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/users_api_util */ "./frontend/util/users_api_util.js");
+
 
 var RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 var LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
@@ -270,6 +274,20 @@ var refreshUserInfo = function refreshUserInfo(currentUserId) {
   return function (dispatch) {
     // debugger
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["refresh"](currentUserId).then(function (user) {
+      return dispatch(receiveCurrentUser(user));
+    });
+  };
+};
+var updateUserWallet = function updateUserWallet(user) {
+  return function (dispatch) {
+    return _util_users_api_util__WEBPACK_IMPORTED_MODULE_1__["walletUtil"](user).then(function (user) {
+      return dispatch(receiveCurrentUser(user));
+    });
+  };
+};
+var purchaseGame = function purchaseGame(gameOwnership) {
+  return function (dispatch) {
+    return _util_users_api_util__WEBPACK_IMPORTED_MODULE_1__["purchaseGame"](gameOwnership).then(function (user) {
       return dispatch(receiveCurrentUser(user));
     });
   };
@@ -706,6 +724,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _new_review_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./new_review_form */ "./frontend/components/game_purchase_page/new_review_form.jsx");
 /* harmony import */ var _edit_review_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit_review_form */ "./frontend/components/game_purchase_page/edit_review_form.jsx");
 /* harmony import */ var _review_list__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./review_list */ "./frontend/components/game_purchase_page/review_list.jsx");
+/* harmony import */ var _purchase_display__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./purchase_display */ "./frontend/components/game_purchase_page/purchase_display.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -723,6 +742,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -778,7 +798,12 @@ function (_React$Component) {
             thisGameReview: this.props.thisGameReview
           }));
         } else {
-          secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "purchase display");
+          secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_purchase_display__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            currentUser: this.props.currentUser,
+            purchaseGame: this.props.purchaseGame,
+            gameTitle: this.props.gameInfo.title,
+            gamePrice: this.props.gameInfo.price
+          }), "purchase display");
         }
 
         ;
@@ -918,6 +943,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
     },
     removeReview: function removeReview(reviewId) {
       return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_4__["removeReview"])(reviewId));
+    },
+    purchaseGame: function purchaseGame(gameOwnership) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["purchaseGame"])(gameOwnership));
     }
   };
 };
@@ -1078,6 +1106,62 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (NewReviewForm);
+
+/***/ }),
+
+/***/ "./frontend/components/game_purchase_page/purchase_display.jsx":
+/*!*********************************************************************!*\
+  !*** ./frontend/components/game_purchase_page/purchase_display.jsx ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var PurchaseDisplay =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(PurchaseDisplay, _React$Component);
+
+  function PurchaseDisplay(props) {
+    _classCallCheck(this, PurchaseDisplay);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(PurchaseDisplay).call(this, props));
+  }
+
+  _createClass(PurchaseDisplay, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+    }
+  }]);
+
+  return PurchaseDisplay;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (PurchaseDisplay);
 
 /***/ }),
 
@@ -1326,8 +1410,9 @@ function (_React$Component) {
         display = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "upper-right-nav-bar"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_username_menu__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          username: this.props.currentUser.username,
-          logout: this.props.logout
+          user: this.props.currentUser,
+          logout: this.props.logout,
+          updateUserWallet: this.props.updateUserWallet
         }));
       } else {
         display = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1384,6 +1469,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     logout: function logout() {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["logout"])());
+    },
+    updateUserWallet: function updateUserWallet(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["updateUserWallet"])(user));
     }
   };
 };
@@ -1477,13 +1565,18 @@ function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
+      var userclone = Object.assign({}, this.props.user);
+      userclone.wallet = userclone.wallet + 2000;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "gray-install-button",
         className: "install-button upper-right-nav-bar-text"
-      }, "Gray Button"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Gray Button"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "wallet-display",
+        className: "upper-right-nav-bar-text"
+      }, "$", (this.props.user.wallet / 100).toFixed(2)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "dropdown-menu-button upper-right-nav-bar-text",
         onClick: this.showDropdownMenu
-      }, this.props.username), this.state.showDropdownMenu ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.user.username), this.state.showDropdownMenu ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "username-menu-wrapper",
         ref: function ref(element) {
           _this4.dropdownMenu = element;
@@ -1491,10 +1584,11 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "username-menu-body"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "username-menu-item menu-item"
-      }, " Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "username-menu-item menu-item"
-      }, " Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "username-menu-item menu-item",
+        onClick: function onClick() {
+          return _this4.props.updateUserWallet(userclone);
+        }
+      }, " Add $20 to Wallet "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "username-menu-item menu-item",
         onClick: this.props.logout
       }, "Logout"))) : null);
@@ -2451,6 +2545,38 @@ var logout = function logout() {
   return $.ajax({
     method: 'DELETE',
     url: '/api/session'
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/users_api_util.js":
+/*!*****************************************!*\
+  !*** ./frontend/util/users_api_util.js ***!
+  \*****************************************/
+/*! exports provided: walletUtil, purchaseGame */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "walletUtil", function() { return walletUtil; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "purchaseGame", function() { return purchaseGame; });
+var walletUtil = function walletUtil(user) {
+  return $.ajax({
+    method: 'PATCH',
+    url: "/api/users/".concat(user.id),
+    data: {
+      user: user
+    }
+  });
+};
+var purchaseGame = function purchaseGame(gameOwnership) {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/gameownerships',
+    data: {
+      gameOwnership: gameOwnership
+    }
   });
 };
 

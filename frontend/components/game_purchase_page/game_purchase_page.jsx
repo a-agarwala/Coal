@@ -2,7 +2,7 @@ import React from 'react';
 import NewReviewForm from './new_review_form';
 import EditReviewForm from './edit_review_form';
 import ReviewList from './review_list';
-
+import PurchaseDisplay from './purchase_display';
 class GamePurchasePage extends React.Component {
     constructor(props) {
         super(props);
@@ -52,6 +52,11 @@ class GamePurchasePage extends React.Component {
 
                 secondRow = (
                     <div>
+                        <PurchaseDisplay currentUser={this.props.currentUser} 
+                        purchaseGame={this.props.purchaseGame}
+                        gameTitle={this.props.gameInfo.title}
+                        gamePrice={this.props.gameInfo.price}
+                         />
                         purchase display
                     </div>
                 );

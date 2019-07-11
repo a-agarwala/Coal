@@ -15,7 +15,7 @@ class UpperRightNavBar extends React.Component {
         if (this.props.currentUser) {
             display = (
                 <div className="upper-right-nav-bar">
-                    < UsernameMenu username={this.props.currentUser.username} logout={this.props.logout}/>
+                    < UsernameMenu user={this.props.currentUser} logout={this.props.logout} updateUserWallet={this.props.updateUserWallet}/>
                 
                 </div>
             );

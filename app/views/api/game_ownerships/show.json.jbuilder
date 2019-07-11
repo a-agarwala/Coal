@@ -1,1 +1,1 @@
-json.extract! @owned_games, :id
+json.merge! @game_ownership.attributes

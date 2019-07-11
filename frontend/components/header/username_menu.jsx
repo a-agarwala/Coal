@@ -34,13 +34,20 @@ class UsernameMenu extends React.Component {
     }
 
     render() {
+
+        let userclone = Object.assign({}, this.props.user);
+        userclone.wallet = userclone.wallet + 2000;
+
         return (
             <div>
                 <button id="gray-install-button"
                     className="install-button upper-right-nav-bar-text"
                 >Gray Button</button>
+                <div id="wallet-display" className="upper-right-nav-bar-text">
+                    ${((this.props.user.wallet)/100).toFixed(2)}
+                </div>
                 <button className="dropdown-menu-button upper-right-nav-bar-text" onClick={this.showDropdownMenu}>
-                    {this.props.username}
+                    {this.props.user.username}
                  </button>
 
                 {
@@ -53,8 +60,10 @@ class UsernameMenu extends React.Component {
                                 }}>
                                 
                                 <div id="username-menu-body">
-                                    <button className="username-menu-item menu-item"> Placeholder </button>
-                                    <button className="username-menu-item menu-item"> Placeholder </button>
+                                    <button className="username-menu-item menu-item"
+                                    onClick={() => this.props.updateUserWallet(userclone)}
+                                    > Add $20 to Wallet </button>
+
                                     <button 
                                         className="username-menu-item menu-item" 
                                         onClick={this.props.logout}>Logout</button>

@@ -1,6 +1,7 @@
 json.userinfo do
     json.id @user.id
     json.username @user.username
+    json.wallet @user.wallet
 end
 
 ownedGames = Array.new

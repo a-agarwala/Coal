@@ -9,6 +9,7 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  wallet          :integer          default(10000)
 #
 
 require 'test_helper'

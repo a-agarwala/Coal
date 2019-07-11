@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
+import { logout, updateUserWallet } from '../../actions/session_actions';
 import UpperRightNavBar from './upper_right_nav_bar'
 
 const mapStateToProps = ({ session, entities: { users } }) => ({
@@ -7,7 +7,8 @@ const mapStateToProps = ({ session, entities: { users } }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    updateUserWallet: (user) => dispatch(updateUserWallet(user))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UpperRightNavBar)

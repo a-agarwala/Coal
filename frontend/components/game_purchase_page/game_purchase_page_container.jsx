@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { getGameInfoAndReviews, leaveGamePurchasePage } from '../../actions/game_actions';
-import { refreshUserInfo } from '../../actions/session_actions';
+import { refreshUserInfo, purchaseGame } from '../../actions/session_actions';
 import GamePurchasePage from './game_purchase_page';
 import {createReview, editReview, removeReview} from '../../actions/review_actions';
 
@@ -48,6 +48,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         createReview: (review) => dispatch(createReview(review)),
         editReview: (review) => dispatch(editReview(review)),
         removeReview: (reviewId) => dispatch(removeReview(reviewId)),
+        purchaseGame: (gameOwnership) => dispatch(purchaseGame(gameOwnership)),
     });
     
 };

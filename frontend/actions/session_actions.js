@@ -1,4 +1,5 @@
-import * as SessionAPIUtil from '../util/session_api_util'
+import * as SessionAPIUtil from '../util/session_api_util';
+import * as UsersAPIUtil from '../util/users_api_util';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
@@ -47,3 +48,13 @@ export const refreshUserInfo = (currentUserId) => dispatch => {
     SessionAPIUtil.refresh(currentUserId)
         .then(user => (dispatch(receiveCurrentUser(user)))))
 };
+
+export const updateUserWallet = (user) => dispatch => (
+    UsersAPIUtil.walletUtil(user)
+        .then(user => (dispatch(receiveCurrentUser(user))))
+);
+
+export const purchaseGame = (gameOwnership) => dispatch => (
+    UsersAPIUtil.purchaseGame(gameOwnership)
+        .then(user => (dispatch(receiveCurrentUser(user))))
+)
