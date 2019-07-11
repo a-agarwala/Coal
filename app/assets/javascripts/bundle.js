@@ -818,8 +818,6 @@ function (_React$Component) {
         this.props.allReviews.forEach(function (review) {
           if (review.recommended) {
             gameRatingCalc += 1;
-          } else {
-            gameRatingCalc -= 1;
           }
         });
 
@@ -864,7 +862,8 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Game Display Top Row"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, secondRow), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Game Further Info"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_list__WEBPACK_IMPORTED_MODULE_3__["default"], {
         allReviews: this.props.allReviews,
         gameRatingCalc: gameRatingCalc,
-        gameRating: gameRating
+        gameRating: gameRating,
+        getGameInfoAndReviews: this.props.getGameInfoAndReviews
       }))));
     }
   }]);
@@ -1254,6 +1253,11 @@ function (_React$Component) {
   }
 
   _createClass(ReviewList, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.getGameInfoAndReviews;
+    }
+  }, {
     key: "render",
     value: function render() {
       var reviewListDisplay = {};

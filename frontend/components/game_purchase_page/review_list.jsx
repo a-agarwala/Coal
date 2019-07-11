@@ -6,6 +6,10 @@ class ReviewList extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        this.props.getGameInfoAndReviews;
+    }
+
     render() {
 
         let reviewListDisplay = {};

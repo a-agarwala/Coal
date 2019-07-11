@@ -6,6 +6,7 @@ import PurchaseDisplay from './purchase_display';
 class GamePurchasePage extends React.Component {
     constructor(props) {
         super(props);
+
     }
 
     componentDidMount() {
@@ -72,9 +73,7 @@ class GamePurchasePage extends React.Component {
             this.props.allReviews.forEach((review) => {
                 if (review.recommended) {
                     gameRatingCalc += 1;
-                } else {
-                    gameRatingCalc -= 1;
-                }
+                } 
             });
 
             if (gameRatingCalc > 0) {
@@ -104,6 +103,7 @@ class GamePurchasePage extends React.Component {
                 gameRatingCalc = 0;
             };
         }
+
         return (
             <div>
             {this.props.gameInfo &&
@@ -117,7 +117,8 @@ class GamePurchasePage extends React.Component {
                     <div>
                         <ReviewList allReviews={this.props.allReviews}
                         gameRatingCalc={gameRatingCalc}
-                        gameRating={gameRating}/>
+                        gameRating={gameRating}
+                        getGameInfoAndReviews={this.props.getGameInfoAndReviews}/>
                     </div>
                 </div> 
             }
