@@ -1,4 +1,4 @@
-class Api::GameOwnershipsController < ApplicationController
+class Api::GameownershipsController < ApplicationController
 
     def show
     end
@@ -7,6 +7,7 @@ class Api::GameOwnershipsController < ApplicationController
         @game_ownership = GameOwnership.new(game_ownership_params)
 
         if @game_ownership.save
+            @user = current_user
             render "api/users/show"
         else
             render json: @game_ownership.errors.full_messages

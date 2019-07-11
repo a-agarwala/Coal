@@ -25,4 +25,6 @@
 
  @import './begin/new_review_form.css';
 
- @import './begin/review_list.css'
+ @import './begin/review_list.css';
+
+ @import './begin/purchase_display.css';

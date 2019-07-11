@@ -53,9 +53,11 @@ class GamePurchasePage extends React.Component {
                 secondRow = (
                     <div>
                         <PurchaseDisplay currentUser={this.props.currentUser} 
+                        updateUserWallet={this.props.updateUserWallet}
                         purchaseGame={this.props.purchaseGame}
                         gameTitle={this.props.gameInfo.title}
                         gamePrice={this.props.gameInfo.price}
+                        gameId={this.props.gameInfo.id}
                          />
                         purchase display
                     </div>

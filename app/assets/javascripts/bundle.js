@@ -800,9 +800,11 @@ function (_React$Component) {
         } else {
           secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_purchase_display__WEBPACK_IMPORTED_MODULE_4__["default"], {
             currentUser: this.props.currentUser,
+            updateUserWallet: this.props.updateUserWallet,
             purchaseGame: this.props.purchaseGame,
             gameTitle: this.props.gameInfo.title,
-            gamePrice: this.props.gameInfo.price
+            gamePrice: this.props.gameInfo.price,
+            gameId: this.props.gameInfo.id
           }), "purchase display");
         }
 
@@ -943,6 +945,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
     },
     removeReview: function removeReview(reviewId) {
       return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_4__["removeReview"])(reviewId));
+    },
+    updateUserWallet: function updateUserWallet(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["updateUserWallet"])(user));
     },
     purchaseGame: function purchaseGame(gameOwnership) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["purchaseGame"])(gameOwnership));
@@ -1130,9 +1135,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -1146,15 +1151,54 @@ function (_React$Component) {
   _inherits(PurchaseDisplay, _React$Component);
 
   function PurchaseDisplay(props) {
+    var _this;
+
     _classCallCheck(this, PurchaseDisplay);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(PurchaseDisplay).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(PurchaseDisplay).call(this, props));
+    _this.buyGame = _this.buyGame.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(PurchaseDisplay, [{
+    key: "buyGame",
+    value: function buyGame() {
+      var userclone = Object.assign({}, this.props.currentUser);
+
+      if (this.props.currentUser.wallet >= this.props.gamePrice) {
+        userclone.wallet = userclone.wallet - this.props.gamePrice;
+        this.props.updateUserWallet(userclone);
+        this.props.purchaseGame({
+          owner_id: this.props.currentUser.id,
+          game_id: this.props.gameId
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "center_horizontally"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "purchase-display-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "purchase-display-box"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "purchase-display-game-title"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Buy ", this.props.gameTitle)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "purchase-button-row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "purchase-price-and-button-box"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "price-display"
+      }, "$", (this.props.gamePrice / 100).toFixed(2)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return _this2.buyGame();
+        },
+        id: "purchase-game-button"
+      }, "Purchase Game"))))));
     }
   }]);
 
@@ -2570,12 +2614,12 @@ var walletUtil = function walletUtil(user) {
     }
   });
 };
-var purchaseGame = function purchaseGame(gameOwnership) {
+var purchaseGame = function purchaseGame(game_ownership) {
   return $.ajax({
     method: 'POST',
     url: '/api/gameownerships',
     data: {
-      gameOwnership: gameOwnership
+      game_ownership: game_ownership
     }
   });
 };

@@ -6,10 +6,10 @@ export const walletUtil = user => (
     })
 )
 
-export const purchaseGame = gameOwnership => (
+export const purchaseGame = game_ownership => (
     $.ajax({
         method: 'POST',
         url: '/api/gameownerships',
-        data: { gameOwnership }
+        data: { game_ownership }
     })
 )

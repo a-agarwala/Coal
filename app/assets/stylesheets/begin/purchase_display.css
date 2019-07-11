@@ -1,0 +1,82 @@
+#purchase-display-wrapper {
+    width: 616px;
+}
+
+#purchase-display-box {
+    width: 616px;
+    height: 66px;
+    margin-bottom: 28px;
+    background: linear-gradient(135deg, rgba(97,100,101,0.3) 0%,rgba(226,244,255,0.3) 100%);
+}
+
+#purchase-display-game-title {
+    font-size: 21px;
+    color: #ffffff;
+    display: block;
+    font-weight: 500;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    height: 24px;
+    width: 584px;
+    padding: 16px;
+    padding-bottom: 26px;
+}
+
+#purchase-button-row {
+    width: 584px;
+    height: 36px;
+    display: block;
+    position: relative;
+    bottom: 32px;
+
+}
+
+#purchase-price-and-button-box {
+    min-width: 150px;
+    min-height: 38px;
+    position: absolute;
+    right: 0;
+    background-color: black;
+    height: 24px;
+    font-size: 13px;
+    color: #c6d4df;
+    font-weight: 300;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+
+#price-display {
+    margin-left: 2px; 
+    padding-top: 8px;
+    padding-left: 14px;
+    padding-right: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    transform: translate(0, -2px)
+}
+
+#purchase-game-button {
+    height: 32px;
+    width: 140px;
+    border-radius: 2px;
+    border: none;
+    padding: 1px;
+    display: inline-block;
+    cursor: pointer;
+    color: #D2E885;
+    background: linear-gradient( to bottom, rgba(121,153,5,1) 5%, rgba(83,105,4,1) 95%);
+    text-align: center;
+    transform: translate(-2px, 2px);
+    font-weight: 400;
+    text-shadow: -1px -1px 0px rgba( 0, 0, 0, 0.1 );
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+#purchase-game-button:hover {
+    background: linear-gradient( to bottom, #aacb07 5%, #748f06 95%);
+    color: #fff;
+}
