@@ -58,9 +58,45 @@ class GamePurchasePage extends React.Component {
             };
 
         }
-        console.log(this.props.currentUser);
-        console.log(this.props.hasReviewedGame);
-        console.log(this.props.gameInfo);
+       
+        let gameRating = '';
+        let gameRatingCalc = 0;
+        if (this.props.allReviews) {
+            this.props.allReviews.forEach((review) => {
+                if (review.recommended) {
+                    gameRatingCalc += 1;
+                } else {
+                    gameRatingCalc -= 1;
+                }
+            });
+
+            if (gameRatingCalc > 0) {
+                gameRatingCalc = Math.floor((gameRatingCalc/(this.props.allReviews.length) * 100));
+                switch (true) {
+                    case (gameRatingCalc < 20):
+                        gameRating = 'Very Negative';
+                        break
+                    case (gameRatingCalc < 40):
+                        gameRating = 'Negative';
+                        break
+                    case (gameRatingCalc < 60):
+                        gameRating = 'Mixed';
+                        break
+                    case (gameRatingCalc < 80):
+                        gameRating = 'Positive';
+                        break
+                    case (gameRatingCalc < 100):
+                        gameRating = 'Very Positive';
+                        break
+                    case (gameRatingCalc === 100):
+                        gameRating = 'Overwhelmingly Positive';
+                        break
+                } 
+            } else {
+                gameRating = 'Overwhelmingly Negative';
+                gameRatingCalc = 0;
+            };
+        }
         return (
             <div>
             {this.props.gameInfo &&
@@ -71,8 +107,10 @@ class GamePurchasePage extends React.Component {
 
                     <div>Game Further Info</div>
                     
-                    <div>Review List
-                        <ReviewList allReviews={this.props.allReviews}/>
+                    <div>
+                        <ReviewList allReviews={this.props.allReviews}
+                        gameRatingCalc={gameRatingCalc}
+                        gameRating={gameRating}/>
                     </div>
                 </div> 
             }

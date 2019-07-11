@@ -784,13 +784,60 @@ function (_React$Component) {
         ;
       }
 
-      console.log(this.props.currentUser);
-      console.log(this.props.hasReviewedGame);
-      console.log(this.props.gameInfo);
+      var gameRating = '';
+      var gameRatingCalc = 0;
+
+      if (this.props.allReviews) {
+        this.props.allReviews.forEach(function (review) {
+          if (review.recommended) {
+            gameRatingCalc += 1;
+          } else {
+            gameRatingCalc -= 1;
+          }
+        });
+
+        if (gameRatingCalc > 0) {
+          gameRatingCalc = Math.floor(gameRatingCalc / this.props.allReviews.length * 100);
+
+          switch (true) {
+            case gameRatingCalc < 20:
+              gameRating = 'Very Negative';
+              break;
+
+            case gameRatingCalc < 40:
+              gameRating = 'Negative';
+              break;
+
+            case gameRatingCalc < 60:
+              gameRating = 'Mixed';
+              break;
+
+            case gameRatingCalc < 80:
+              gameRating = 'Positive';
+              break;
+
+            case gameRatingCalc < 100:
+              gameRating = 'Very Positive';
+              break;
+
+            case gameRatingCalc === 100:
+              gameRating = 'Overwhelmingly Positive';
+              break;
+          }
+        } else {
+          gameRating = 'Overwhelmingly Negative';
+          gameRatingCalc = 0;
+        }
+
+        ;
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.gameInfo && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "body-wrapper"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Game Display Top Row"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, secondRow), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Game Further Info"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Review List", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_list__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        allReviews: this.props.allReviews
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Game Display Top Row"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, secondRow), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Game Further Info"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_list__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        allReviews: this.props.allReviews,
+        gameRatingCalc: gameRatingCalc,
+        gameRating: gameRating
       }))));
     }
   }]);
@@ -1086,17 +1133,30 @@ function (_React$Component) {
       if (this.props.allReviews.length === 0) {
         reviewListDisplay = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Sorry, there are no reviews for this game yet.");
       } else {
-        reviewListDisplay = this.props.allReviews.map(function (review) {
+        reviewListDisplay = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "customer-reviews-title",
+          className: "caps-white-header"
+        }, "Customer Reviews"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "review-summary-bar"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "review-summary-bar-content"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " Overall Reviews: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "game-rating-review-list",
+          className: this.props.gameRatingCalc > 49 ? "positive-rating" : "negative-rating"
+        }, this.props.gameRating), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "game-calc-dsiplay-review-list"
+        }, " (", this.props.gameRatingCalc, "% of players gave this game a positive review.) "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.allReviews.map(function (review) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_list_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
             key: review.id,
             review: review
           });
-        });
+        }))));
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "review-list-whole",
         className: "center_horizontally"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, reviewListDisplay));
+      }, reviewListDisplay);
     }
   }]);
 
@@ -1122,7 +1182,27 @@ __webpack_require__.r(__webpack_exports__);
 
 var ReviewListItem = function ReviewListItem(_ref) {
   var review = _ref.review;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, review.author_username));
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "review-box-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "review-box-content"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "review-box-left-column"
+  }, review.author_username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "review-box-right-column"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "review-right-column-header"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: review.recommended ? "review-right-column-header-recommended" : "review-right-column-header-not-recommended"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "review-right-column-header-rec"
+  }, review.recommended ? "Recommended" : "Not Recommended")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "review-posted-on-info"
+  }, "Posted: ", review.created_at.slice(0, 10)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "review-updated-on-info"
+  }, review.updated_at.slice(0, 10) !== review.created_at.slice(0, 10) ? "Updated: ".concat(review.updated_at.slice(0, 10)) : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "review-text"
+  }, review.body)))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ReviewListItem);

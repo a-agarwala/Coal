@@ -1,0 +1,150 @@
+#review-list-whole {
+    border-top: 1px solid black;
+}
+
+.caps-white-header {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 2px;
+    display:block;
+}
+
+#customer-reviews-title {
+    padding-top: 10px;
+    padding-bottom: 4px;
+    margin: 0 0 10px;
+}
+
+#review-summary-bar {
+    border-bottom: 1px solid #000000;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: none;
+    min-height: 38px;
+    width: 605px;
+    box-shadow: 0 0 5px;
+    background-color: #2a475e;
+}
+
+#review-summary-bar-content {
+    margin-right: 15px;
+    color: #8ba6b6;
+    min-width: 320px;
+}
+
+#review-summary-bar-content > h3 {
+    font-weight: normal;
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: #e5e5e5;
+    display: block;
+}
+
+#game-rating-review-list {
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 9px;
+    text-shadow: 1px 1px rgba( 0, 0, 0, 0.2 );
+    display: inline-block;
+}
+
+.positive-rating {
+    color: #66C0F4;
+}
+
+.negative-rating {
+    color: #c35c2c;
+}
+#game-calc-dsiplay-review-list {
+    color: #8ba6b6;
+    font-size: 12px;
+    display: inline-block;
+    padding-left: 5px;
+}
+
+.review-box-container {
+    border-top: 1px solid rgb(41, 120, 146);
+    margin-left: 60px;
+    display: block;
+    width: 500px;
+    background-color: rgba(13, 16, 39, 0.534);
+    margin-bottom: 26px;
+    min-height: 200px;
+}
+
+.review-right-column-header {
+     background-color: rgba( 0, 0, 0, 0.2 );
+    height: 40px;
+    min-width: 300px;
+    transform: translate(0, 10px)
+}
+
+.review-box-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.review-box-left-column {
+    width: 100px;
+    padding: 8px;
+    opacity: 0.6;
+    color: #c1dbf4;
+    font-size: 20px;
+    font-weight: bold;
+    transform: translate(20px, 10px)
+}
+
+.review-box-right-column {
+    width: 350px;
+}
+
+.review-right-column-header-recommended {
+    display: inline-block;
+    background-image: url("https://steamstore-a.akamaihd.net/public/shared/images/userreviews/icon_thumbsUp_v6.png");
+    width: 40px;
+    height: 40px; 
+}
+
+.review-right-column-header-not-recommended {
+    display: inline-block;
+    background-image: url("https://steamstore-a.akamaihd.net/public/shared/images/userreviews/icon_thumbsDown_v6.png");
+    height: 40px;
+    width: 40px;
+    
+}
+
+.review-right-column-header-rec {
+    display: inline-block;
+    color: #ffffff;
+    font-size: 22px;
+    transform: translate(10px, -12px)
+}
+
+.review-posted-on-info {
+    display: block;
+    margin-top: 20px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-style: normal;
+    color: #8091a2;
+}
+
+.review-updated-on-info {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-style: normal;
+    color: #8091a2;
+}
+
+.review-text {
+    margin-right: 8px;
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 17px;
+    color: #acb2b8;
+    display: block;
+}

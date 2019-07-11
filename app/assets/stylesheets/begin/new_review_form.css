@@ -43,6 +43,7 @@
     background-color: #404e5c;
     min-height: 330px;
     width: 800px;
+    box-shadow: 0 0 5px black;
 }
 
 #new-review-container2 {
