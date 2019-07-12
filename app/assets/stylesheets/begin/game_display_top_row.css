@@ -64,7 +64,9 @@
 #left-column-game-display-wrapper {
     width: 616px;
     height: 450px;
+    display: inline-block;
 }
+
 .thumbnail-button:focus {
 	position: relative;
 	background-image: url('https://steamstore-a.akamaihd.net/public/images/v5/game_highlight_activethumb.png');
@@ -72,4 +74,20 @@
     height: 100px;
     bottom: 15px;
     z-index: 500;
+}
+
+#right-column-game-display-wrapper {
+    width: 324px;
+    height: 378px;
+    display: inline-block;
+}
+
+.top-row-center-horizontally {
+    margin: 0 auto;
+    width: 940px;
+}
+
+.game-name-purchase-page {
+    font-size: 26px;
+    margin-bottom: 8px;
 }

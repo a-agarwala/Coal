@@ -1,6 +1,6 @@
 import React from 'react';
 import LeftColumnGameDisplay from './left_column_game_display';
-
+import RightColumnGameDisplay from './right_column_game_display';
 
 class GameDisplayTopRow extends React.Component {
     constructor(props) {
@@ -11,13 +11,17 @@ class GameDisplayTopRow extends React.Component {
         return (
             <div>
                 
-                <div className="center_horizontally">
-                    <div className="game-name">
+                <div className="top-row-center-horizontally">
+                    <div id="game-top-row-background">
+                    <div className="game-name-purchase-page" style={{color: "white"}}>
                         {this.props.gameTitle}
                     </div>
                     
                     <LeftColumnGameDisplay gamePhotos={this.props.gamePhotos}/>
+                    <RightColumnGameDisplay />
                 </div>
+                </div>
+
             </div>
         )
     }
