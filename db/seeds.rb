@@ -10,6 +10,10 @@ require 'open-uri'
 
 ActiveRecord::Base.transaction do
 
+User.destroy_all
+Game.destroy_all
+Review.destroy_all
+
 user1 = User.create(
     username: 'DemoUser', 
     email_address: 'DemoUser@gmail.com',
