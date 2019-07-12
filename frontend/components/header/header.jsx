@@ -10,7 +10,7 @@ class Header extends React.Component {
         return(
             <div id="global-header">
                 <div class="content">
-                    <h1>Steam Clone (coming from header.jsx)</h1>
+                    <div id="logo"></div>
                     <div>
                         <UpperRightNavBarContainer />
                     </div>

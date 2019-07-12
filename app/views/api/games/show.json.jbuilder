@@ -10,3 +10,5 @@ gameReviews = Array.new
 end
 
 json.gameReviews gameReviews
+
+json.photoUrls @game.photos.map {|file| url_for(file)}

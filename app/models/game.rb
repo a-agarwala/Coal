@@ -32,4 +32,6 @@ class Game < ApplicationRecord
         through: :reviews,
         source: :author
 
+    has_many_attached :photos
+
 end

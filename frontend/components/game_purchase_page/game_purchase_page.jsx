@@ -3,6 +3,8 @@ import NewReviewForm from './new_review_form';
 import EditReviewForm from './edit_review_form';
 import ReviewList from './review_list';
 import PurchaseDisplay from './purchase_display';
+import GameDisplayTopRow from './game_display_top_row';
+
 class GamePurchasePage extends React.Component {
     constructor(props) {
         super(props);
@@ -108,8 +110,11 @@ class GamePurchasePage extends React.Component {
             <div>
             {this.props.gameInfo &&
                 <div className="body-wrapper">
-                    <div>Game Display Top Row</div>
-
+                    <div>Game Display Top Row
+                         <GameDisplayTopRow gamePhotos={this.props.gamePhotos}/>
+                    </div>
+                    
+                    
                     <div>{secondRow}</div>
 
                     <div>Game Further Info</div>

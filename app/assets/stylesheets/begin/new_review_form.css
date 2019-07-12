@@ -217,7 +217,7 @@
     text-shadow: 1px 1px 0px rgba( 255, 255, 255, 0.1 );
 }
 
-.review-form-submit-button :hover {
+.review-form-submit-button:hover {
     color: #ffffff;
     background: -webkit-linear-gradient( top, rgba(102,192,244,1) 5%, rgba(47,137,188,1) 95%);
 }
@@ -229,6 +229,6 @@
 }
 
 #delete-review-button:hover {
-    background: -webkit-linear-gradient( to bottom, rgb(253, 96, 117) 5%, rgb(248, 33, 61) 95%);
+    background: -webkit-linear-gradient( to bottom, rgb(205, 60, 79) 5%, rgb(165, 5, 27) 95%);
     color: #ffffff;
 }

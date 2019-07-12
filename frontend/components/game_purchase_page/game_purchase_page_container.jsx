@@ -29,6 +29,7 @@ const mapStateToProps = (state, ownProps) => {
     return ({
         gameId: gameIdNumber,
         gameInfo: state.entities.viewedGame.gameInfo,
+        gamePhotos: state.entities.viewedGame.photoUrls,
         currentUser: state.entities.users[state.session.id],
         ownsGame: ownsGame,
         hasReviewedGame: hasReviewedGame,
