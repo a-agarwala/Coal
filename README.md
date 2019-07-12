@@ -1,27 +1,3 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 # Coal
 
@@ -102,3 +78,49 @@ class LeftColumnGameDisplay extends React.Component {
     }
 }
 ```
+
+
+### Review Ratings
+
+Each game is given an overall rating based on the number of users that have recommended it to other users in their reviews. To reflect the actual Steam app, which assigns certain phrases as ratings, e.g. ("Mixed", "Positive") based on percentage of positive user reviews, I had to pass a game's reviews into its purchase page component as props and use a switch function to properly assign ratings.
+
+```javascript
+ let gameRating = '';
+        let gameRatingCalc = 0;
+        if (this.props.allReviews) {
+            this.props.allReviews.forEach((review) => {
+                if (review.recommended) {
+                    gameRatingCalc += 1;
+                } 
+            });
+
+            if (gameRatingCalc > 0) {
+                gameRatingCalc = Math.floor((gameRatingCalc/(this.props.allReviews.length) * 100));
+                switch (true) {
+                    case (gameRatingCalc < 20):
+                        gameRating = 'Very Negative';
+                        break
+                    case (gameRatingCalc < 40):
+                        gameRating = 'Negative';
+                        break
+                    case (gameRatingCalc < 60):
+                        gameRating = 'Mixed';
+                        break
+                    case (gameRatingCalc < 80):
+                        gameRating = 'Positive';
+                        break
+                    case (gameRatingCalc < 100):
+                        gameRating = 'Very Positive';
+                        break
+                    case (gameRatingCalc === 100):
+                        gameRating = 'Overwhelmingly Positive';
+                        break
+                } 
+            } else {
+                gameRating = 'Overwhelmingly Negative';
+                gameRatingCalc = 0;
+            };
+        }
+```
+
+
