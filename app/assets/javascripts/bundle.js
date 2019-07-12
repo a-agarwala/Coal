@@ -759,7 +759,9 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "center_horizontally"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_left_column_game_display__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "game-name"
+      }, this.props.gameTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_left_column_game_display__WEBPACK_IMPORTED_MODULE_1__["default"], {
         gamePhotos: this.props.gamePhotos
       })));
     }
@@ -923,7 +925,8 @@ function (_React$Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.gameInfo && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "body-wrapper"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Game Display Top Row", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_game_display_top_row__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_game_display_top_row__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        gameTitle: this.props.gameInfo.title,
         gamePhotos: this.props.gamePhotos
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, secondRow), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Game Further Info"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_list__WEBPACK_IMPORTED_MODULE_3__["default"], {
         allReviews: this.props.allReviews,
@@ -1090,15 +1093,15 @@ function (_React$Component) {
       var images = this.props.gamePhotos.slice(1);
       var thumbnails = images.map(function (image, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: index
+          key: index,
+          style: {
+            backgroundImage: "url(".concat(image, ")")
+          }
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "thumbnail-button",
           id: index,
           onClick: function onClick(e) {
             return _this2.changeBigPicture(e);
-          },
-          style: {
-            backgroundImage: "url(".concat(image, ")")
           }
         }));
       });

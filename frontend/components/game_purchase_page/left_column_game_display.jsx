@@ -24,11 +24,10 @@ class LeftColumnGameDisplay extends React.Component {
         const images = this.props.gamePhotos.slice(1);
 
         let thumbnails = images.map((image, index) => 
-                <li key={index}>
+            <li key={index} style={{ backgroundImage: `url(${image})` }}>
                     <button className="thumbnail-button"
                         id={index}
-                        onClick={(e) => this.changeBigPicture(e)}
-                        style={{backgroundImage: `url(${image})`}}>
+                        onClick={(e) => this.changeBigPicture(e)}>
                     </button>
                 </li>
             );

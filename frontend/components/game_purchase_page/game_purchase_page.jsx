@@ -110,8 +110,10 @@ class GamePurchasePage extends React.Component {
             <div>
             {this.props.gameInfo &&
                 <div className="body-wrapper">
-                    <div>Game Display Top Row
-                         <GameDisplayTopRow gamePhotos={this.props.gamePhotos}/>
+                    <div>
+                        <GameDisplayTopRow 
+                        gameTitle={this.props.gameInfo.title}
+                        gamePhotos={this.props.gamePhotos}/>
                     </div>
                     
                     

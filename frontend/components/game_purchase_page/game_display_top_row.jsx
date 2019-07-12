@@ -10,7 +10,12 @@ class GameDisplayTopRow extends React.Component {
     render() {
         return (
             <div>
+                
                 <div className="center_horizontally">
+                    <div className="game-name">
+                        {this.props.gameTitle}
+                    </div>
+                    
                     <LeftColumnGameDisplay gamePhotos={this.props.gamePhotos}/>
                 </div>
             </div>
