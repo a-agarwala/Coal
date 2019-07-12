@@ -488,6 +488,33 @@ blade.photos.attach(io: blade7, filename: 'blade7.jpg')
 blade.photos.attach(io: blade8, filename: 'blade8.jpg')
 blade.photos.attach(io: blade9, filename: 'blade9.jpg')
 
+Review.create(
+    author_id: 2,
+    game_id: 7,
+    recommended: true,
+    body: "Very cool game for make stab on people"
+)
+Review.create(
+    author_id: 3,
+    game_id: 7,
+    recommended: true,
+    body: "very VR game trying to do melee combat needs to research this game."
+)
+
+Review.create(
+    author_id: 4,
+    game_id: 7,
+    recommended: true,
+    body: "Less complete and polished as other VR games but its got the most potential as a fun sandbox and as it stands it is great fun."
+)
+
+Review.create(
+    author_id: 5,
+    game_id: 7,
+    recommended: false,
+    body: "I don't understand how this game has so many great reviews? The game is still incredibly buggy and the hit detection is awful! I understand this is an Early Acces Game but it's been that way for years. Pick it up during a sale if you're still curious. "
+)
+
 treesim = Game.create(
     title: "Tree Simulator 2020",
     price: 199,
@@ -511,6 +538,33 @@ treesim.photos.attach(io: treesim3, filename: 'treesim3.jpg')
 treesim.photos.attach(io: treesim4, filename: 'treesim4.jpg')
 treesim.photos.attach(io: treesim5, filename: 'treesim5.jpg')
 treesim.photos.attach(io: treesim6, filename: 'treesim6.jpg')
+
+Review.create(
+    author_id: 8,
+    game_id: 8,
+    recommended: true,
+    body: "Best 79 cents I have ever spent."
+)
+Review.create(
+    author_id: 3,
+    game_id: 8,
+    recommended: true,
+    body: "I Am Tree. When the morning sun rays hit my rugged bark, I am the happiest. My bark entangles the wind of the meadow. Oh wont you come play?"
+)
+
+Review.create(
+    author_id: 2,
+    game_id: 8,
+    recommended: true,
+    body: "had some trouble with the game being really stuttery, but other than that, it is still a really great game."
+)
+
+Review.create(
+    author_id: 9,
+    game_id: 8,
+    recommended: false,
+    body: "This game has trees in it. "
+)
 
 eurotruck = Game.create(
     title: "Euro Truck Simulator 2",
@@ -543,6 +597,33 @@ eurotruck.photos.attach(io: eurotruck8, filename: 'eurotruck8.jpg')
 eurotruck.photos.attach(io: eurotruck9, filename: 'eurotruck9.jpg')
 eurotruck.photos.attach(io: eurotruck10, filename: 'eurotruck10.jpg')
 
+Review.create(
+    author_id: 4,
+    game_id: 9,
+    recommended: true,
+    body: "A game that I really enjoy and would recommend to anyone who enjoys realistic driving sims. The craftsmanship really shows from the developers, it's really top notch stuff..."
+)
+Review.create(
+    author_id: 10,
+     game_id: 9,
+    recommended: true,
+    body: "Add better weather system."
+)
+
+Review.create(
+    author_id: 6,
+     game_id: 9,
+    recommended: true,
+    body: "I highly recommend this game. It is one of the best driving simulator games out there."
+)
+
+Review.create(
+    author_id: 5,
+     game_id: 9,
+    recommended: false,
+    body: "This game has trucks in it."
+)
+
 heart = Game.create(
     title: "Else Heart.Break()",
     price: 2499,
@@ -572,6 +653,33 @@ heart.photos.attach(io: heart7, filename: 'heart7.jpg')
 heart.photos.attach(io: heart8, filename: 'heart8.jpg')
 heart.photos.attach(io: heart9, filename: 'heart9.jpg')
 
+Review.create(
+    author_id: 7,
+    game_id: 10,
+    recommended: true,
+    body: "I've never played another game quite like it."
+)
+Review.create(
+    author_id: 6,
+    game_id: 10,
+    recommended: true,
+    body: "Personal Score: 9/10"
+)
+
+Review.create(
+    author_id: 5,
+    game_id: 10,
+    recommended: true,
+    body: "An interesting and fun game, but extremely hard to get into if you struggle with concepts like programming as a whole"
+)
+
+Review.create(
+    author_id: 4,
+    game_id: 10,
+    recommended: false,
+    body: "This game has computers in it."
+)
+
 miami = Game.create(
     title: "Hotline: Miami",
     price: 999,
@@ -598,6 +706,33 @@ miami.photos.attach(io: miami5, filename: 'miami5.jpg')
 miami.photos.attach(io: miami6, filename: 'miami6.jpg')
 miami.photos.attach(io: miami7, filename: 'miami7.jpg')
 miami.photos.attach(io: miami8, filename: 'miami8.jpg')
+
+Review.create(
+    author_id: 2,
+    game_id: 11,
+    recommended: true,
+    body: "How do I inject Hotline Miami’s soundtrack directly into my veins"
+)
+Review.create(
+    author_id: 4,
+    game_id: 11,
+    recommended: true,
+    body: "TIP : Confess to the police"
+)
+
+Review.create(
+    author_id: 6,
+    game_id: 11,
+    recommended: true,
+    body: "Amazing ambience of this game fuelled by its unique visual style and its epic soundtrack. Definitely a must play even if you are not a regular gamer!"
+)
+
+Review.create(
+    author_id: 8,
+    game_id: 11,
+    recommended: false,
+    body: "This game has music in it. "
+)
 
 fallout = Game.create(
     title: "Fallout 3",
@@ -636,6 +771,34 @@ fallout.photos.attach(io: fallout11, filename: 'fallout11.jpg')
 fallout.photos.attach(io: fallout12, filename: 'fallout12.jpg')
 fallout.photos.attach(io: fallout13, filename: 'fallout13.jpg')
 
+Review.create(
+    author_id: 8,
+    game_id: 12,
+    recommended: true,
+    body: "Yo! This game is bomb, Just get it and play."
+)
+Review.create(
+    author_id: 7,
+    game_id: 12,
+    recommended: true,
+    body: "A first-person rpg set in a post apocalyptic world, filled with mutated monsters, what more do you want ?"
+
+)
+
+Review.create(
+    author_id: 6,
+    game_id: 12,
+    recommended: true,
+    body: "Nuked Megaton in the first 30 minutes of the game. No Regrets. None..."
+)
+
+Review.create(
+    author_id: 5,
+    game_id: 12,
+    recommended: false,
+    body: "This game does not like to work with windows 10,Its about time they remaster it."
+)
+
 vox = Game.create(
     title: "Vox Machinae",
     price: 2499,
@@ -665,6 +828,33 @@ vox.photos.attach(io: vox7, filename: 'vox7.jpg')
 vox.photos.attach(io: vox8, filename: 'vox8.jpg')
 vox.photos.attach(io: vox9, filename: 'vox9.jpg')
 
+Review.create(
+    author_id: 9,
+    game_id: 13,
+    recommended: true,
+    body: "One of the best VR games on the market. Great performance, actually fun gameplay and it isn't just a tech-demo. Supports desktop gaming, runs smoothly and looks pretty damn good."
+)
+Review.create(
+    author_id: 8,
+    game_id: 13,
+    recommended: true,
+    body: "Best mech game I've ever played. Really makes you feel like you're in the cockpit of a giant robot."
+)
+
+Review.create(
+    author_id: 5,
+    game_id: 13,
+    recommended: true,
+    body: "If you have VR, there's no reason why you should not own this."
+)
+
+Review.create(
+    author_id: 2,
+    game_id: 13,
+    recommended: false,
+    body: "This game has robots in it. "
+)
+
 spiderman = Game.create(
     title: "Spider-Man: Far From Home Virtual Reality",
     price: 199,
@@ -687,6 +877,33 @@ spiderman.photos.attach(io: spiderman3, filename: 'spiderman3.jpg')
 spiderman.photos.attach(io: spiderman4, filename: 'spiderman4.jpg')
 spiderman.photos.attach(io: spiderman5, filename: 'spiderman5.jpg')
 spiderman.photos.attach(io: spiderman6, filename: 'spiderman6.jpg')
+
+Review.create(
+    author_id: 3,
+    game_id: 14,
+    recommended: true,
+    body: "Point and shoot some things; that's about it. Something to use to demonstrate VR to a friend but nothing more to come back to after that."
+)
+Review.create(
+    author_id: 9,
+    game_id: 14,
+    recommended: true,
+    body: "Get if you are a spiderman fan, but there isn't anything to come back to once it is over."
+)
+
+Review.create(
+    author_id: 8,
+    game_id: 14,
+    recommended: false,
+    body: "It looks very good but it is just a 3-5 minute tutorial."
+)
+
+Review.create(
+    author_id: 4,
+    game_id: 14,
+    recommended: false,
+    body: "Tt's just a petty tech demo that isn't worth anything, there are way better free vr experiences out there"
+)
 
 cuphead = Game.create(
     title: "Cuphead",
@@ -716,5 +933,32 @@ cuphead.photos.attach(io: cuphead6, filename: 'cuphead6.jpg')
 cuphead.photos.attach(io: cuphead7, filename: 'cuphead7.jpg')
 cuphead.photos.attach(io: cuphead8, filename: 'cuphead8.jpg')
 cuphead.photos.attach(io: cuphead9, filename: 'cuphead9.jpg')
+
+Review.create(
+    author_id: 2,
+    game_id: 15,
+    recommended: true,
+    body: "This is a really good game! i love it! i am also fricking PRO rn"
+)
+Review.create(
+    author_id: 3,
+     game_id: 15,
+    recommended: false,
+    body: "Superb but way too hard for me. Sadly had to request a refund, I just couldn't see myself trying any further."
+)
+
+Review.create(
+    author_id: 4,
+     game_id: 15,
+    recommended: true,
+    body: "There is so much creativity in this game such as character design, colors, level design and music, its hard af but still fun to play"
+)
+
+Review.create(
+    author_id: 6,
+     game_id: 15,
+    recommended: true,
+    body: "Such a pleasant game to play with my grandchildren."
+)
 
 end
