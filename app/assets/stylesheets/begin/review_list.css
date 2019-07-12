@@ -90,9 +90,9 @@
     padding: 8px;
     opacity: 0.6;
     color: #d4e7f9;
-    font-size: 13px;
-    font-weight: 300;
-    transform: translate(20px, 10px)
+    font-size: 12px;
+    font-weight: 200;
+    transform: translate(10px, 10px)
 }
 
 .review-box-right-column {

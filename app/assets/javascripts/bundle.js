@@ -272,7 +272,6 @@ var logout = function logout() {
 };
 var refreshUserInfo = function refreshUserInfo(currentUserId) {
   return function (dispatch) {
-    // debugger
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["refresh"](currentUserId).then(function (user) {
       return dispatch(receiveCurrentUser(user));
     });
@@ -878,7 +877,7 @@ function (_React$Component) {
             gameTitle: this.props.gameInfo.title,
             gamePrice: this.props.gameInfo.price,
             gameId: this.props.gameInfo.id
-          }), "purchase display");
+          }));
         }
 
         ;
@@ -935,7 +934,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_game_display_top_row__WEBPACK_IMPORTED_MODULE_5__["default"], {
         gameTitle: this.props.gameInfo.title,
         gamePhotos: this.props.gamePhotos
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, secondRow), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Game Further Info"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_list__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, secondRow), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_list__WEBPACK_IMPORTED_MODULE_3__["default"], {
         allReviews: this.props.allReviews,
         gameRatingCalc: gameRatingCalc,
         gameRating: gameRating,
@@ -1625,7 +1624,9 @@ function (_React$Component) {
         "class": "content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "logo"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_upper_right_nav_bar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null))));
+      }, "COAL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_upper_right_nav_bar_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        history: this.props.history
+      }))));
     }
   }]);
 
@@ -1693,15 +1694,17 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_username_menu__WEBPACK_IMPORTED_MODULE_2__["default"], {
           user: this.props.currentUser,
           logout: this.props.logout,
-          updateUserWallet: this.props.updateUserWallet
+          updateUserWallet: this.props.updateUserWallet,
+          history: this.props.history
         }));
       } else {
         display = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "upper-right-nav-bar"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/",
           id: "green-install-button",
           className: "install-button upper-right-nav-bar-text"
-        }, "Green Button"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        }, "Random Game"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           id: "login",
           className: "upper-right-nav-bar-text",
           to: "/login"
@@ -1738,11 +1741,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(_ref) {
-  var session = _ref.session,
-      users = _ref.entities.users;
+var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
-    currentUser: users[session.id]
+    currentUser: state.entities.users[state.session.id],
+    history: ownProps.history
   };
 };
 
@@ -1772,6 +1774,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1789,6 +1792,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1848,10 +1852,11 @@ function (_React$Component) {
 
       var userclone = Object.assign({}, this.props.user);
       userclone.wallet = userclone.wallet + 2000;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/",
         id: "gray-install-button",
         className: "install-button upper-right-nav-bar-text"
-      }, "Gray Button"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Random Game"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "wallet-display",
         className: "upper-right-nav-bar-text"
       }, "$", (this.props.user.wallet / 100).toFixed(2)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -2203,6 +2208,7 @@ function (_React$Component) {
       }
 
       ;
+      this.props.history.push("/game/".concat(Math.floor(Math.random() * 14) + 1));
     }
   }, {
     key: "render",
@@ -2238,7 +2244,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    history: ownProps.history
   };
 };
 

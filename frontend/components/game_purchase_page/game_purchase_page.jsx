@@ -62,7 +62,7 @@ class GamePurchasePage extends React.Component {
                         gamePrice={this.props.gameInfo.price}
                         gameId={this.props.gameInfo.id}
                          />
-                        purchase display
+                        
                     </div>
                 );
             };
@@ -119,7 +119,7 @@ class GamePurchasePage extends React.Component {
                     
                     <div>{secondRow}</div>
 
-                    <div>Game Further Info</div>
+                    <div></div>
                     
                     <div>
                         <ReviewList allReviews={this.props.allReviews}

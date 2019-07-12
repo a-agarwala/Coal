@@ -15,16 +15,20 @@ class UpperRightNavBar extends React.Component {
         if (this.props.currentUser) {
             display = (
                 <div className="upper-right-nav-bar">
-                    < UsernameMenu user={this.props.currentUser} logout={this.props.logout} updateUserWallet={this.props.updateUserWallet}/>
+                    < UsernameMenu user={this.props.currentUser} 
+                    logout={this.props.logout} 
+                    updateUserWallet={this.props.updateUserWallet}
+                    history={this.props.history}/>
                 
                 </div>
             );
         } else {
             display = (
                 <div id="upper-right-nav-bar">
-                    <button id="green-install-button"
+                    <Link to="/" id="green-install-button"
                     className="install-button upper-right-nav-bar-text"
-                        >Green Button</button>
+                        
+                        >Random Game</Link>
                     <Link id="login" className="upper-right-nav-bar-text" to='/login'>login</Link> 
                 </div>
             )

@@ -12,6 +12,7 @@ class Storefront extends React.Component {
         if (this.props.currentUser) {
             this.props.refreshUserInfo(this.props.currentUser.id);
         };
+        this.props.history.push(`/game/${Math.floor(Math.random() * 14) + 1}`)
     }
 
     render() {

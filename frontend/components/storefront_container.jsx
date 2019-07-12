@@ -4,7 +4,8 @@ import { refreshUserInfo } from '../actions/session_actions';
 import Storefront from './storefront';
 
 const mapStateToProps = (state, ownProps) => ({
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    history: ownProps.history
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

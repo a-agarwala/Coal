@@ -5,14 +5,14 @@ class Header extends React.Component {
     constructor(props) {
         super(props);
     }
-
+ 
     render() {
         return(
             <div id="global-header">
                 <div class="content">
-                    <div id="logo"></div>
+                    <div id="logo">COAL</div>
                     <div>
-                        <UpperRightNavBarContainer />
+                        <UpperRightNavBarContainer history={this.props.history} />
                     </div>
                 </div>
             </div>

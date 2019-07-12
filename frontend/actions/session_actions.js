@@ -43,7 +43,7 @@ export const logout = () => dispatch => (
 );
 
 export const refreshUserInfo = (currentUserId) => dispatch => {
-    // debugger
+
     return(
     SessionAPIUtil.refresh(currentUserId)
         .then(user => (dispatch(receiveCurrentUser(user)))))

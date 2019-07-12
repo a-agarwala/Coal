@@ -137,7 +137,8 @@ div#upper-right-nav-bar {
 #logo {
     color: white;
     position: absolute;
-    left: 100px;
-    top: 15px;
-    font-size: 40px;
+    left: 80px;
+    top: 20px;
+    font-size: 30px;
+    font-weight: bold;
 }

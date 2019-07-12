@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class UsernameMenu extends React.Component {
     constructor(props) {
@@ -39,10 +40,12 @@ class UsernameMenu extends React.Component {
         userclone.wallet = userclone.wallet + 2000;
 
         return (
+             (
             <div>
-                <button id="gray-install-button"
+                <Link to="/"
+                id="gray-install-button"
                     className="install-button upper-right-nav-bar-text"
-                >Gray Button</button>
+                >Random Game</Link>
                 <div id="wallet-display" className="upper-right-nav-bar-text">
                     ${((this.props.user.wallet)/100).toFixed(2)}
                 </div>
@@ -74,6 +77,7 @@ class UsernameMenu extends React.Component {
                         : (null)
                 }
             </div>
+            )
         );
     }
 
