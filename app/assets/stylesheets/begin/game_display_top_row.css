@@ -1,6 +1,6 @@
 .thumbnail-scrollbar {
     /* overflow-x: scroll; */
-    height: 75px;
+    height: 85px;
     /* width:100%; */
     width: 600px;
     /* padding: 0 15px; */
@@ -11,6 +11,17 @@
     white-space: nowrap;
     background-color: #0b1116;
     margin-bottom: 10px;
+    overflow-y:hidden;
+}
+
+.thumbnail-scrollbar > li {
+    max-width: 115px;
+    height: 65px;
+    position: relative;
+    left: 5px;
+    top: 3px;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 .thumbnail-scrollbar::-webkit-scrollbar {
@@ -25,9 +36,39 @@
     border-radius: 3px;
 }
 
-::-webkit-scrollbar-button {
-    width: 18px;
-    height: 18px;
-    background-color: rgba( 35, 60, 81, 0.4 );
-    border-radius: 3px;
+
+.thumbnail-button {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 65px;
+    width: 115px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    position: relative;
+    right: 24px;
+    bottom: 2px;
+}
+
+#game-display-big-picture {
+    width: 600px;
+    height: 337px;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#left-column-game-display-wrapper {
+    width: 616px;
+    height: 432px;
+}
+.highlight_selector {
+	position: absolute;
+	background-image: url('https://steamstore-a.akamaihd.net/public/images/v5/game_highlight_activethumb.png');
+	width: 116px;
+	height: 77px;
+	z-index: 50;
+	top: -10px;
+	pointer-events: none;
 }

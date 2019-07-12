@@ -1,4 +1,6 @@
 import React from 'react';
+import LeftColumnGameDisplay from './left_column_game_display';
+
 
 class GameDisplayTopRow extends React.Component {
     constructor(props) {
@@ -9,12 +11,7 @@ class GameDisplayTopRow extends React.Component {
         return (
             <div>
                 <div className="center_horizontally">
-                    <div className="thumbnail-scrollbar">
-                        {this.props.gamePhotos && 
-                        this.props.gamePhotos.map(photo=> 
-                        <li><img style={{width: '115px'}}
-                       src={photo}></img></li>)}
-                    </div >
+                    <LeftColumnGameDisplay gamePhotos={this.props.gamePhotos}/>
                 </div>
             </div>
         )
