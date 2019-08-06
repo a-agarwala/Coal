@@ -113,7 +113,16 @@ class GamePurchasePage extends React.Component {
                     <div>
                         <GameDisplayTopRow 
                         gameTitle={this.props.gameInfo.title}
-                        gamePhotos={this.props.gamePhotos}/>
+                        gamePhotos={this.props.gamePhotos}
+                        rightInfo={{
+                            paragraph: this.props.gameInfo.side_text,
+                            rating: gameRating,
+                            reviewCount: this.props.allReviews.length,
+                            releaseDate: this.props.gameInfo.release_date,
+                            developer: this.props.gameInfo.developer,
+                            publisher: this.props.gameInfo.publisher
+                        }}
+                        />
                     </div>
                     
                     

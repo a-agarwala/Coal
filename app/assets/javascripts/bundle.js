@@ -769,7 +769,10 @@ function (_React$Component) {
         }
       }, this.props.gameTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_left_column_game_display__WEBPACK_IMPORTED_MODULE_1__["default"], {
         gamePhotos: this.props.gamePhotos
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_right_column_game_display__WEBPACK_IMPORTED_MODULE_2__["default"], null))));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_right_column_game_display__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        info: this.props.rightInfo,
+        image: this.props.gamePhotos[0]
+      }))));
     }
   }]);
 
@@ -933,7 +936,15 @@ function (_React$Component) {
         className: "body-wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_game_display_top_row__WEBPACK_IMPORTED_MODULE_5__["default"], {
         gameTitle: this.props.gameInfo.title,
-        gamePhotos: this.props.gamePhotos
+        gamePhotos: this.props.gamePhotos,
+        rightInfo: {
+          paragraph: this.props.gameInfo.side_text,
+          rating: gameRating,
+          reviewCount: this.props.allReviews.length,
+          releaseDate: this.props.gameInfo.release_date,
+          developer: this.props.gameInfo.developer,
+          publisher: this.props.gameInfo.publisher
+        }
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, secondRow), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_list__WEBPACK_IMPORTED_MODULE_3__["default"], {
         allReviews: this.props.allReviews,
         gameRatingCalc: gameRatingCalc,
@@ -1558,9 +1569,59 @@ function (_React$Component) {
   _createClass(RightColumnGameDisplay, [{
     key: "render",
     value: function render() {
+      var image = this.props.image;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "right-column-game-display-wrapper"
-      });
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "title-picture-display"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: image
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "right-side-info-box"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "right-side-info-paragraph"
+      }, this.props.info.paragraph), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-side-info-row",
+        style: {
+          marginTop: '10px'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-side-info-row-subtitle"
+      }, "User Reviews:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-side-info-row-info-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-side-info-row-info-bluetext"
+      }, this.props.info.rating), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-side-info-row-graytext"
+      }, "(", this.props.info.reviewCount, ")"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-side-info-row",
+        style: {
+          marginTop: '10px',
+          marginBottom: '10px'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-side-info-row-subtitle"
+      }, "Release Date:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-side-info-row-info-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-side-info-row-date"
+      }, this.props.info.releaseDate))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-side-info-row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-side-info-row-subtitle"
+      }, "Developer:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-side-info-row-info-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-side-info-row-info-bluetext"
+      }, this.props.info.developer))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-side-info-row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-side-info-row-subtitle"
+      }, "Publisher:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-side-info-row-info-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-side-info-row-info-bluetext"
+      }, this.props.info.publisher)))));
     }
   }]);
 
@@ -32228,7 +32289,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

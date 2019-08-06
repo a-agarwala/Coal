@@ -39,7 +39,6 @@
 
 
 .thumbnail-button {
-    
     height: 65px;
     width: 115px;
     margin-left: 2px;
@@ -62,24 +61,25 @@
 }
 
 #left-column-game-display-wrapper {
-    width: 616px;
+    width: 600px;
     height: 450px;
     display: inline-block;
 }
 
-.thumbnail-button:focus {
+/* .thumbnail-button:focus {
 	position: relative;
 	background-image: url('https://steamstore-a.akamaihd.net/public/images/v5/game_highlight_activethumb.png');
 	width: 116px;
     height: 100px;
     bottom: 15px;
     z-index: 500;
-}
+} */
 
 #right-column-game-display-wrapper {
     width: 324px;
-    height: 378px;
+    height: 407px;
     display: inline-block;
+    margin-left: 16px;
 }
 
 .top-row-center-horizontally {
@@ -90,4 +90,78 @@
 .game-name-purchase-page {
     font-size: 26px;
     margin-bottom: 8px;
+}
+
+#title-picture-display {
+    width: 324px;
+    height: 151px;
+
+    object-fit: fill;
+    margin-bottom: 7px;
+}
+
+#right-side-info-box {
+    height: 259px;
+    width: 324px;
+    position: absolute;
+}
+
+#right-side-info-paragraph {
+    max-height: 123px;
+    overflow: hidden;
+    font-size: 13px;
+    line-height: 18px;
+    padding-right: 16px;
+    color: #c6d4df;
+}
+
+#game-top-row-background {
+    max-height: 488px;
+}
+
+.right-side-info-row {
+    width: 324px;
+    height: 16px;
+    display: block;
+}
+
+.right-side-info-row-subtitle {
+    width: 94px;
+    height: 16px;
+    padding-right: 10px;
+    text-transform: uppercase;
+    font-size: 10px;
+    line-height: 16px;
+    color: #556772;
+    display: inline-block;
+}
+
+.right-side-info-row-info-wrapper {
+    height: 16px;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.right-side-info-row-info-bluetext {
+    color: #66C0F4;
+    line-height: 16px;
+    display: inline-block;
+}
+
+.right-side-info-row-info-redtext {
+    color: #A34C25;
+    line-height: 16px;
+  
+}
+
+.right-side-info-row-graytext {
+    color: #556772;
+    display: inline-block;
+    margin-left: 3px
+}
+
+.right-side-info-row-date {
+    color: #8f98a0;
+    line-height: 16px;
+    font-size: 12px;
 }

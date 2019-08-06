@@ -18,7 +18,8 @@ class GameDisplayTopRow extends React.Component {
                     </div>
                     
                     <LeftColumnGameDisplay gamePhotos={this.props.gamePhotos}/>
-                    <RightColumnGameDisplay />
+                    <RightColumnGameDisplay info={this.props.rightInfo}
+                                            image={this.props.gamePhotos[0]}/>
                 </div>
                 </div>
 
