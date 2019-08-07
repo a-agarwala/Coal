@@ -12,10 +12,10 @@ class GameDisplayTopRow extends React.Component {
             <div>
                 
                 <div className="top-row-center-horizontally">
-                    <div id="game-top-row-background">
-                    <div className="game-name-purchase-page" style={{color: "white"}}>
+                    <div className="game-name-purchase-page" style={{ color: "white" }}>
                         {this.props.gameTitle}
                     </div>
+                    <div id="game-top-row-background">
                     
                     <LeftColumnGameDisplay gamePhotos={this.props.gamePhotos}/>
                     <RightColumnGameDisplay info={this.props.rightInfo}

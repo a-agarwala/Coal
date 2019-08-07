@@ -761,13 +761,13 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "top-row-center-horizontally"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "game-top-row-background"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "game-name-purchase-page",
         style: {
           color: "white"
         }
-      }, this.props.gameTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_left_column_game_display__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, this.props.gameTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "game-top-row-background"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_left_column_game_display__WEBPACK_IMPORTED_MODULE_1__["default"], {
         gamePhotos: this.props.gamePhotos
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_right_column_game_display__WEBPACK_IMPORTED_MODULE_2__["default"], {
         info: this.props.rightInfo,
