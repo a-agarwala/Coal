@@ -32,6 +32,8 @@ html, body {
     left: auto;
     width: 100%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
     /* position: absolute; */
 }
 
@@ -43,4 +45,24 @@ html, body {
     position: absolute; */
     min-height: 152px;
     background: #0f1922;
+}
+
+.first-row-purchase-page {
+    flex: 1;
+    display: block;
+}
+
+.second-row-purchase-page {
+    flex: 2;
+    display: block;
+}
+
+.third-row-purchase-page {
+    flex: 3;
+    display: block;
+}
+
+.fourth-row-purchase-page {
+    flex: 4;
+    display: block;
 }

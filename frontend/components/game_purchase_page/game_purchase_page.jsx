@@ -30,7 +30,7 @@ class GamePurchasePage extends React.Component {
             if (this.props.currentUser && this.props.ownsGame && !this.props.hasReviewedGame) {
 
                 secondRow = (
-                    <div>
+                    <div className="second-row-purchase-page">
                         <NewReviewForm createReview={this.props.createReview}
                             currentUser={this.props.currentUser}
                             gameTitle={this.props.gameInfo.title}
@@ -41,7 +41,7 @@ class GamePurchasePage extends React.Component {
             } else if (this.props.currentUser && this.props.hasReviewedGame) {
 
                 secondRow = (
-                    <div>
+                    <div className="second-row-purchase-page">
                         <EditReviewForm editReview={this.props.editReview}
                             removeReview={this.props.removeReview}
                             currentUser={this.props.currentUser}
@@ -54,7 +54,7 @@ class GamePurchasePage extends React.Component {
             } else {
 
                 secondRow = (
-                    <div>
+                    <div className="second-row-purchase-page">
                         <PurchaseDisplay currentUser={this.props.currentUser} 
                         updateUserWallet={this.props.updateUserWallet}
                         purchaseGame={this.props.purchaseGame}
@@ -110,7 +110,7 @@ class GamePurchasePage extends React.Component {
             <div>
             {this.props.gameInfo &&
                 <div className="body-wrapper">
-                    <div>
+                    <div className="first-row-purchase-page">
                         <GameDisplayTopRow 
                         gameTitle={this.props.gameInfo.title}
                         gamePhotos={this.props.gamePhotos}
@@ -126,11 +126,11 @@ class GamePurchasePage extends React.Component {
                     </div>
                     
                     
-                    <div>{secondRow}</div>
+                    {secondRow}
 
-                    <div></div>
+                    <div className="third-row-purchase-page"></div>
                     
-                    <div>
+                    <div className="fourth-row-purchase-page">
                         <ReviewList allReviews={this.props.allReviews}
                         gameRatingCalc={gameRatingCalc}
                         gameRating={gameRating}

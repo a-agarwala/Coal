@@ -765,14 +765,18 @@ function (_React$Component) {
         style: {
           color: "white"
         }
-      }, this.props.gameTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.gameTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "game-top-row-content"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "game-top-row-background"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_left_column_game_display__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://steamstore-a.akamaihd.net/public/images/v6/app/game_page_background_shadow.png?v=2"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_left_column_game_display__WEBPACK_IMPORTED_MODULE_1__["default"], {
         gamePhotos: this.props.gamePhotos
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_right_column_game_display__WEBPACK_IMPORTED_MODULE_2__["default"], {
         info: this.props.rightInfo,
         image: this.props.gamePhotos[0]
-      }))));
+      })))));
     }
   }]);
 
@@ -857,14 +861,18 @@ function (_React$Component) {
 
       if (this.props.gameInfo) {
         if (this.props.currentUser && this.props.ownsGame && !this.props.hasReviewedGame) {
-          secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_new_review_form__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "second-row-purchase-page"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_new_review_form__WEBPACK_IMPORTED_MODULE_1__["default"], {
             createReview: this.props.createReview,
             currentUser: this.props.currentUser,
             gameTitle: this.props.gameInfo.title,
             gameId: this.props.gameInfo.id
           }));
         } else if (this.props.currentUser && this.props.hasReviewedGame) {
-          secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_edit_review_form__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "second-row-purchase-page"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_edit_review_form__WEBPACK_IMPORTED_MODULE_2__["default"], {
             editReview: this.props.editReview,
             removeReview: this.props.removeReview,
             currentUser: this.props.currentUser,
@@ -873,7 +881,9 @@ function (_React$Component) {
             thisGameReview: this.props.thisGameReview
           }));
         } else {
-          secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_purchase_display__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "second-row-purchase-page"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_purchase_display__WEBPACK_IMPORTED_MODULE_4__["default"], {
             currentUser: this.props.currentUser,
             updateUserWallet: this.props.updateUserWallet,
             purchaseGame: this.props.purchaseGame,
@@ -934,7 +944,9 @@ function (_React$Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.gameInfo && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "body-wrapper"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_game_display_top_row__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "first-row-purchase-page"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_game_display_top_row__WEBPACK_IMPORTED_MODULE_5__["default"], {
         gameTitle: this.props.gameInfo.title,
         gamePhotos: this.props.gamePhotos,
         rightInfo: {
@@ -945,7 +957,11 @@ function (_React$Component) {
           developer: this.props.gameInfo.developer,
           publisher: this.props.gameInfo.publisher
         }
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, secondRow), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_list__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      })), secondRow, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "third-row-purchase-page"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "fourth-row-purchase-page"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_list__WEBPACK_IMPORTED_MODULE_3__["default"], {
         allReviews: this.props.allReviews,
         gameRatingCalc: gameRatingCalc,
         gameRating: gameRating,

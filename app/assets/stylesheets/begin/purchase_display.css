@@ -1,3 +1,8 @@
+.second-row-purchase-page {
+    display: block;
+    z-index: 10;
+}
+
 #purchase-display-wrapper {
     width: 616px;
 }
