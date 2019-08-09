@@ -4,3 +4,10 @@ export const fetchGameInfoAndReviews = gameId => (
         url: `/api/games/${gameId}`,
     })
 )
+
+export const populateStorefront = () => (
+    $.ajax({
+        method: 'GET',
+        url: '/api/games',
+    })
+)

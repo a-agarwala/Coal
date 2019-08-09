@@ -90,20 +90,24 @@
 /*!******************************************!*\
   !*** ./frontend/actions/game_actions.js ***!
   \******************************************/
-/*! exports provided: FETCH_GAME_INFO_AND_REVIEWS, LEAVE_GAME_PURCHASE_PAGE, fetchGameInfoAndReviews, leaveGamePurchasePage, getGameInfoAndReviews */
+/*! exports provided: FETCH_GAME_INFO_AND_REVIEWS, LEAVE_GAME_PURCHASE_PAGE, POPULATE_STOREFRONT, fetchGameInfoAndReviews, leaveGamePurchasePage, populateStorefront, getGameInfoAndReviews, enterStorefront */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_GAME_INFO_AND_REVIEWS", function() { return FETCH_GAME_INFO_AND_REVIEWS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LEAVE_GAME_PURCHASE_PAGE", function() { return LEAVE_GAME_PURCHASE_PAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "POPULATE_STOREFRONT", function() { return POPULATE_STOREFRONT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchGameInfoAndReviews", function() { return fetchGameInfoAndReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "leaveGamePurchasePage", function() { return leaveGamePurchasePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "populateStorefront", function() { return populateStorefront; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getGameInfoAndReviews", function() { return getGameInfoAndReviews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enterStorefront", function() { return enterStorefront; });
 /* harmony import */ var _util_games_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/games_api_util */ "./frontend/util/games_api_util.js");
 
 var FETCH_GAME_INFO_AND_REVIEWS = 'FETCH_GAME_INFO_AND_REVIEWS';
 var LEAVE_GAME_PURCHASE_PAGE = 'LEAVE_GAME_PURCHASE_PAGE';
+var POPULATE_STOREFRONT = 'POPULATE_STOREFRONT';
 var fetchGameInfoAndReviews = function fetchGameInfoAndReviews(gameInfoAndReviews) {
   return {
     type: FETCH_GAME_INFO_AND_REVIEWS,
@@ -115,10 +119,23 @@ var leaveGamePurchasePage = function leaveGamePurchasePage() {
     type: LEAVE_GAME_PURCHASE_PAGE
   };
 };
+var populateStorefront = function populateStorefront(storefrontData) {
+  return {
+    type: POPULATE_STOREFRONT,
+    storefrontData: storefrontData
+  };
+};
 var getGameInfoAndReviews = function getGameInfoAndReviews(gameId) {
   return function (dispatch) {
     return _util_games_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchGameInfoAndReviews"](gameId).then(function (gameInfoAndReviews) {
       return dispatch(fetchGameInfoAndReviews(gameInfoAndReviews));
+    });
+  };
+};
+var enterStorefront = function enterStorefront() {
+  return function (dispatch) {
+    return _util_games_api_util__WEBPACK_IMPORTED_MODULE_0__["populateStorefront"]().then(function (storefrontData) {
+      return dispatch(populateStorefront(storefrontData));
     });
   };
 };
@@ -2291,7 +2308,7 @@ function (_React$Component) {
       }
 
       ;
-      this.props.history.push("/game/".concat(Math.floor(Math.random() * 14) + 1));
+      this.props.enterStorefront(); // this.props.history.push(`/game/${Math.floor(Math.random() * 14) + 1}`)
     }
   }, {
     key: "render",
@@ -2339,6 +2356,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
     },
     refreshUserInfo: function refreshUserInfo(currentUserId) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["refreshUserInfo"])(currentUserId));
+    },
+    enterStorefront: function enterStorefront() {
+      return dispatch(Object(_actions_game_actions__WEBPACK_IMPORTED_MODULE_1__["enterStorefront"])());
     }
   };
 };
@@ -2361,6 +2381,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _owned_games_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./owned_games_reducer */ "./frontend/reducers/owned_games_reducer.js");
 /* harmony import */ var _reviews_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reviews_reducer */ "./frontend/reducers/reviews_reducer.js");
 /* harmony import */ var _viewed_game_info_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./viewed_game_info_reducer */ "./frontend/reducers/viewed_game_info_reducer.js");
+/* harmony import */ var _storefront_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./storefront_reducer */ "./frontend/reducers/storefront_reducer.js");
+
 
 
 
@@ -2370,7 +2392,8 @@ var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   ownedGames: _owned_games_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
   reviews: _reviews_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
-  viewedGame: _viewed_game_info_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
+  viewedGame: _viewed_game_info_reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
+  storefront: _storefront_reducer__WEBPACK_IMPORTED_MODULE_5__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -2586,6 +2609,38 @@ var sessionReducer = function sessionReducer() {
 
 /***/ }),
 
+/***/ "./frontend/reducers/storefront_reducer.js":
+/*!*************************************************!*\
+  !*** ./frontend/reducers/storefront_reducer.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_game_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/game_actions */ "./frontend/actions/game_actions.js");
+
+
+var storefrontReducer = function storefrontReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+  var newState = Object.assign({}, state);
+
+  switch (action.type) {
+    case _actions_game_actions__WEBPACK_IMPORTED_MODULE_0__["POPULATE_STOREFRONT"]:
+      newState = action.storefrontData.gamesData;
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (storefrontReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/users_reducer.js":
 /*!********************************************!*\
   !*** ./frontend/reducers/users_reducer.js ***!
@@ -2752,16 +2807,23 @@ var configureStore = function configureStore() {
 /*!*****************************************!*\
   !*** ./frontend/util/games_api_util.js ***!
   \*****************************************/
-/*! exports provided: fetchGameInfoAndReviews */
+/*! exports provided: fetchGameInfoAndReviews, populateStorefront */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchGameInfoAndReviews", function() { return fetchGameInfoAndReviews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "populateStorefront", function() { return populateStorefront; });
 var fetchGameInfoAndReviews = function fetchGameInfoAndReviews(gameId) {
   return $.ajax({
     method: 'GET',
     url: "/api/games/".concat(gameId)
+  });
+};
+var populateStorefront = function populateStorefront() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/games'
   });
 };
 
