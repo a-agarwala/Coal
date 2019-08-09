@@ -26,14 +26,13 @@ html, body {
 
 .body-wrapper {
     flex: 1;
-    top: 104px;
-    bottom: 152px;
     right: auto;
     left: auto;
     width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    position: relative;
     /* position: absolute; */
 }
 
@@ -65,4 +64,22 @@ html, body {
 .fourth-row-purchase-page {
     flex: 4;
     display: block;
+}
+
+#background-image-purchase-page {
+    position: absolute;
+    z-index: 0;
+    overflow: hidden;
+    opacity: 0.6;
+    background-color: rgb(4, 125, 206);
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, 
+    from(rgba(4, 125, 206, 0.952)), to(rgba(4, 125, 206, 0)));
+}
+
+#background-image-purchase-page img {
+    width: 1500px;
+    z-index: -2;
+    opacity: 0.65;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, 
+    from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 }

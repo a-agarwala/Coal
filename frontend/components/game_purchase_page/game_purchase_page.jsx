@@ -107,9 +107,14 @@ class GamePurchasePage extends React.Component {
         }
 
         return (
-            <div>
+            <div className="what-is-this-div">
             {this.props.gameInfo &&
                 <div className="body-wrapper">
+
+                    <div id="background-image-purchase-page">
+                        <img src={this.props.gamePhotos[1]}></img>
+                    </div>
+
                     <div className="first-row-purchase-page">
                         <GameDisplayTopRow 
                         gameTitle={this.props.gameInfo.title}

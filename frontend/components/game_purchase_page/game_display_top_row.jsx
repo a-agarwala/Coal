@@ -23,7 +23,7 @@ class GameDisplayTopRow extends React.Component {
 
                     <div id="game-top-row-content">
                     <div id="game-top-row-background">
-                                <img src={"https://steamstore-a.akamaihd.net/public/images/v6/app/game_page_background_shadow.png?v=2"}></img> 
+                        <img src={"https://steamstore-a.akamaihd.net/public/images/v6/app/game_page_background_shadow.png?v=2"}></img> 
                     </div>
                     <LeftColumnGameDisplay gamePhotos={this.props.gamePhotos}/>
                     <RightColumnGameDisplay info={this.props.rightInfo}

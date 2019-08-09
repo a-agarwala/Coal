@@ -88,7 +88,9 @@
 
 .game-name-purchase-page {
     font-size: 26px;
-    margin-bottom: 8px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    z-index: 2;
 }
 
 #title-picture-display {
@@ -183,7 +185,7 @@
     object-fit: cover;
     position: absolute;
     bottom: 0;
-    opacity: 0.5;
+    opacity: 0.8;
 }
 
 #game-top-row-content {

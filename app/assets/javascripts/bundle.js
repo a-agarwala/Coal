@@ -942,9 +942,15 @@ function (_React$Component) {
         ;
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.gameInfo && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "what-is-this-div"
+      }, this.props.gameInfo && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "body-wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "background-image-purchase-page"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: this.props.gamePhotos[1]
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "first-row-purchase-page"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_game_display_top_row__WEBPACK_IMPORTED_MODULE_5__["default"], {
         gameTitle: this.props.gameInfo.title,
