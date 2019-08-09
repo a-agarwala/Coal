@@ -6,15 +6,26 @@ class Api::GamesController < ApplicationController
     end
 
     def index
-        @games = []
+        @games = {}
         Game.with_attached_photos.all.each do |game|
-            until @games.length == 9
-                @games << game
-            end
-            break
-        end
+            game_id = game.id
+            game_title = game.title
+            game_price = game.price
 
-        render "api/games/index"
+            game_data = {
+                'title' => game_title,
+                'price' => game_price,
+                'photoUrls' => [],
+            }
+            
+            @games[game_id] = game_data
+
+            (0..4).each do |idx|
+                @games[game_id]['photoUrls'] << url_for(game.photos[idx])
+            end
+    end
+
+    render "api/games/index"
 
     end
 
