@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Grid from './storefront/grid';
 
 class Storefront extends React.Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class Storefront extends React.Component {
         return(
             <div>
                 <h1>Storefront</h1>
-                
+                <Grid/>
             </div>
             
         )

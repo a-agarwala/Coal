@@ -1,0 +1,22 @@
+.storefront-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid-item {
+    width: 306px;
+    height: 175px;
+}
+
+.grid-item-game-picture {
+    width: 306px;
+    height: 143px;
+    display: block;
+}
+
+.grid-item-lower-bar {
+    width: 306px;
+    height: 32px;
+    display: block;
+    background: linear-gradient( 135deg, rgba(37,49,63,1) 5%,rgba(54,97,125,1) 95%);
+}   
