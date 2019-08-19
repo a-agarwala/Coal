@@ -5,7 +5,8 @@ import Storefront from './storefront';
 
 const mapStateToProps = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.id],
-    history: ownProps.history
+    history: ownProps.history,
+    storefrontData: state.entities.storefront
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

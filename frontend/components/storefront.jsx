@@ -15,10 +15,13 @@ class Storefront extends React.Component {
         };
 
         this.props.enterStorefront();
+        console.log(this.props.storefrontData);
         // this.props.history.push(`/game/${Math.floor(Math.random() * 14) + 1}`)
     }
 
     render() {
+        console.log( this.props.storefrontData )
+
         return(
             <div>
                 <h1>Storefront</h1>

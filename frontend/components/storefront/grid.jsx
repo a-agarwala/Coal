@@ -9,13 +9,17 @@ class Grid extends React.Component {
 
     render() {
         return (
-           <div className="storefront-grid-wrapper">
+            <div className="top-row-center-horizontally">
 
-               <div className="storefront-grid">
-                    <GridItem/>
-               </div>
+                <div className="storefront-grid-wrapper">
 
-           </div> 
+                    <div className="storefront-grid">
+                            <GridItem/>
+                    </div>
+
+                </div> 
+
+            </div>
         )
     }
 

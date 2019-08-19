@@ -2318,11 +2318,13 @@ function (_React$Component) {
       }
 
       ;
-      this.props.enterStorefront(); // this.props.history.push(`/game/${Math.floor(Math.random() * 14) + 1}`)
+      this.props.enterStorefront();
+      console.log(this.props.storefrontData); // this.props.history.push(`/game/${Math.floor(Math.random() * 14) + 1}`)
     }
   }, {
     key: "render",
     value: function render() {
+      console.log(this.props.storefrontData);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Storefront"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_storefront_grid__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
@@ -2382,10 +2384,12 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "top-row-center-horizontally"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "storefront-grid-wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "storefront-grid"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grid_item__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grid_item__WEBPACK_IMPORTED_MODULE_1__["default"], null))));
     }
   }]);
 
@@ -2483,7 +2487,8 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     currentUser: state.entities.users[state.session.id],
-    history: ownProps.history
+    history: ownProps.history,
+    storefrontData: state.entities.storefront
   };
 };
 
