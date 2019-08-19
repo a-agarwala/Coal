@@ -90,7 +90,7 @@
 /*!******************************************!*\
   !*** ./frontend/actions/game_actions.js ***!
   \******************************************/
-/*! exports provided: FETCH_GAME_INFO_AND_REVIEWS, LEAVE_GAME_PURCHASE_PAGE, POPULATE_STOREFRONT, fetchGameInfoAndReviews, leaveGamePurchasePage, populateStorefront, getGameInfoAndReviews, enterStorefront */
+/*! exports provided: FETCH_GAME_INFO_AND_REVIEWS, LEAVE_GAME_PURCHASE_PAGE, POPULATE_STOREFRONT, LEAVE_STOREFRONT, fetchGameInfoAndReviews, leaveGamePurchasePage, populateStorefront, leaveStorefront, getGameInfoAndReviews, enterStorefront */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98,9 +98,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_GAME_INFO_AND_REVIEWS", function() { return FETCH_GAME_INFO_AND_REVIEWS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LEAVE_GAME_PURCHASE_PAGE", function() { return LEAVE_GAME_PURCHASE_PAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "POPULATE_STOREFRONT", function() { return POPULATE_STOREFRONT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LEAVE_STOREFRONT", function() { return LEAVE_STOREFRONT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchGameInfoAndReviews", function() { return fetchGameInfoAndReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "leaveGamePurchasePage", function() { return leaveGamePurchasePage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "populateStorefront", function() { return populateStorefront; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "leaveStorefront", function() { return leaveStorefront; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getGameInfoAndReviews", function() { return getGameInfoAndReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enterStorefront", function() { return enterStorefront; });
 /* harmony import */ var _util_games_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/games_api_util */ "./frontend/util/games_api_util.js");
@@ -108,6 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 var FETCH_GAME_INFO_AND_REVIEWS = 'FETCH_GAME_INFO_AND_REVIEWS';
 var LEAVE_GAME_PURCHASE_PAGE = 'LEAVE_GAME_PURCHASE_PAGE';
 var POPULATE_STOREFRONT = 'POPULATE_STOREFRONT';
+var LEAVE_STOREFRONT = 'LEAVE_STOREFRONT';
 var fetchGameInfoAndReviews = function fetchGameInfoAndReviews(gameInfoAndReviews) {
   return {
     type: FETCH_GAME_INFO_AND_REVIEWS,
@@ -123,6 +126,11 @@ var populateStorefront = function populateStorefront(storefrontData) {
   return {
     type: POPULATE_STOREFRONT,
     storefrontData: storefrontData
+  };
+};
+var leaveStorefront = function leaveStorefront() {
+  return {
+    type: LEAVE_STOREFRONT
   };
 };
 var getGameInfoAndReviews = function getGameInfoAndReviews(gameId) {

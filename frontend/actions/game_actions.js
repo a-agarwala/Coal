@@ -3,6 +3,7 @@ import * as GamesAPIUtil from "../util/games_api_util"
 export const FETCH_GAME_INFO_AND_REVIEWS = 'FETCH_GAME_INFO_AND_REVIEWS';
 export const LEAVE_GAME_PURCHASE_PAGE = 'LEAVE_GAME_PURCHASE_PAGE';
 export const POPULATE_STOREFRONT = 'POPULATE_STOREFRONT';
+export const LEAVE_STOREFRONT = 'LEAVE_STOREFRONT';
 
 export const fetchGameInfoAndReviews = (gameInfoAndReviews) => ({
     type: FETCH_GAME_INFO_AND_REVIEWS,
@@ -18,6 +19,10 @@ export const populateStorefront = (storefrontData) => ({
     storefrontData
 })
 
+export const leaveStorefront = () => ({
+    type: LEAVE_STOREFRONT
+})
+
 export const getGameInfoAndReviews = gameId => dispatch => (
     GamesAPIUtil.fetchGameInfoAndReviews(gameId)
         .then(gameInfoAndReviews => (dispatch(fetchGameInfoAndReviews(gameInfoAndReviews))))
@@ -27,4 +32,5 @@ export const enterStorefront = () => dispatch => (
     GamesAPIUtil.populateStorefront()
         .then(storefrontData => (dispatch(populateStorefront(storefrontData))))
 );
+
 
