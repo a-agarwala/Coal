@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Grid from './storefront/grid';
+import GridContainer from './storefront/grid_container';
 
 class Storefront extends React.Component {
     constructor(props) {
@@ -15,18 +16,22 @@ class Storefront extends React.Component {
         };
 
         this.props.enterStorefront();
-        console.log(this.props.storefrontData);
+
         // this.props.history.push(`/game/${Math.floor(Math.random() * 14) + 1}`)
     }
 
     render() {
-        console.log( this.props.storefrontData )
 
         return(
             <div>
-                <h1>Storefront</h1>
-                <Grid/>
+                {this.props.storefrontData[1] &&
+                    <div>
+                        
+                        <GridContainer history={this.props.history}/>
+                    </div>
+                }
             </div>
+            
             
         )
         

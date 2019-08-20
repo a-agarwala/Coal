@@ -4,6 +4,7 @@ import SigninAndInfo from './signin_create_page/signin_and_info';
 import CreateAccountContainer from './create_acc_page/create_account_container';
 import GamePurchasePageContainer from './game_purchase_page/game_purchase_page_container';
 import StorefrontContainer from './storefront_container';
+import RandomGame from './random_game';
 
 import {
     Route,
@@ -27,6 +28,7 @@ const App = () => (
             <AuthRoute exact path='/join' component={CreateAccountContainer} />
             <Route exact path='/game/:gameId' component={GamePurchasePageContainer} />
             <Route exact path="/" component={StorefrontContainer} />
+            <Route exact path="/random" component={RandomGame}/>
         </Switch>
         <footer id="global-footer">
 

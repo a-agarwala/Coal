@@ -1,3 +1,8 @@
+.storefront-grid-wrapper {
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
 .storefront-grid {
     display: flex;
     flex-wrap: wrap;
@@ -7,7 +12,8 @@
     width: 303px;
     height: 175px;
     margin-right: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .grid-item-game-picture {
@@ -21,4 +27,25 @@
     height: 32px;
     display: block;
     background: linear-gradient( 135deg, rgba(37,49,63,1) 5%,rgba(54,97,125,1) 95%);
+    
 }   
+
+.grid-item-price {
+    color: #acdbf5;
+    text-align: right;
+    line-height: 15px;
+    font-size: 14px;
+    position: relative;
+    top: 10px;
+    right: 7px;
+}
+
+.storefront-grid-wrapper h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0 0 10px;
+    letter-spacing: 2px;
+    font-weight: normal;
+    padding-top: 2px;
+}

@@ -11,6 +11,7 @@ class UpperRightNavBar extends React.Component {
     render() {
 
         let display = {};
+        
 
         if (this.props.currentUser) {
             display = (
@@ -25,7 +26,7 @@ class UpperRightNavBar extends React.Component {
         } else {
             display = (
                 <div id="upper-right-nav-bar">
-                    <Link to="/" id="green-install-button"
+                    <Link to={'/random'} id="green-install-button"
                     className="install-button upper-right-nav-bar-text"
                         
                         >Random Game</Link>

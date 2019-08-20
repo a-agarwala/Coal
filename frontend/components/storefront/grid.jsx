@@ -8,13 +8,22 @@ class Grid extends React.Component {
     }
 
     render() {
+        let gridItemsArray = this.props.gamesArray.map((gameObject, index) =>
+            <div key={index}>    
+                <GridItem
+                gameId={gameObject.id}
+                photoUrl={gameObject.photoUrl}
+                price={gameObject.price}
+                history={this.props.history}/>
+            </div>
+        );
         return (
             <div className="top-row-center-horizontally">
 
                 <div className="storefront-grid-wrapper">
-
+                    <h2>Popular</h2>
                     <div className="storefront-grid">
-                            <GridItem/>
+                            {gridItemsArray}
                     </div>
 
                 </div> 
