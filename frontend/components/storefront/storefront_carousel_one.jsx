@@ -5,6 +5,8 @@ export default function StorefrontCarouselOne(props) {
 
     const [position, setPosition] = useState(0);
     const [photoIndex, setPhotoIndex] = useState(0);
+    const [isIntervalActive, setIntervalActive] = useState(true);
+
     const limit = props.gamesArray.length - 1;
 
     function movePosition(dir) {
@@ -16,7 +18,20 @@ export default function StorefrontCarouselOne(props) {
             newPosition = 0;
         }
         setPosition(newPosition);
+        setIntervalActive(true);
     }
+
+    useEffect(() => {
+        let interval = null;
+        if (isIntervalActive) {
+            interval = setInterval(() => {
+                movePosition(1);
+            }, 4000);
+        } else {
+            clearInterval(interval)
+        }
+        return () => clearInterval(interval);
+    } );
 
     return (
         <div className="storefront-carousel-one-wrapper-one">
@@ -27,7 +42,10 @@ export default function StorefrontCarouselOne(props) {
                 <div className="storefront-carousel-one-left-arrow"></div>
             </div>
             
-            <div className="storefront-carousel-one-content-box" onClick={() => props.history.push(`/game/${props.gamesArray[position].id}`)}>
+            <div className="storefront-carousel-one-content-box" 
+                onClick={() => props.history.push(`/game/${props.gamesArray[position].id}`)}
+                onMouseEnter={() => setIntervalActive(false)}
+                onMouseLeave={() => setIntervalActive(true)}>
 
                     <div className="storefront-carousel-one-big-photo-box">
                         <img className="storefront-carousel-one-big-actual-photo" src={props.gamesArray[position].photoUrls[photoIndex]}></img>

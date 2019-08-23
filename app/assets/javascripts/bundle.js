@@ -2711,6 +2711,11 @@ function StorefrontCarouselOne(props) {
       photoIndex = _useState4[0],
       setPhotoIndex = _useState4[1];
 
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
+      _useState6 = _slicedToArray(_useState5, 2),
+      isIntervalActive = _useState6[0],
+      setIntervalActive = _useState6[1];
+
   var limit = props.gamesArray.length - 1;
 
   function movePosition(dir) {
@@ -2725,8 +2730,24 @@ function StorefrontCarouselOne(props) {
     }
 
     setPosition(newPosition);
+    setIntervalActive(true);
   }
 
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    var interval = null;
+
+    if (isIntervalActive) {
+      interval = setInterval(function () {
+        movePosition(1);
+      }, 4000);
+    } else {
+      clearInterval(interval);
+    }
+
+    return function () {
+      return clearInterval(interval);
+    };
+  });
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "storefront-carousel-one-wrapper-one"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Featured"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2742,6 +2763,12 @@ function StorefrontCarouselOne(props) {
     className: "storefront-carousel-one-content-box",
     onClick: function onClick() {
       return props.history.push("/game/".concat(props.gamesArray[position].id));
+    },
+    onMouseEnter: function onMouseEnter() {
+      return setIntervalActive(false);
+    },
+    onMouseLeave: function onMouseLeave() {
+      return setIntervalActive(true);
     }
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "storefront-carousel-one-big-photo-box"
