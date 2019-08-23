@@ -49,7 +49,7 @@ export default function StorefrontCarouselOne(props) {
 
                         <div className="storefront-carousel-one-now-available">Now Available</div>
                         
-                        <div className="storefront-carousel-one-price">{((props.gamesArray[position].price)/100).toFixed(2)}</div>
+                        <div className="storefront-carousel-one-price">${((props.gamesArray[position].price)/100).toFixed(2)}</div>
                         
 
                     </div>

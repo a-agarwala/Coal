@@ -26,8 +26,7 @@
     width: 303px;
     height: 32px;
     display: block;
-    background: linear-gradient( 135deg, rgba(37,49,63,1) 5%,rgba(54,97,125,1) 95%);
-    
+    background: linear-gradient( 135deg, rgba(37,49,63,1) 5%,rgba(54,97,125,1) 95%);  
 }   
 
 .grid-item-price {
@@ -86,10 +85,10 @@
 
 .storefront-carousel-one-title {
     line-height: 26px;
-    font-size: 22px;
+    font-size: 23px;
     position: relative;
     top: 30px;
-    left: 10px;
+    left: 7px;
     vertical-align: center;
 }
 
@@ -101,6 +100,9 @@
     background: url('https://steamstore-a.akamaihd.net/public/images/v6/home/background_maincap_2.jpg');
     background-repeat: no-repeat;
     background-position: right;
+    box-sizing: border-box;
+    box-shadow: 3px 3px black;
+    border-radius: 2px;
 }
 
 .storefront-carousel-one-big-photo-box {
@@ -108,6 +110,7 @@
     height: 353px;
     margin-right: 10px;
     display: inline-block;
+    box-shadow: 2px 2px black;
 }
 
 .storefront-carousel-one-big-actual-photo {
@@ -119,23 +122,27 @@
     height: 353px;
     display: inline-block;
     position: relative;
-    bottom: 160px;
+    bottom: 100px;
 }
 
 .storefront-carousel-one-thumbnails-box {
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    top: 50px;
+    top: 55px;
+    left: 5px;
 }
 
 .storefront-carousel-one-thumbnail {
     width: 148px;
     height: 63px;
-    margin-right: 2px;
-    margin-left: 2px;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    overflow: hidden;
+    opacity: 0.6;
+    border-radius: 2px;
+}
+
+.storefront-carousel-one-thumbnail:hover {
+    opacity: 1;
 }
 
 .storefront-carousel-one-left-arrow {
@@ -155,4 +162,20 @@
     position: relative;
     top: 36px;
     left: 11px;
+}
+
+.storefront-carousel-one-now-available {
+    position: relative;
+    top: 82px;
+    font-size: 18px;
+    font-weight: 300;
+    left: 7px;
+}
+
+.storefront-carousel-one-price {
+    position: relative;
+    top: 63px;
+    left: 250px;
+    color: #acdbf5;
+    font-size: 13px;
 }

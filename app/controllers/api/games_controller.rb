@@ -19,8 +19,12 @@ class Api::GamesController < ApplicationController
             }
             
             @games[game_id] = game_data
+            
+            photo_array = game.photos
 
-            (0..4).each do |idx|
+            lastidx = (photo_array.length <= 6 ? photo_array.length : 7)
+
+            (0...lastidx).each do |idx|
                 @games[game_id]['photoUrls'] << url_for(game.photos[idx])
             end
     end

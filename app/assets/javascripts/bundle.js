@@ -2682,7 +2682,7 @@ function StorefrontCarouselOne(props) {
     className: "storefront-carousel-one-now-available"
   }, "Now Available"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "storefront-carousel-one-price"
-  }, (props.gamesArray[position].price / 100).toFixed(2)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "$", (props.gamesArray[position].price / 100).toFixed(2)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "storefront-carousel-one-dir-button-right",
     onClick: function onClick() {
       return movePosition(1);
