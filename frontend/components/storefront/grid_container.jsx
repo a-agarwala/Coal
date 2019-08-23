@@ -4,13 +4,14 @@ import Grid from './grid';
 const mapStateToProps = (state, ownProps) => {
     let gameObjectsArray = [];
     
-    for (let i=1; i<=9; i++) {
+    ownProps.gameIds.forEach(gameId => {
         let gameObject = {};
-        gameObject.id = i;
-        gameObject.photoUrl = state.entities.storefront[i].photoUrls[0];
-        gameObject.price = state.entities.storefront[i].price;
+        gameObject.id = gameId;
+        gameObject.photoUrl = state.entities.storefront[gameId].photoUrls[0];
+        gameObject.price = state.entities.storefront[gameId].price;
+        gameObject.title = state.entities.storefront[gameId].title;
         gameObjectsArray.push(gameObject);
-    };
+    })
 
     return ({
         gamesArray: gameObjectsArray,

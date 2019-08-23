@@ -2,8 +2,7 @@
     flex: 0;
     width: 100%;
     background: #171a21;
-    padding-left: 16px;
-    padding-right: 16px;
+    
     padding-top: 0px;
     padding-bottom: 0px;
     color: #c6d4df;
@@ -19,7 +18,8 @@ div#global-header .content {
     background: #171a21;
 	position: relative;
 	height: 104px;
-	margin: 0px auto;
+    margin: 0px auto;
+    width: 940px;
     transition-property: right;
     transition-duration: 0.25s;
     transition-timing-function: ease;
@@ -136,7 +136,7 @@ div#upper-right-nav-bar {
 #logo {
     color: white;
     position: absolute;
-    left: 80px;
+    left: 30px;
     top: 20px;
     font-size: 30px;
     font-weight: bold;

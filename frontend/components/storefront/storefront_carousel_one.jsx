@@ -1,10 +1,10 @@
 import React, {useState, useEffect, useRef } from 'react';
+import StorefrontCarouselBottomSquares from './storefront_carousel_bottom_squares';
 
 export default function StorefrontCarouselOne(props) {
 
     const [position, setPosition] = useState(0);
     const [photoIndex, setPhotoIndex] = useState(0);
-    
     const limit = props.gamesArray.length - 1;
 
     function movePosition(dir) {
@@ -19,12 +19,14 @@ export default function StorefrontCarouselOne(props) {
     }
 
     return (
-        <div className="storefront-carousel-one-wrapper">
-
+        <div className="storefront-carousel-one-wrapper-one">
+        <h2>Featured</h2>
+        <div className="storefront-carousel-one-wrapper-two">
+            
             <div className="storefront-carousel-one-dir-button-left" onClick={() => movePosition(-1)}>
                 <div className="storefront-carousel-one-left-arrow"></div>
             </div>
-
+            
             <div className="storefront-carousel-one-content-box" onClick={() => props.history.push(`/game/${props.gamesArray[position].id}`)}>
 
                     <div className="storefront-carousel-one-big-photo-box">
@@ -59,6 +61,13 @@ export default function StorefrontCarouselOne(props) {
             <div className="storefront-carousel-one-dir-button-right" onClick={() => movePosition(1)}>
                 <div className="storefront-carousel-one-right-arrow"></div>
             </div>
+
+        </div>
+
+                <StorefrontCarouselBottomSquares
+                limit={limit}
+                currentPosition={position}
+                setPosition={setPosition}/>
 
         </div>
     )

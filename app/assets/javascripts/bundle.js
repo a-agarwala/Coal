@@ -2405,10 +2405,41 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.storefrontData[1] && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_storefront_storefront_carousel_one_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        history: this.props.history
+      function shuffle(a) {
+        var j, x, i;
+
+        for (i = a.length - 1; i > 0; i--) {
+          j = Math.floor(Math.random() * (i + 1));
+          x = a[i];
+          a[i] = a[j];
+          a[j] = x;
+        }
+
+        return a;
+      }
+
+      var gridAmount = [6, 9][Math.floor(Math.random() * 2)];
+      var carouselAmount = 0;
+      var carouselIds = [];
+      var gridIds = [];
+
+      if (this.props.storefrontData[1]) {
+        var storefrontData = this.props.storefrontData;
+        var gameIds = Object.keys(storefrontData);
+        carouselAmount = gameIds.length - gridAmount;
+        shuffle(gameIds);
+        carouselIds = gameIds.slice(0, carouselAmount - 1);
+        gridIds = gameIds.slice(carouselAmount);
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.storefrontData[1] && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "storefront"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_storefront_storefront_carousel_one_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        history: this.props.history,
+        gameIds: carouselIds
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_storefront_grid_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        history: this.props.history
+        history: this.props.history,
+        gameIds: gridIds
       })));
     }
   }]);
@@ -2512,16 +2543,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var gameObjectsArray = [];
-
-  for (var i = 1; i <= 9; i++) {
+  ownProps.gameIds.forEach(function (gameId) {
     var gameObject = {};
-    gameObject.id = i;
-    gameObject.photoUrl = state.entities.storefront[i].photoUrls[0];
-    gameObject.price = state.entities.storefront[i].price;
+    gameObject.id = gameId;
+    gameObject.photoUrl = state.entities.storefront[gameId].photoUrls[0];
+    gameObject.price = state.entities.storefront[gameId].price;
+    gameObject.title = state.entities.storefront[gameId].title;
     gameObjectsArray.push(gameObject);
-  }
-
-  ;
+  });
   return {
     gamesArray: gameObjectsArray
   };
@@ -2592,6 +2621,62 @@ function GridItem(props) {
 
 /***/ }),
 
+/***/ "./frontend/components/storefront/storefront_carousel_bottom_squares.jsx":
+/*!*******************************************************************************!*\
+  !*** ./frontend/components/storefront/storefront_carousel_bottom_squares.jsx ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return StorefrontCarouselBottomSquares; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+function StorefrontCarouselBottomSquares(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      position = _useState2[0],
+      setPosition = _useState2[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    setPosition(props.currentPosition);
+  }, [props.currentPosition]);
+  var bottomSquares = [];
+
+  var _loop = function _loop(i) {
+    var bottomSquare = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: i,
+      onClick: function onClick() {
+        return props.setPosition(i);
+      },
+      className: i === position ? "storefront-carousel-bottom-square-highlighted" : "storefront-carousel-bottom-square-regular"
+    });
+    bottomSquares.push(bottomSquare);
+  };
+
+  for (var i = 0; i <= props.limit; i++) {
+    _loop(i);
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "storefront-carousel-bottom-squares-wrapper"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "storefront-carousel-bottom-square-box"
+  }, bottomSquares));
+}
+
+/***/ }),
+
 /***/ "./frontend/components/storefront/storefront_carousel_one.jsx":
 /*!********************************************************************!*\
   !*** ./frontend/components/storefront/storefront_carousel_one.jsx ***!
@@ -2604,6 +2689,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return StorefrontCarouselOne; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _storefront_carousel_bottom_squares__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./storefront_carousel_bottom_squares */ "./frontend/components/storefront/storefront_carousel_bottom_squares.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -2611,6 +2697,7 @@ function _nonIterableRest() { throw new TypeError("Invalid attempt to destructur
 function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 function StorefrontCarouselOne(props) {
@@ -2641,7 +2728,9 @@ function StorefrontCarouselOne(props) {
   }
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "storefront-carousel-one-wrapper"
+    className: "storefront-carousel-one-wrapper-one"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Featured"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "storefront-carousel-one-wrapper-two"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "storefront-carousel-one-dir-button-left",
     onClick: function onClick() {
@@ -2689,7 +2778,11 @@ function StorefrontCarouselOne(props) {
     }
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "storefront-carousel-one-right-arrow"
-  })));
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_storefront_carousel_bottom_squares__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    limit: limit,
+    currentPosition: position,
+    setPosition: setPosition
+  }));
 }
 
 /***/ }),
@@ -2710,17 +2803,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var gameObjectsArray = [];
-
-  for (var i = 10; i <= 15; i++) {
+  ownProps.gameIds.forEach(function (gameId) {
     var gameObject = {};
-    gameObject.id = i;
-    gameObject.photoUrls = state.entities.storefront[i].photoUrls;
-    gameObject.price = state.entities.storefront[i].price;
-    gameObject.title = state.entities.storefront[i].title;
+    gameObject.id = gameId;
+    gameObject.photoUrls = state.entities.storefront[gameId].photoUrls;
+    gameObject.price = state.entities.storefront[gameId].price;
+    gameObject.title = state.entities.storefront[gameId].title;
     gameObjectsArray.push(gameObject);
-  }
-
-  ;
+  });
   return {
     gamesArray: gameObjectsArray
   };

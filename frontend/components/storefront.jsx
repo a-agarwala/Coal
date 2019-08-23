@@ -22,12 +22,42 @@ class Storefront extends React.Component {
 
     render() {
 
+        function shuffle(a) {
+            var j, x, i;
+            for (i = a.length - 1; i > 0; i--) {
+                j = Math.floor(Math.random() * (i + 1));
+                x = a[i];
+                a[i] = a[j];
+                a[j] = x;
+            }
+            return a;
+        }
+
+        let gridAmount = [6,9][Math.floor(Math.random()*2)];
+        let carouselAmount = 0;
+        let carouselIds = [];
+        let gridIds = [];
+
+        if (this.props.storefrontData[1]) {
+            let storefrontData = this.props.storefrontData;
+            let gameIds = Object.keys(storefrontData);
+            carouselAmount = gameIds.length - gridAmount;
+            shuffle(gameIds);
+            carouselIds = gameIds.slice(0, (carouselAmount -1));
+            gridIds = gameIds.slice(carouselAmount);
+        }
+
         return(
             <div>
                 {this.props.storefrontData[1] &&
-                    <div>
-                        <StorefrontCarouselOneContainer history={this.props.history}/>
-                        <GridContainer history={this.props.history}/>
+                    <div className="storefront">
+                        <StorefrontCarouselOneContainer 
+                        history={this.props.history}
+                        gameIds={carouselIds}/>
+
+                        <GridContainer 
+                        history={this.props.history}
+                        gameIds={gridIds}/>
                     </div>
                 }
             </div>

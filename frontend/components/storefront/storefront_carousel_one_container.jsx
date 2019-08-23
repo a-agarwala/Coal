@@ -3,19 +3,18 @@ import StorefrontCarouselOne from './storefront_carousel_one';
 
 const mapStateToProps = (state, ownProps) => {
     let gameObjectsArray = [];
-
-    for (let i = 10; i <= 15; i++) {
+    
+    ownProps.gameIds.forEach(gameId => {
         let gameObject = {};
-        gameObject.id = i;
-        gameObject.photoUrls = state.entities.storefront[i].photoUrls;
-        gameObject.price = state.entities.storefront[i].price;
-        gameObject.title = state.entities.storefront[i].title;
+        gameObject.id = gameId;
+        gameObject.photoUrls = state.entities.storefront[gameId].photoUrls;
+        gameObject.price = state.entities.storefront[gameId].price;
+        gameObject.title = state.entities.storefront[gameId].title;
         gameObjectsArray.push(gameObject);
-    };
+    })
 
     return ({
         gamesArray: gameObjectsArray,
-
     })
 }
 
