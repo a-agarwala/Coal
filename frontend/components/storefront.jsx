@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Grid from './storefront/grid';
 import GridContainer from './storefront/grid_container';
-
+import StorefrontCarouselOneContainer from './storefront/storefront_carousel_one_container'
 class Storefront extends React.Component {
     constructor(props) {
         super(props);
@@ -26,7 +26,7 @@ class Storefront extends React.Component {
             <div>
                 {this.props.storefrontData[1] &&
                     <div>
-                        
+                        <StorefrontCarouselOneContainer history={this.props.history}/>
                         <GridContainer history={this.props.history}/>
                     </div>
                 }

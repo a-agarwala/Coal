@@ -2354,6 +2354,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _storefront_grid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./storefront/grid */ "./frontend/components/storefront/grid.jsx");
 /* harmony import */ var _storefront_grid_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./storefront/grid_container */ "./frontend/components/storefront/grid_container.jsx");
+/* harmony import */ var _storefront_storefront_carousel_one_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./storefront/storefront_carousel_one_container */ "./frontend/components/storefront/storefront_carousel_one_container.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2371,6 +2372,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -2403,7 +2405,9 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.storefrontData[1] && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_storefront_grid_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.storefrontData[1] && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_storefront_storefront_carousel_one_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        history: this.props.history
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_storefront_grid_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
         history: this.props.history
       })));
     }
@@ -2585,6 +2589,144 @@ function GridItem(props) {
 //     )
 // }
 // export default GridItem;
+
+/***/ }),
+
+/***/ "./frontend/components/storefront/storefront_carousel_one.jsx":
+/*!********************************************************************!*\
+  !*** ./frontend/components/storefront/storefront_carousel_one.jsx ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return StorefrontCarouselOne; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+function StorefrontCarouselOne(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      position = _useState2[0],
+      setPosition = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      photoIndex = _useState4[0],
+      setPhotoIndex = _useState4[1];
+
+  var limit = props.gamesArray.length - 1;
+
+  function movePosition(dir) {
+    var newPosition = position + dir;
+
+    if (newPosition < 0) {
+      newPosition = limit;
+    }
+
+    if (newPosition > limit) {
+      newPosition = 0;
+    }
+
+    setPosition(newPosition);
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "storefront-carousel-one-wrapper"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "storefront-carousel-one-dir-button-left",
+    onClick: function onClick() {
+      return movePosition(-1);
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "storefront-carousel-one-left-arrow"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "storefront-carousel-one-content-box",
+    onClick: function onClick() {
+      return props.history.push("/game/".concat(props.gamesArray[position].id));
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "storefront-carousel-one-big-photo-box"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "storefront-carousel-one-big-actual-photo",
+    src: props.gamesArray[position].photoUrls[photoIndex]
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "storefront-carousel-one-right-column"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "storefront-carousel-one-title"
+  }, props.gamesArray[position].title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "storefront-carousel-one-thumbnails-box"
+  }, props.gamesArray[position].photoUrls.slice(1).map(function (photoUrl, idx) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "storefront-carousel-one-thumbnail",
+      key: idx,
+      onMouseEnter: function onMouseEnter() {
+        return setPhotoIndex(idx + 1);
+      },
+      onMouseLeave: function onMouseLeave() {
+        return setPhotoIndex(0);
+      }
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: photoUrl
+    }));
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "storefront-carousel-one-now-available"
+  }, "Now Available"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "storefront-carousel-one-price"
+  }, (props.gamesArray[position].price / 100).toFixed(2)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "storefront-carousel-one-dir-button-right",
+    onClick: function onClick() {
+      return movePosition(1);
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "storefront-carousel-one-right-arrow"
+  })));
+}
+
+/***/ }),
+
+/***/ "./frontend/components/storefront/storefront_carousel_one_container.jsx":
+/*!******************************************************************************!*\
+  !*** ./frontend/components/storefront/storefront_carousel_one_container.jsx ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _storefront_carousel_one__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./storefront_carousel_one */ "./frontend/components/storefront/storefront_carousel_one.jsx");
+
+
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var gameObjectsArray = [];
+
+  for (var i = 10; i <= 15; i++) {
+    var gameObject = {};
+    gameObject.id = i;
+    gameObject.photoUrls = state.entities.storefront[i].photoUrls;
+    gameObject.price = state.entities.storefront[i].price;
+    gameObject.title = state.entities.storefront[i].title;
+    gameObjectsArray.push(gameObject);
+  }
+
+  ;
+  return {
+    gamesArray: gameObjectsArray
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, null)(_storefront_carousel_one__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 

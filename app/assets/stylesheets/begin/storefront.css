@@ -1,5 +1,5 @@
 .storefront-grid-wrapper {
-    margin-top: 13px;
+    margin-top: 50px;
     margin-bottom: 13px;
 }
 
@@ -48,4 +48,111 @@
     letter-spacing: 2px;
     font-weight: normal;
     padding-top: 2px;
+}
+
+.storefront-carousel-one-wrapper {
+    width: 1030px;
+    height: 353px;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
+
+.storefront-carousel-one-dir-button-right {
+    width: 45px;
+    height: 108px;
+    cursor: pointer;
+    background: linear-gradient( to right, rgba( 0, 0, 0, 0) 5%,rgba( 0, 0, 0, 0.3) 95%);
+    position: relative;
+    top: 122px;
+}
+
+.storefront-carousel-one-dir-button-left {
+    width: 45px;
+    height: 108px;
+    cursor: pointer;
+    background: linear-gradient( to right, rgba( 0, 0, 0, 0.3) 5%,rgba( 0, 0, 0, 0) 95%);
+    position: relative;
+    top: 122px;
+}
+
+.storefront-carousel-one-dir-button-left:hover {
+    background: linear-gradient( to right, rgba( 171, 218, 244, 0.3) 5%,rgba( 171, 218, 244, 0) 95%);
+}
+
+.storefront-carousel-one-dir-button-right:hover {
+    background: linear-gradient( to right, rgba( 171, 218, 244, 0) 5%,rgba( 171, 218, 244, 0.3) 95%);
+}
+
+.storefront-carousel-one-title {
+    line-height: 26px;
+    font-size: 22px;
+    position: relative;
+    top: 30px;
+    left: 10px;
+    vertical-align: center;
+}
+
+.storefront-carousel-one-content-box {
+    color: #fff;
+    width: 940px;
+    height: 353px;
+    cursor: pointer;
+    background: url('https://steamstore-a.akamaihd.net/public/images/v6/home/background_maincap_2.jpg');
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.storefront-carousel-one-big-photo-box {
+    width: 616px;
+    height: 353px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.storefront-carousel-one-big-actual-photo {
+    height: 353px;
+}
+
+.storefront-carousel-one-right-column {
+    width: 314px;
+    height: 353px;
+    display: inline-block;
+    position: relative;
+    bottom: 160px;
+}
+
+.storefront-carousel-one-thumbnails-box {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    top: 50px;
+}
+
+.storefront-carousel-one-thumbnail {
+    width: 148px;
+    height: 63px;
+    margin-right: 2px;
+    margin-left: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.storefront-carousel-one-left-arrow {
+    background-position-x: 23px;
+    background-image: url('https://steamstore-a.akamaihd.net/public/images/v6/arrows.png');
+    width: 23px;
+    height: 36px;
+    position: relative;
+    top: 36px;
+    left: 11px;
+}
+
+.storefront-carousel-one-right-arrow {
+    background-image: url('https://steamstore-a.akamaihd.net/public/images/v6/arrows.png');
+    width: 23px;
+    height: 36px;
+    position: relative;
+    top: 36px;
+    left: 11px;
 }
