@@ -2,7 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background: #1b2939;
+    background: linear-gradient(170deg, rgb(1, 70, 95), #000d24);
     font-family: "Motiva Sans", Sans-serif;
     position: relative;
     overflow-y: scroll;
@@ -42,8 +42,9 @@ html, body {
     margin-top: 62px;
     /* bottom: 0;
     position: absolute; */
-    min-height: 152px;
-    background: #0f1922;
+    min-height: 100px;
+    /* background: #0f1922; */
+    background: #0b0c0f
 }
 
 .first-row-purchase-page {

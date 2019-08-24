@@ -2428,7 +2428,7 @@ function (_React$Component) {
         var gameIds = Object.keys(storefrontData);
         carouselAmount = gameIds.length - gridAmount;
         shuffle(gameIds);
-        carouselIds = gameIds.slice(0, carouselAmount - 1);
+        carouselIds = gameIds.slice(0, carouselAmount);
         gridIds = gameIds.slice(carouselAmount);
       }
 

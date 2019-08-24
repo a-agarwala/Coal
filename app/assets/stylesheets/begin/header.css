@@ -1,8 +1,10 @@
  div#global-header {
     flex: 0;
     width: 100%;
-    background: #171a21;
-    
+    background: #0b0c0f;
+    /* background: url('https://steamstore-a.akamaihd.net/public/images/v6/home/background_maincap_2.jpg');
+    background-repeat: no-repeat;
+    background-position: right; */
     padding-top: 0px;
     padding-bottom: 0px;
     color: #c6d4df;
@@ -15,15 +17,16 @@
 }
 
 div#global-header .content {
-    background: #171a21;
+    background: #0b0c0f;
+    /* background: #171a21; */
+    /* background: url('https://steamstore-a.akamaihd.net/public/images/v6/home/background_maincap_2.jpg'); */
+    /* background-repeat: no-repeat; */
+    background-position: right;
 	position: relative;
 	height: 104px;
     margin: 0px auto;
     width: 940px;
-    transition-property: right;
-    transition-duration: 0.25s;
-    transition-timing-function: ease;
-    transition-delay: 0s;
+    
 	z-index: 402;
 }
 
