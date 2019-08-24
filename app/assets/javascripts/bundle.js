@@ -2735,8 +2735,8 @@ function StorefrontCarouselOne(props) {
 
   var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
       _useState6 = _slicedToArray(_useState5, 2),
-      isIntervalActive = _useState6[0],
-      setIntervalActive = _useState6[1];
+      isCarouselMoving = _useState6[0],
+      setCarouselMoving = _useState6[1];
 
   var limit = props.gamesArray.length - 1;
 
@@ -2752,16 +2752,16 @@ function StorefrontCarouselOne(props) {
     }
 
     setPosition(newPosition);
-    setIntervalActive(true);
+    setCarouselMoving(true);
   }
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var interval = null;
 
-    if (isIntervalActive) {
+    if (isCarouselMoving) {
       interval = setInterval(function () {
         movePosition(1);
-      }, 4000);
+      }, 3000);
     } else {
       clearInterval(interval);
     }
@@ -2787,10 +2787,10 @@ function StorefrontCarouselOne(props) {
       return props.history.push("/game/".concat(props.gamesArray[position].id));
     },
     onMouseEnter: function onMouseEnter() {
-      return setIntervalActive(false);
+      return setCarouselMoving(false);
     },
     onMouseLeave: function onMouseLeave() {
-      return setIntervalActive(true);
+      return setCarouselMoving(true);
     }
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "storefront-carousel-one-big-photo-box"

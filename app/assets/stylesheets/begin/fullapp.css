@@ -2,7 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background: linear-gradient(170deg, rgb(1, 70, 95), #000d24);
+    background: linear-gradient(170deg, rgb(5, 99, 133), #000d24);
     font-family: "Motiva Sans", Sans-serif;
     position: relative;
     overflow-y: scroll;
