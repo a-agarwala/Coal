@@ -1,7 +1,7 @@
  div#global-header {
     flex: 0;
     width: 100%;
-    background: #0b0c0f;
+    background: #0f0f0f;
     /* background: url('https://steamstore-a.akamaihd.net/public/images/v6/home/background_maincap_2.jpg');
     background-repeat: no-repeat;
     background-position: right; */
@@ -17,7 +17,7 @@
 }
 
 div#global-header .content {
-    background: #0b0c0f;
+    background: #0f0f0f;
     /* background: #171a21; */
     /* background: url('https://steamstore-a.akamaihd.net/public/images/v6/home/background_maincap_2.jpg'); */
     /* background-repeat: no-repeat; */

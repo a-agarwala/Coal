@@ -1,7 +1,6 @@
 import React from 'react';
 import GridItem from './grid_item';
 
-
 class Grid extends React.Component {
     constructor(props) {
         super(props);
@@ -9,14 +8,16 @@ class Grid extends React.Component {
 
     render() {
         let gridItemsArray = this.props.gamesArray.map((gameObject, index) =>
-            <div key={index}>    
+            <div className="grid-item-wrapper" key={index}>    
                 <GridItem
+                onRightSide={((index + 1) % 3 === 0)}
                 gameId={gameObject.id}
                 photoUrl={gameObject.photoUrl}
                 price={gameObject.price}
                 history={this.props.history}/>
             </div>
         );
+
         return (
             <div className="top-row-center-horizontally">
 
@@ -27,6 +28,12 @@ class Grid extends React.Component {
                     </div>
 
                 </div> 
+
+                {/* <div className="grid-popup-wrapper">
+                    <div className="grid-popup-box left">
+
+                    </div>
+                </div> */}
 
             </div>
         )

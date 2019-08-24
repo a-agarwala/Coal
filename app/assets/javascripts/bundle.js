@@ -2502,8 +2502,10 @@ function (_React$Component) {
 
       var gridItemsArray = this.props.gamesArray.map(function (gameObject, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "grid-item-wrapper",
           key: index
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_grid_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          onRightSide: (index + 1) % 3 === 0,
           gameId: gameObject.id,
           photoUrl: gameObject.photoUrl,
           price: gameObject.price,
@@ -2572,6 +2574,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return GridItem; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
  // class GridItem extends React.Component {
 //     constructor(props) {
 //         super(props);
@@ -2592,22 +2602,34 @@ __webpack_require__.r(__webpack_exports__);
 // }
 
 function GridItem(props) {
+  // const [showPopup, setShowPopup] = useState(false);
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      hover = _useState2[0],
+      setHover = _useState2[1];
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "grid-item-wrapper"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "grid-item",
+    className: hover ? "grid-item-hovered" : "grid-item",
     onClick: function onClick() {
       return props.history.push("/game/".concat(props.gameId));
-    }
+    },
+    onMouseEnter: function onMouseEnter() {
+      setHover(true);
+    },
+    onMouseLeave: function onMouseLeave() {
+      setHover(false);
+    } // onMouseEnter={() => setTimeout(() => {setShowPopup(true)}, 500)}
+    // onMouseLeave={() => setTimeout(() => {setShowPopup(false)}, 500)}
+
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "grid-item-game-picture"
+    className: hover ? "grid-item-game-picture-hovered" : "grid-item-game-picture"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: props.photoUrl
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "grid-item-lower-bar"
+    className: hover ? "grid-item-lower-bar-hovered" : "grid-item-lower-bar"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "grid-item-price"
-  }, "$", (props.price / 100).toFixed(2)))));
+  }, "$", (props.price / 100).toFixed(2))));
 } // export default function GridItem(props) {
 //     const [name, setName] = useState('Michael')
 //     return (

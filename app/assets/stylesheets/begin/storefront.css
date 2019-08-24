@@ -13,6 +13,7 @@
 .storefront-grid-wrapper {
     margin-bottom: 13px;
     flex: 2;
+    z-index: 0;
 }
 
 .storefront-grid {
@@ -20,26 +21,68 @@
     flex-wrap: wrap;
 }
 
+.grid-item-wrapper {
+    position: static;
+    z-index: 0;
+}
+
 .grid-item {
     width: 303px;
     height: 175px;
-    margin-right: 10px;
-    margin-bottom: 20px;
+    margin-left: 4px;
+    margin-right: 6px;
+    margin-top: 5px;
+    margin-bottom: 15px;
     cursor: pointer;
+    box-shadow: 2px 2px 2px black;
+    position: static;
+    z-index: 0;
+}
+
+.grid-item-hovered {
+    margin-left: 1px;
+    margin-right: 2px;
+    margin-top: 3px;
+    margin-bottom: 11px;
+    cursor: pointer;
+    width: 308px;
+    height: 179px;
+    border: 1px groove rgb(0, 116, 194);
 }
 
 .grid-item-game-picture {
     width: 303px;
     height: 141px;
     display: block;
+    position: static;
+    z-index: 0;
+}
+
+.grid-item-game-picture-hovered {
+    width: 308px;
+    height: 144px;
+    display: block;
+    position: static;
+    z-index: 0;
 }
 
 .grid-item-lower-bar {
     width: 303px;
     height: 32px;
     display: block;
-    background: linear-gradient( 135deg, rgb(36, 47, 59) 5%,rgb(25, 49, 65) 95%);  
+    background: linear-gradient( 135deg, rgb(45, 57, 70) 5%,rgb(25, 49, 65) 95%); 
+    position: static;
+    z-index: 0; 
 }   
+
+.grid-item-lower-bar-hovered {
+    width: 308px;
+    height: 35px;
+    display: block;
+    position: static;
+    background: linear-gradient( 135deg, rgb(65, 120, 179) 5%,rgb(0, 116, 194) 95%);
+    z-index: 0;
+}
 
 .grid-item-price {
     color: #c7e6f7;
@@ -47,9 +90,11 @@
     line-height: 15px;
     font-size: 14px;
     font-weight: 500;
-    position: relative;
+    position: static;
     top: 10px;
     right: 7px;
+    position: relative;
+    z-index: 0;
 }
 
 .storefront h2 {
@@ -119,7 +164,7 @@
     background-repeat: no-repeat;
     background-position: right;
     box-sizing: border-box;
-    box-shadow: 3px 3px black;
+    box-shadow: 3px 3px 2px black;
     border-radius: 2px;
 }
 
@@ -216,8 +261,8 @@
 
 .storefront-carousel-bottom-square-regular {
     display: inline-block;
-    height: 10px;
-    width: 16px;
+    height: 12px;
+    width: 18px;
     border-radius: 3px;
     background-color: hsla(202,60%,100%,0.2);
     cursor: pointer;
@@ -225,15 +270,63 @@
     margin-left: 2px;
 }
 
+.storefront-carousel-bottom-square-regular:hover {
+    display: inline-block;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.363);
+}
+
 .storefront-carousel-bottom-square-highlighted {
     display: inline-block;
-    height: 12px;
-    width: 18px;
+    height: 15px;
+    width: 20px;
     border-radius: 3px;
-    background-color: hsla(202,60%,100%,0.4);
+    background-color: rgba(255, 255, 255, 0.404);
     cursor: pointer;
     margin-right: 2px;
     margin-left: 2px;
     position: relative;
     top: 1px;
+}
+
+.grid-popup-wrapper {
+    position: absolute;
+    z-index: 500;
+}
+
+.grid-popup-triangle {
+    width: 0; 
+    height: 0; 
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    position: relative;
+    bottom: 130px;
+    z-index: 500;
+}
+
+.grid-popup-triangle.right {
+    border-left: 8px solid white;
+    right: 5px;
+}
+
+.grid-popup-triangle.left {
+    border-right: 8px solid white;
+    left: 298px;
+}
+
+.grid-popup-box {
+    width: 100px;
+    height: 200px;
+    background: white;
+    bottom: 130px;
+    position: absolute;
+    z-index: 500 !important;
+}
+
+.grid-popup-box.right {
+    right: 5px;
+}
+
+.grid-popup-box.left {
+    left: 298px;
 }
