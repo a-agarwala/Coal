@@ -129,6 +129,10 @@
     top: 122px;
 }
 
+.storefront-carousel-one-dir-button-right.paused {
+    background: linear-gradient( to right, rgba( 171, 218, 244, 0) 5%,rgba( 171, 218, 244, 0.3) 95%);
+}
+
 .storefront-carousel-one-dir-button-left {
     width: 45px;
     height: 108px;
@@ -136,6 +140,10 @@
     background: linear-gradient( to right, rgba( 0, 0, 0, 0.3) 5%,rgba( 0, 0, 0, 0) 95%);
     position: relative;
     top: 122px;
+}
+
+.storefront-carousel-one-dir-button-left.paused {
+    background: linear-gradient( to right, rgba( 171, 218, 244, 0.3) 5%,rgba( 171, 218, 244, 0) 95%);
 }
 
 .storefront-carousel-one-dir-button-left:hover {
@@ -164,8 +172,12 @@
     background-repeat: no-repeat;
     background-position: right;
     box-sizing: border-box;
-    box-shadow: 3px 3px 2px black;
+    box-shadow: 4px 4px 3px black;
     border-radius: 2px;
+}
+
+.storefront-carousel-one-content-box:hover {
+    
 }
 
 .storefront-carousel-one-big-photo-box {
@@ -273,7 +285,7 @@
 .storefront-carousel-bottom-square-regular:hover {
     display: inline-block;
     border-radius: 3px;
-    background-color: rgba(255, 255, 255, 0.363);
+    background-color: rgb(0, 116, 194);
 }
 
 .storefront-carousel-bottom-square-highlighted {
@@ -289,7 +301,11 @@
     top: 1px;
 }
 
-.grid-popup-wrapper {
+.storefront-carousel-bottom-square-highlighted.paused {
+    background-color: rgb(0, 116, 194);
+}
+
+/* .grid-popup-wrapper {
     position: absolute;
     z-index: 500;
 }
@@ -329,4 +345,4 @@
 
 .grid-popup-box.left {
     left: 298px;
-}
+} */

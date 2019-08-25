@@ -38,7 +38,9 @@ export default function StorefrontCarouselOne(props) {
         <h2>Featured</h2>
         <div className="storefront-carousel-one-wrapper-two">
             
-            <div className="storefront-carousel-one-dir-button-left" onClick={() => movePosition(-1)}>
+                <div className={isCarouselMoving ? "storefront-carousel-one-dir-button-left"
+                                                 : "storefront-carousel-one-dir-button-left paused"}
+                onClick={() => movePosition(-1)}>
                 <div className="storefront-carousel-one-left-arrow"></div>
             </div>
             
@@ -76,7 +78,9 @@ export default function StorefrontCarouselOne(props) {
                 
                 </div>
 
-            <div className="storefront-carousel-one-dir-button-right" onClick={() => movePosition(1)}>
+                <div className={isCarouselMoving ? "storefront-carousel-one-dir-button-right"
+                                                 : "storefront-carousel-one-dir-button-right paused"}
+                onClick={() => movePosition(1)}>
                 <div className="storefront-carousel-one-right-arrow"></div>
             </div>
 
@@ -85,6 +89,7 @@ export default function StorefrontCarouselOne(props) {
                 <StorefrontCarouselBottomSquares
                 limit={limit}
                 currentPosition={position}
+                isCarouselMoving={isCarouselMoving}
                 setPosition={setPosition}/>
 
         </div>

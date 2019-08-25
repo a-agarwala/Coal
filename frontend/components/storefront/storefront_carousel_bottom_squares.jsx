@@ -14,7 +14,8 @@ export default function StorefrontCarouselBottomSquares(props) {
             <div key={i}
                 onClick={()=> props.setPosition(i)}
                 className={ i === position ?
-                "storefront-carousel-bottom-square-highlighted" :
+                (props.isCarouselMoving ? "storefront-carousel-bottom-square-highlighted"
+                                        : "storefront-carousel-bottom-square-highlighted paused") :
                 "storefront-carousel-bottom-square-regular"
             }>
             </div>

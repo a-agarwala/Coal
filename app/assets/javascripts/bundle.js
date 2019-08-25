@@ -2681,7 +2681,7 @@ function StorefrontCarouselBottomSquares(props) {
       onClick: function onClick() {
         return props.setPosition(i);
       },
-      className: i === position ? "storefront-carousel-bottom-square-highlighted" : "storefront-carousel-bottom-square-regular"
+      className: i === position ? props.isCarouselMoving ? "storefront-carousel-bottom-square-highlighted" : "storefront-carousel-bottom-square-highlighted paused" : "storefront-carousel-bottom-square-regular"
     });
     bottomSquares.push(bottomSquare);
   };
@@ -2775,7 +2775,7 @@ function StorefrontCarouselOne(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Featured"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "storefront-carousel-one-wrapper-two"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "storefront-carousel-one-dir-button-left",
+    className: isCarouselMoving ? "storefront-carousel-one-dir-button-left" : "storefront-carousel-one-dir-button-left paused",
     onClick: function onClick() {
       return movePosition(-1);
     }
@@ -2821,7 +2821,7 @@ function StorefrontCarouselOne(props) {
   }, "Now Available"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "storefront-carousel-one-price"
   }, "$", (props.gamesArray[position].price / 100).toFixed(2)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "storefront-carousel-one-dir-button-right",
+    className: isCarouselMoving ? "storefront-carousel-one-dir-button-right" : "storefront-carousel-one-dir-button-right paused",
     onClick: function onClick() {
       return movePosition(1);
     }
@@ -2830,6 +2830,7 @@ function StorefrontCarouselOne(props) {
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_storefront_carousel_bottom_squares__WEBPACK_IMPORTED_MODULE_1__["default"], {
     limit: limit,
     currentPosition: position,
+    isCarouselMoving: isCarouselMoving,
     setPosition: setPosition
   }));
 }
