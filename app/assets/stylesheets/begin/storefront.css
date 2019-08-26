@@ -176,10 +176,6 @@
     border-radius: 2px;
 }
 
-.storefront-carousel-one-content-box:hover {
-    
-}
-
 .storefront-carousel-one-big-photo-box {
     width: 616px;
     height: 353px;
@@ -253,6 +249,7 @@
     left: 250px;
     color: #acdbf5;
     font-size: 16px;
+    max-width: 55px;
 }
 
 .storefront-carousel-bottom-squares-wrapper {

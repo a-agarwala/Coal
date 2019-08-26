@@ -12,9 +12,11 @@ reviews = Array.new
     ownedGames << game.id
 end
 
+user_review_object = {}
+
 @user.reviews.each do |review|
-    reviews << review
+    user_review_object[review.game_id] = review.id
 end
 
 json.ownedGames ownedGames
-json.reviews reviews
+json.reviewedGames user_review_object

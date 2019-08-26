@@ -12,11 +12,12 @@ class GamePurchasePage extends React.Component {
     }
 
     componentDidMount() {
+        this.props.getGameInfoAndReviews(this.props.gameId);
+
         if (this.props.currentUser) {
             this.props.refreshUserInfo(this.props.currentUser.id);
         };
         
-        this.props.getGameInfoAndReviews(this.props.gameId);
     }
 
     componentWillUnmount() {
@@ -72,14 +73,14 @@ class GamePurchasePage extends React.Component {
         let gameRating = '';
         let gameRatingCalc = 0;
         if (this.props.allReviews) {
-            this.props.allReviews.forEach((review) => {
-                if (review.recommended) {
+            this.props.gameReviewIdsByDate.forEach((reviewId) => {
+                if (this.props.allReviews[reviewId].recommended) {
                     gameRatingCalc += 1;
                 } 
             });
 
             if (gameRatingCalc > 0) {
-                gameRatingCalc = Math.floor((gameRatingCalc/(this.props.allReviews.length) * 100));
+                gameRatingCalc = Math.floor((gameRatingCalc/(Object.keys(this.props.allReviews).length) * 100));
                 switch (true) {
                     case (gameRatingCalc < 20):
                         gameRating = 'Very Negative';
@@ -107,7 +108,7 @@ class GamePurchasePage extends React.Component {
         }
 
         return (
-            <div className="what-is-this-div">
+            <div>
             {this.props.gameInfo &&
                 <div className="body-wrapper">
 
@@ -122,7 +123,7 @@ class GamePurchasePage extends React.Component {
                         rightInfo={{
                             paragraph: this.props.gameInfo.side_text,
                             rating: gameRating,
-                            reviewCount: this.props.allReviews.length,
+                            reviewCount: Object.keys(this.props.allReviews).length,
                             releaseDate: this.props.gameInfo.release_date,
                             developer: this.props.gameInfo.developer,
                             publisher: this.props.gameInfo.publisher
@@ -137,6 +138,7 @@ class GamePurchasePage extends React.Component {
                     
                     <div className="fourth-row-purchase-page">
                         <ReviewList allReviews={this.props.allReviews}
+                        gameReviewIdsByDate={this.props.gameReviewIdsByDate}
                         gameRatingCalc={gameRatingCalc}
                         gameRating={gameRating}
                         getGameInfoAndReviews={this.props.getGameInfoAndReviews}/>

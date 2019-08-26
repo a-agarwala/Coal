@@ -6,9 +6,9 @@ import {createReview, editReview, removeReview} from '../../actions/review_actio
 
 const mapStateToProps = (state, ownProps) => {
 
-    let gameIdNumber = Number(ownProps.match.params.gameId);
+    let gameIdNumber = ownProps.match.params.gameId;
 
-    const reviews = Object.values(state.entities.reviews);
+    const reviewedGameIds = Object.keys(state.entities.reviews);
     const allReviews = state.entities.viewedGame.gameReviews;
     let thisGameReview = {};
     let hasReviewedGame = false;
@@ -18,13 +18,17 @@ const mapStateToProps = (state, ownProps) => {
 
         ownsGame = true
     }
-   
-        reviews.forEach ((review) => {
-            if (review.game_id === gameIdNumber) {
-                thisGameReview = review;
+    
+    if (allReviews) {
+        reviewedGameIds.forEach ((reviewedGameId) => {
+            if (reviewedGameId === gameIdNumber) {
+                console.log(allReviews);
+                thisGameReview = allReviews[`${state.entities.reviews[reviewedGameId]}`];
                 return hasReviewedGame = true;
             }
         })
+    }
+
 
     return ({
         gameId: gameIdNumber,
@@ -34,6 +38,7 @@ const mapStateToProps = (state, ownProps) => {
         ownsGame: ownsGame,
         hasReviewedGame: hasReviewedGame,
         thisGameReview: thisGameReview,
+        gameReviewIdsByDate: state.entities.viewedGame.gameReviewIdsByDate,
         allReviews: allReviews,
     })
     

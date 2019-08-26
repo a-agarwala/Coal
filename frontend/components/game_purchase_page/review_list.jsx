@@ -36,11 +36,11 @@ class ReviewList extends React.Component {
 
                     <div>
                         <ul>
-                            {this.props.allReviews.map(review => {
+                            {this.props.gameReviewIdsByDate.map(reviewId => {
                                 return (
                                     <ReviewListItem
-                                        key={review.id}
-                                        review={review} />
+                                        key={reviewId}
+                                        review={this.props.allReviews[reviewId]} />
                                 )
                             })}
                         </ul>

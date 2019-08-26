@@ -873,12 +873,13 @@ function (_React$Component) {
   _createClass(GamePurchasePage, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this.props.getGameInfoAndReviews(this.props.gameId);
+
       if (this.props.currentUser) {
         this.props.refreshUserInfo(this.props.currentUser.id);
       }
 
       ;
-      this.props.getGameInfoAndReviews(this.props.gameId);
     }
   }, {
     key: "componentWillUnmount",
@@ -888,6 +889,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       var secondRow = {};
 
       if (this.props.gameInfo) {
@@ -931,14 +934,14 @@ function (_React$Component) {
       var gameRatingCalc = 0;
 
       if (this.props.allReviews) {
-        this.props.allReviews.forEach(function (review) {
-          if (review.recommended) {
+        this.props.gameReviewIdsByDate.forEach(function (reviewId) {
+          if (_this.props.allReviews[reviewId].recommended) {
             gameRatingCalc += 1;
           }
         });
 
         if (gameRatingCalc > 0) {
-          gameRatingCalc = Math.floor(gameRatingCalc / this.props.allReviews.length * 100);
+          gameRatingCalc = Math.floor(gameRatingCalc / Object.keys(this.props.allReviews).length * 100);
 
           switch (true) {
             case gameRatingCalc < 20:
@@ -973,9 +976,7 @@ function (_React$Component) {
         ;
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "what-is-this-div"
-      }, this.props.gameInfo && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.gameInfo && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "body-wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "background-image-purchase-page"
@@ -989,7 +990,7 @@ function (_React$Component) {
         rightInfo: {
           paragraph: this.props.gameInfo.side_text,
           rating: gameRating,
-          reviewCount: this.props.allReviews.length,
+          reviewCount: Object.keys(this.props.allReviews).length,
           releaseDate: this.props.gameInfo.release_date,
           developer: this.props.gameInfo.developer,
           publisher: this.props.gameInfo.publisher
@@ -1000,6 +1001,7 @@ function (_React$Component) {
         className: "fourth-row-purchase-page"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_list__WEBPACK_IMPORTED_MODULE_3__["default"], {
         allReviews: this.props.allReviews,
+        gameReviewIdsByDate: this.props.gameReviewIdsByDate,
         gameRatingCalc: gameRatingCalc,
         gameRating: gameRating,
         getGameInfoAndReviews: this.props.getGameInfoAndReviews
@@ -1035,8 +1037,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  var gameIdNumber = Number(ownProps.match.params.gameId);
-  var reviews = Object.values(state.entities.reviews);
+  var gameIdNumber = ownProps.match.params.gameId;
+  var reviewedGameIds = Object.keys(state.entities.reviews);
   var allReviews = state.entities.viewedGame.gameReviews;
   var thisGameReview = {};
   var hasReviewedGame = false;
@@ -1046,12 +1048,16 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     ownsGame = true;
   }
 
-  reviews.forEach(function (review) {
-    if (review.game_id === gameIdNumber) {
-      thisGameReview = review;
-      return hasReviewedGame = true;
-    }
-  });
+  if (allReviews) {
+    reviewedGameIds.forEach(function (reviewedGameId) {
+      if (reviewedGameId === gameIdNumber) {
+        console.log(allReviews);
+        thisGameReview = allReviews["".concat(state.entities.reviews[reviewedGameId])];
+        return hasReviewedGame = true;
+      }
+    });
+  }
+
   return {
     gameId: gameIdNumber,
     gameInfo: state.entities.viewedGame.gameInfo,
@@ -1060,6 +1066,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     ownsGame: ownsGame,
     hasReviewedGame: hasReviewedGame,
     thisGameReview: thisGameReview,
+    gameReviewIdsByDate: state.entities.viewedGame.gameReviewIdsByDate,
     allReviews: allReviews
   };
 };
@@ -1496,6 +1503,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       var reviewListDisplay = {};
 
       if (this.props.allReviews.length === 0) {
@@ -1513,10 +1522,10 @@ function (_React$Component) {
           className: this.props.gameRatingCalc > 49 ? "positive-rating" : "negative-rating"
         }, this.props.gameRating), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "game-calc-dsiplay-review-list"
-        }, " (", this.props.gameRatingCalc, "% of players gave this game a positive review.) "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.allReviews.map(function (review) {
+        }, " (", this.props.gameRatingCalc, "% of players gave this game a positive review.) "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.gameReviewIdsByDate.map(function (reviewId) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_list_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
-            key: review.id,
-            review: review
+            key: reviewId,
+            review: _this.props.allReviews[reviewId]
           });
         }))));
       }
@@ -3026,9 +3035,10 @@ var reviewsReducer = function reviewsReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      action.currentUser.reviews.forEach(function (review) {
-        newState[review.id] = review;
-      });
+      // action.currentUser.reviews.forEach(review => {
+      //     newState[review.id] = review;
+      // });
+      newState = action.currentUser.reviewedGames;
       return newState;
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:

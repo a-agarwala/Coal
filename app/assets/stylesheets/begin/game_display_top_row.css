@@ -23,6 +23,11 @@
     margin-right: 2px;
     background-size: cover;
     background-repeat: no-repeat;
+    opacity: 0.8;
+}
+
+.thumbnail-scrollbar > li:hover {
+    opacity: 1;
 }
 
 .thumbnail-scrollbar::-webkit-scrollbar {
@@ -49,6 +54,7 @@
     right: 24px;
     bottom: 2px;
 }
+
 
 #game-display-big-picture {
     width: 100%;

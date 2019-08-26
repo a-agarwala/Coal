@@ -8,9 +8,10 @@ const reviewsReducer = (state = {}, action) => {
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            action.currentUser.reviews.forEach(review => {
-                newState[review.id] = review;
-            });
+            // action.currentUser.reviews.forEach(review => {
+            //     newState[review.id] = review;
+            // });
+            newState = action.currentUser.reviewedGames
             return newState;
         case LOGOUT_CURRENT_USER:
             return {};
