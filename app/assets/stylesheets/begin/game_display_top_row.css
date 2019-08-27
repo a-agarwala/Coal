@@ -92,6 +92,14 @@
     width: 940px;
 }
 
+.top-row-center-horizontally h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    z-index: 2;
+    color: white;
+}
+
 .game-name-purchase-page {
     font-size: 26px;
     margin-bottom: 15px;

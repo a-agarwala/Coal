@@ -789,14 +789,9 @@ function (_React$Component) {
   _createClass(GameDisplayTopRow, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "top-row-center-horizontally"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "game-name-purchase-page",
-        style: {
-          color: "white"
-        }
-      }, this.props.gameTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.gameTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "game-top-row-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "game-top-row-background"
@@ -807,7 +802,7 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_right_column_game_display__WEBPACK_IMPORTED_MODULE_2__["default"], {
         info: this.props.rightInfo,
         image: this.props.gamePhotos[0]
-      })))));
+      }))));
     }
   }]);
 
