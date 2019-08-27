@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './header/header';
+import HeaderContainer from './header/header_container';
 import SigninAndInfo from './signin_create_page/signin_and_info';
 import CreateAccountContainer from './create_acc_page/create_account_container';
 import GamePurchasePageContainer from './game_purchase_page/game_purchase_page_container';
@@ -21,7 +21,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => (
     <div id="flex-container">
         <header>
-            <Header/>
+            <HeaderContainer/>
         </header>
         <Switch>
             <AuthRoute exact path='/login' component={SigninAndInfo} />

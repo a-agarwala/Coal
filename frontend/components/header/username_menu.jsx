@@ -10,7 +10,6 @@ class UsernameMenu extends React.Component {
 
         this.showDropdownMenu = this.showDropdownMenu.bind(this);
         this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
-        this.goToRandomGame = this.goToRandomGame.bind(this);
     }
 
     showDropdownMenu(event) {
@@ -29,11 +28,6 @@ class UsernameMenu extends React.Component {
                 document.removeEventListener('click', this.hideDropdownMenu);
             });
         }
-    }
-
-    goToRandomGame() {
-        const randomGameId = Math.floor(Math.random() * 14) + 1;
-        this.props.history.push(`/game/${randomGameId}`);
     }
 
     componentWillUnmount() {

@@ -33,11 +33,20 @@ div#global-header .content {
 .header-center-links-wrapper {
     position: relative;
     top: 47px;
-    left: 240px;
+    left: 190px;
     color: #b8b6b4;
     text-transform: uppercase;
     font-size: 14px;
     line-height: 16px;
+}
+
+.header-center-link {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.header-center-link:hover {
+    color: #ffffff;
 }
 
 div#upper-right-nav-bar-wrapper {
@@ -149,9 +158,7 @@ div#upper-right-nav-bar {
 #logo {
     color: white;
     position: absolute;
-    left: 30px;
-    top: 25px;
+    top: 28px;
     font-size: 30px;
-    font-weight: bold;
-    width: 150px;
+    width: 130px;
 }
