@@ -791,7 +791,7 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "top-row-center-horizontally"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.gameTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "game-top-row-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "game-top-row-background"
@@ -978,9 +978,10 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.props.gamePhotos[1]
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "game-name-purchase-page"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.gameInfo.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "first-row-purchase-page"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_game_display_top_row__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        gameTitle: this.props.gameInfo.title,
         gamePhotos: this.props.gamePhotos,
         rightInfo: {
           paragraph: this.props.gameInfo.side_text,

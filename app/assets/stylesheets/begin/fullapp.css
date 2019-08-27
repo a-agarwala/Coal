@@ -47,23 +47,38 @@ html, body {
     background: #0f0f0f
 }
 
-.first-row-purchase-page {
+.game-name-purchase-page {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    z-index: 2; 
     flex: 1;
-    display: block;
+    display: block;  
 }
 
-.second-row-purchase-page {
+.game-name-purchase-page h2 {
+    width: 940px;
+    margin: 0 auto;
+    color: white;
+    font-size: 26px;
+}
+
+.first-row-purchase-page {
     flex: 2;
     display: block;
 }
 
-.third-row-purchase-page {
+.second-row-purchase-page {
     flex: 3;
     display: block;
 }
 
-.fourth-row-purchase-page {
+.third-row-purchase-page {
     flex: 4;
+    display: block;
+}
+
+.fourth-row-purchase-page {
+    flex: 5;
     display: block;
 }
 

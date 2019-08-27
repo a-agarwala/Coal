@@ -115,10 +115,11 @@ class GamePurchasePage extends React.Component {
                     <div id="background-image-purchase-page">
                         <img src={this.props.gamePhotos[1]}></img>
                     </div>
-
+                    <div className="game-name-purchase-page">
+                        <h2>{this.props.gameInfo.title}</h2>
+                    </div>
                     <div className="first-row-purchase-page">
                         <GameDisplayTopRow 
-                        gameTitle={this.props.gameInfo.title}
                         gamePhotos={this.props.gamePhotos}
                         rightInfo={{
                             paragraph: this.props.gameInfo.side_text,

@@ -11,7 +11,7 @@ class GameDisplayTopRow extends React.Component {
         return (
                 
                 <div className="top-row-center-horizontally">
-                    <h2>{this.props.gameTitle}</h2>
+                    {/* <h2>{this.props.gameTitle}</h2> */}
                     {/* <div className="game-name-purchase-page" style={{ color: "white" }}>
                         {this.props.gameTitle}
                     </div> */}
