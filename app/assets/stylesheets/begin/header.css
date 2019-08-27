@@ -30,6 +30,16 @@ div#global-header .content {
 	z-index: 402;
 }
 
+.header-center-links-wrapper {
+    position: relative;
+    top: 47px;
+    left: 240px;
+    color: #b8b6b4;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 16px;
+}
+
 div#upper-right-nav-bar-wrapper {
     position: absolute;
     right: 50px;
@@ -140,7 +150,8 @@ div#upper-right-nav-bar {
     color: white;
     position: absolute;
     left: 30px;
-    top: 20px;
+    top: 25px;
     font-size: 30px;
     font-weight: bold;
+    width: 150px;
 }

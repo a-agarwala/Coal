@@ -10,9 +10,15 @@ class Header extends React.Component {
     render() {
         return(
             <div id="global-header">
-                <div class="content">
-                    <Link id="logo" to="/">COAL</Link>
+                <div className="content">
+                    <Link id="logo" to="/">
+                        <img 
+                        src={window.images.header_logo}/>
+                    </Link>
                     {/* <div id="logo" onClick={()=> this.props.history.push('/')}>COAL</div> */}
+                    <div className="header-center-links-wrapper">
+                        Your Games
+                    </div>
                     <div>
                         <UpperRightNavBarContainer history={this.props.history} />
                     </div>

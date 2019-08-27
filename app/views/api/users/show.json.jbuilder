@@ -6,8 +6,6 @@ end
 
 ownedGames = Array.new
 
-reviews = Array.new
-
 @user.games.each do |game|
     ownedGames << game.id
 end

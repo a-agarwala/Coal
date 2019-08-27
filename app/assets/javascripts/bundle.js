@@ -1746,11 +1746,15 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "global-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "content"
+        className: "content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         id: "logo",
         to: "/"
-      }, "COAL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_upper_right_nav_bar_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: window.images.header_logo
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "header-center-links-wrapper"
+      }, "Your Games"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_upper_right_nav_bar_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
         history: this.props.history
       }))));
     }
