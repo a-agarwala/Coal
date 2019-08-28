@@ -115,9 +115,11 @@ class GamePurchasePage extends React.Component {
                     <div id="background-image-purchase-page">
                         <img src={this.props.gamePhotos[1]}></img>
                     </div>
+
                     <div className="game-name-purchase-page">
                         <h2>{this.props.gameInfo.title}</h2>
                     </div>
+
                     <div className="first-row-purchase-page">
                         <GameDisplayTopRow 
                         gamePhotos={this.props.gamePhotos}
@@ -131,7 +133,6 @@ class GamePurchasePage extends React.Component {
                         }}
                         />
                     </div>
-                    
                     
                     {secondRow}
 

@@ -335,9 +335,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _create_acc_page_create_account_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./create_acc_page/create_account_container */ "./frontend/components/create_acc_page/create_account_container.jsx");
 /* harmony import */ var _game_purchase_page_game_purchase_page_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./game_purchase_page/game_purchase_page_container */ "./frontend/components/game_purchase_page/game_purchase_page_container.jsx");
 /* harmony import */ var _storefront_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./storefront_container */ "./frontend/components/storefront_container.jsx");
-/* harmony import */ var _random_game__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./random_game */ "./frontend/components/random_game.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+/* harmony import */ var _library_library_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./library/library_container */ "./frontend/components/library/library_container.jsx");
+/* harmony import */ var _random_game__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./random_game */ "./frontend/components/random_game.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+
 
 
 
@@ -351,26 +353,30 @@ __webpack_require__.r(__webpack_exports__);
 var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "flex-container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_8__["AuthRoute"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["AuthRoute"], {
     exact: true,
     path: "/login",
     component: _signin_create_page_signin_and_info__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_8__["AuthRoute"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["AuthRoute"], {
     exact: true,
     path: "/join",
     component: _create_acc_page_create_account_container__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
     exact: true,
     path: "/game/:gameId",
     component: _game_purchase_page_game_purchase_page_container__WEBPACK_IMPORTED_MODULE_4__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
+    exact: true,
+    path: "/random",
+    component: _random_game__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["ProtectedRoute"], {
+    exact: true,
+    path: "/library",
+    component: _library_library_container__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
     exact: true,
     path: "/",
     component: _storefront_container__WEBPACK_IMPORTED_MODULE_5__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
-    exact: true,
-    path: "/random",
-    component: _random_game__WEBPACK_IMPORTED_MODULE_6__["default"]
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
     id: "global-footer"
   }));
@@ -791,7 +797,7 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "top-row-center-horizontally"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "game-top-row-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "game-top-row-background"
@@ -802,7 +808,7 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_right_column_game_display__WEBPACK_IMPORTED_MODULE_2__["default"], {
         info: this.props.rightInfo,
         image: this.props.gamePhotos[0]
-      }))));
+      })));
     }
   }]);
 
@@ -1037,21 +1043,20 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   var reviewedGameIds = Object.keys(state.entities.reviews);
   var allReviews = state.entities.viewedGame.gameReviews;
   var thisGameReview = {};
-  var hasReviewedGame = false;
+  var hasReviewedGame = !!state.entities.reviews[gameIdNumber];
   var ownsGame = false;
+  var ownedGameIds = state.entities.ownedGames.map(function (ownedGame) {
+    return ownedGame.id.toString();
+  });
 
-  if (state.entities.ownedGames.includes(gameIdNumber)) {
+  if (hasReviewedGame || ownedGameIds.includes(gameIdNumber)) {
     ownsGame = true;
   }
 
-  if (allReviews) {
-    reviewedGameIds.forEach(function (reviewedGameId) {
-      if (reviewedGameId === gameIdNumber) {
-        console.log(allReviews);
-        thisGameReview = allReviews["".concat(state.entities.reviews[reviewedGameId])];
-        return hasReviewedGame = true;
-      }
-    });
+  ;
+
+  if (allReviews && hasReviewedGame) {
+    thisGameReview = allReviews["".concat(state.entities.reviews[gameIdNumber])];
   }
 
   return {
@@ -1068,7 +1073,6 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
-  var gameId = ownProps.match.params.gameId;
   return {
     getGameInfoAndReviews: function getGameInfoAndReviews(gameId) {
       return dispatch(Object(_actions_game_actions__WEBPACK_IMPORTED_MODULE_1__["getGameInfoAndReviews"])(gameId));
@@ -1706,10 +1710,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
- // class Header extends React.Component 
-//     constructor(props) {
-//         super(props);
-//     }
 
 function Header(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1723,16 +1723,7 @@ function Header(props) {
     src: window.images.header_logo
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header-center-links-wrapper"
-  }, props.currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-    className: "header-center-link",
-    to: "/"
-  }, "Your Games"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-    className: "header-center-link",
-    to: "/"
-  }, "Wishlist")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-    className: "header-center-link",
-    to: "/"
-  }, "Sales!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "header-center-link",
     href: "https://linkedin.com/in/aditya-agarwala"
   }, "Linkedin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -1994,6 +1985,59 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (UsernameMenu);
+
+/***/ }),
+
+/***/ "./frontend/components/library/library.jsx":
+/*!*************************************************!*\
+  !*** ./frontend/components/library/library.jsx ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Library; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+function Library(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Library!"));
+}
+
+/***/ }),
+
+/***/ "./frontend/components/library/library_container.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/library/library_container.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _library__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./library */ "./frontend/components/library/library.jsx");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+
+
+
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  return {
+    history: ownProps.history
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    refreshUserInfo: function refreshUserInfo(currentUserId) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["refreshUserInfo"])(currentUserId));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_library__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 

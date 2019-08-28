@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { getGameInfoAndReviews, leaveGamePurchasePage } from '../../actions/game_actions';
 import { refreshUserInfo, updateUserWallet, purchaseGame } from '../../actions/session_actions';
 import GamePurchasePage from './game_purchase_page';
-import {createReview, editReview, removeReview} from '../../actions/review_actions';
+import { createReview, editReview, removeReview } from '../../actions/review_actions';
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -11,24 +11,19 @@ const mapStateToProps = (state, ownProps) => {
     const reviewedGameIds = Object.keys(state.entities.reviews);
     const allReviews = state.entities.viewedGame.gameReviews;
     let thisGameReview = {};
-    let hasReviewedGame = false;
+    let hasReviewedGame = !!(state.entities.reviews[gameIdNumber]);
     let ownsGame = false;
-    
-    if (state.entities.ownedGames.includes(gameIdNumber)) {
+    const ownedGameIds = state.entities.ownedGames.map((ownedGame) => {
+        return ownedGame.id.toString();
+    });
 
+    if (hasReviewedGame || ownedGameIds.includes(gameIdNumber)) {
         ownsGame = true
+    };
+ 
+    if (allReviews && hasReviewedGame) {
+        thisGameReview = allReviews[`${state.entities.reviews[gameIdNumber]}`]
     }
-    
-    if (allReviews) {
-        reviewedGameIds.forEach ((reviewedGameId) => {
-            if (reviewedGameId === gameIdNumber) {
-                console.log(allReviews);
-                thisGameReview = allReviews[`${state.entities.reviews[reviewedGameId]}`];
-                return hasReviewedGame = true;
-            }
-        })
-    }
-
 
     return ({
         gameId: gameIdNumber,
@@ -45,7 +40,6 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    const gameId = ownProps.match.params.gameId;
 
     return ({
         getGameInfoAndReviews: (gameId) => dispatch(getGameInfoAndReviews(gameId)),

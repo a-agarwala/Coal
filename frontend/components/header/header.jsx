@@ -2,11 +2,6 @@ import React from 'react';
 import UpperRightNavBar from './upper_right_nav_bar';
 import { Link } from 'react-router-dom';
 
-// class Header extends React.Component 
-//     constructor(props) {
-//         super(props);
-//     }
-
 export default function Header(props) {
 
         return (
@@ -16,25 +11,27 @@ export default function Header(props) {
                         <img
                             src={window.images.header_logo} />
                     </Link>
-                    {/* <div id="logo" onClick={()=> this.props.history.push('/')}>COAL</div> */}
+
                     <div className="header-center-links-wrapper">
 
-                        {props.currentUser ? (<>
-
-                            <Link className="header-center-link" to="/">
+                        {/* {props.currentUser ? (
+                        
+                            <>
+                            <Link className="header-center-link" to="/library">
                                 Your Games
                             </Link>
 
                             <Link className="header-center-link" to="/">
                                 Wishlist
-                            </Link></>
+                            </Link>
+                            </>
 
                         ) : <></>
-                        }
+                        } */}
 
-                        <Link className="header-center-link" to="/">
+                        {/* <Link className="header-center-link" to="/">
                             Sales!
-                        </Link>
+                        </Link> */}
 
                         <a className="header-center-link" href="https://linkedin.com/in/aditya-agarwala">
                             Linkedin
@@ -56,5 +53,4 @@ export default function Header(props) {
                 </div>
             </div>
         )
-
 }
