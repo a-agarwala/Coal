@@ -1428,6 +1428,10 @@ function (_React$Component) {
   _createClass(PurchaseDisplay, [{
     key: "buyGame",
     value: function buyGame() {
+      if (!!!this.props.currentUser) {
+        this.props.history.push('/login');
+      }
+
       var userclone = Object.assign({}, this.props.currentUser);
 
       if (this.props.currentUser.wallet >= this.props.gamePrice) {

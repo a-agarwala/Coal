@@ -8,14 +8,21 @@ class PurchaseDisplay extends React.Component {
     }
 
     buyGame() {
+
+        if (!!!this.props.currentUser) {
+            this.props.history.push('/login');
+        }
+
         let userclone = Object.assign({}, this.props.currentUser);
 
         if (this.props.currentUser.wallet >= this.props.gamePrice) {
             userclone.wallet = userclone.wallet - this.props.gamePrice;
             this.props.updateUserWallet(userclone);
             this.props.purchaseGame({owner_id: this.props.currentUser.id, game_id: this.props.gameId});
-            this.props.history.push('/library')
+            this.props.history.push('/library');
         }
+
+        
 
         
     }
