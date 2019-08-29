@@ -1,0 +1,89 @@
+.library.wrapper {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.library .owned-game-item {
+    max-width: 750px;
+    margin: 0 auto;
+    background: none;
+    background-color: rgba(0, 0, 0, 0.514);
+    color: white;
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.library .owned-game-item:hover {
+    background-color: rgba(0, 0, 0, 0.377)
+}
+
+.library .title-image {
+    display: inline-block;
+    width: 220px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    
+    opacity: 0.9;
+}
+
+.library .owned-game-item:hover .title-image{
+    opacity: 1;
+}
+
+.library .title-and-buttons-box {
+    display: inline-block;
+    width: 500px;
+    margin-left: 5px;
+    position: relative;
+    bottom: 12px;
+}
+
+.title-and-buttons-box .title {
+    font-size: 24px;
+    display: block;
+    font-weight: 200;
+}
+
+.title-and-buttons-box .buttons-row {
+    display: block;
+    margin-top: 8px;
+}
+
+.buttons-row .library-button-container {
+    display: inline-block;
+    margin-right: 2px;
+}
+
+.buttons-row .right-side-info-row-subtitle {
+    width: 152px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.63);
+    text-align: center;
+}
+
+.buttons-row .library-button {
+    background-color: rgba( 103, 193, 245, 0.2 );
+    cursor: pointer;
+    color: #66c0f4;
+    line-height: 20px;
+    font-size: 14px;
+    max-width: 143px;
+    text-align: center;
+    padding: 4px 4px 7px;
+    margin-top: 10px;
+}
+
+.buttons-row .library-button:hover {
+    background-color: rgba(103, 193, 245, 0.568);
+    color: white;
+}
+
+.library .no-games-owned {
+    margin: 0 auto;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    padding: 40px;
+}

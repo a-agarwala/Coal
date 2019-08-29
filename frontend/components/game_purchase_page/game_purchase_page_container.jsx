@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { getGameInfoAndReviews, leaveGamePurchasePage } from '../../actions/game_actions';
 import { refreshUserInfo, updateUserWallet, purchaseGame } from '../../actions/session_actions';
 import GamePurchasePage from './game_purchase_page';
@@ -8,7 +9,6 @@ const mapStateToProps = (state, ownProps) => {
 
     let gameIdNumber = ownProps.match.params.gameId;
 
-    const reviewedGameIds = Object.keys(state.entities.reviews);
     const allReviews = state.entities.viewedGame.gameReviews;
     let thisGameReview = {};
     let hasReviewedGame = !!(state.entities.reviews[gameIdNumber]);
@@ -22,7 +22,7 @@ const mapStateToProps = (state, ownProps) => {
     };
  
     if (allReviews && hasReviewedGame) {
-        thisGameReview = allReviews[`${state.entities.reviews[gameIdNumber]}`]
+        thisGameReview = allReviews[`${state.entities.reviews[gameIdNumber]['reviewId']}`]
     }
 
     return ({
@@ -35,6 +35,7 @@ const mapStateToProps = (state, ownProps) => {
         thisGameReview: thisGameReview,
         gameReviewIdsByDate: state.entities.viewedGame.gameReviewIdsByDate,
         allReviews: allReviews,
+        location: ownProps.location
     })
     
 };

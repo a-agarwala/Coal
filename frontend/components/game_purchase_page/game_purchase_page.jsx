@@ -8,7 +8,12 @@ import GameDisplayTopRow from './game_display_top_row';
 class GamePurchasePage extends React.Component {
     constructor(props) {
         super(props);
+    
+    this.setReviewRef = this.setReviewRef.bind(this); 
+    }
 
+    setReviewRef(node) {
+        this.reviewRef = node;
     }
 
     componentDidMount() {
@@ -16,8 +21,14 @@ class GamePurchasePage extends React.Component {
 
         if (this.props.currentUser) {
             this.props.refreshUserInfo(this.props.currentUser.id);
-        };
-        
+        }; 
+    }
+
+    componentDidUpdate() {
+        console.log('component did update')
+        if (this.reviewRef && this.props.location.hash.includes('#review')) {
+            this.reviewRef.scrollIntoView(true);
+        }
     }
 
     componentWillUnmount() {
@@ -25,13 +36,14 @@ class GamePurchasePage extends React.Component {
     }
 
     render() {
-       
+        console.log(`This is the pathname in the location prop: ${this.props.location.pathname}`);
+        console.log(`this is the hash in the location prop: ${this.props.location.hash}`)
         let secondRow = {};
         if (this.props.gameInfo) {
             if (this.props.currentUser && this.props.ownsGame && !this.props.hasReviewedGame) {
 
                 secondRow = (
-                    <div className="second-row-purchase-page">
+                    <div className="second-row-purchase-page" ref={this.setReviewRef}>
                         <NewReviewForm createReview={this.props.createReview}
                             currentUser={this.props.currentUser}
                             gameTitle={this.props.gameInfo.title}
@@ -42,7 +54,7 @@ class GamePurchasePage extends React.Component {
             } else if (this.props.currentUser && this.props.hasReviewedGame) {
 
                 secondRow = (
-                    <div className="second-row-purchase-page">
+                    <div className="second-row-purchase-page" ref={this.setReviewRef}>
                         <EditReviewForm editReview={this.props.editReview}
                             removeReview={this.props.removeReview}
                             currentUser={this.props.currentUser}
@@ -55,7 +67,7 @@ class GamePurchasePage extends React.Component {
             } else {
 
                 secondRow = (
-                    <div className="second-row-purchase-page">
+                    <div className="second-row-purchase-page" ref={this.setReviewRef}>
                         <PurchaseDisplay currentUser={this.props.currentUser} 
                         updateUserWallet={this.props.updateUserWallet}
                         purchaseGame={this.props.purchaseGame}

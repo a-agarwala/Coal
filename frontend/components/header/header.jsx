@@ -14,20 +14,20 @@ export default function Header(props) {
 
                     <div className="header-center-links-wrapper">
 
-                        {/* {props.currentUser ? (
+                        {props.currentUser ? (
                         
                             <>
                             <Link className="header-center-link" to="/library">
                                 Your Games
                             </Link>
 
-                            <Link className="header-center-link" to="/">
+                            {/* <Link className="header-center-link" to="/">
                                 Wishlist
-                            </Link>
+                            </Link> */}
                             </>
 
                         ) : <></>
-                        } */}
+                        }
 
                         {/* <Link className="header-center-link" to="/">
                             Sales!

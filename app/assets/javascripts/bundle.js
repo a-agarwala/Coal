@@ -845,9 +845,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -866,12 +866,21 @@ function (_React$Component) {
   _inherits(GamePurchasePage, _React$Component);
 
   function GamePurchasePage(props) {
+    var _this;
+
     _classCallCheck(this, GamePurchasePage);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(GamePurchasePage).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(GamePurchasePage).call(this, props));
+    _this.setReviewRef = _this.setReviewRef.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(GamePurchasePage, [{
+    key: "setReviewRef",
+    value: function setReviewRef(node) {
+      this.reviewRef = node;
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.getGameInfoAndReviews(this.props.gameId);
@@ -883,6 +892,15 @@ function (_React$Component) {
       ;
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      console.log('component did update');
+
+      if (this.reviewRef && this.props.location.hash.includes('#review')) {
+        this.reviewRef.scrollIntoView(true);
+      }
+    }
+  }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       this.props.leaveGamePurchasePage();
@@ -890,14 +908,17 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
+      console.log("This is the pathname in the location prop: ".concat(this.props.location.pathname));
+      console.log("this is the hash in the location prop: ".concat(this.props.location.hash));
       var secondRow = {};
 
       if (this.props.gameInfo) {
         if (this.props.currentUser && this.props.ownsGame && !this.props.hasReviewedGame) {
           secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "second-row-purchase-page"
+            className: "second-row-purchase-page",
+            ref: this.setReviewRef
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_new_review_form__WEBPACK_IMPORTED_MODULE_1__["default"], {
             createReview: this.props.createReview,
             currentUser: this.props.currentUser,
@@ -906,7 +927,8 @@ function (_React$Component) {
           }));
         } else if (this.props.currentUser && this.props.hasReviewedGame) {
           secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "second-row-purchase-page"
+            className: "second-row-purchase-page",
+            ref: this.setReviewRef
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_edit_review_form__WEBPACK_IMPORTED_MODULE_2__["default"], {
             editReview: this.props.editReview,
             removeReview: this.props.removeReview,
@@ -917,7 +939,8 @@ function (_React$Component) {
           }));
         } else {
           secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "second-row-purchase-page"
+            className: "second-row-purchase-page",
+            ref: this.setReviewRef
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_purchase_display__WEBPACK_IMPORTED_MODULE_4__["default"], {
             currentUser: this.props.currentUser,
             updateUserWallet: this.props.updateUserWallet,
@@ -936,7 +959,7 @@ function (_React$Component) {
 
       if (this.props.allReviews) {
         this.props.gameReviewIdsByDate.forEach(function (reviewId) {
-          if (_this.props.allReviews[reviewId].recommended) {
+          if (_this2.props.allReviews[reviewId].recommended) {
             gameRatingCalc += 1;
           }
         });
@@ -1028,10 +1051,12 @@ function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_game_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/game_actions */ "./frontend/actions/game_actions.js");
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var _game_purchase_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./game_purchase_page */ "./frontend/components/game_purchase_page/game_purchase_page.jsx");
-/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_game_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/game_actions */ "./frontend/actions/game_actions.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _game_purchase_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./game_purchase_page */ "./frontend/components/game_purchase_page/game_purchase_page.jsx");
+/* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
+
 
 
 
@@ -1040,7 +1065,6 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var gameIdNumber = ownProps.match.params.gameId;
-  var reviewedGameIds = Object.keys(state.entities.reviews);
   var allReviews = state.entities.viewedGame.gameReviews;
   var thisGameReview = {};
   var hasReviewedGame = !!state.entities.reviews[gameIdNumber];
@@ -1056,7 +1080,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   ;
 
   if (allReviews && hasReviewedGame) {
-    thisGameReview = allReviews["".concat(state.entities.reviews[gameIdNumber])];
+    thisGameReview = allReviews["".concat(state.entities.reviews[gameIdNumber]['reviewId'])];
   }
 
   return {
@@ -1068,40 +1092,41 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     hasReviewedGame: hasReviewedGame,
     thisGameReview: thisGameReview,
     gameReviewIdsByDate: state.entities.viewedGame.gameReviewIdsByDate,
-    allReviews: allReviews
+    allReviews: allReviews,
+    location: ownProps.location
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
   return {
     getGameInfoAndReviews: function getGameInfoAndReviews(gameId) {
-      return dispatch(Object(_actions_game_actions__WEBPACK_IMPORTED_MODULE_1__["getGameInfoAndReviews"])(gameId));
+      return dispatch(Object(_actions_game_actions__WEBPACK_IMPORTED_MODULE_2__["getGameInfoAndReviews"])(gameId));
     },
     leaveGamePurchasePage: function leaveGamePurchasePage() {
-      return dispatch(Object(_actions_game_actions__WEBPACK_IMPORTED_MODULE_1__["leaveGamePurchasePage"])());
+      return dispatch(Object(_actions_game_actions__WEBPACK_IMPORTED_MODULE_2__["leaveGamePurchasePage"])());
     },
     refreshUserInfo: function refreshUserInfo(currentUserId) {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["refreshUserInfo"])(currentUserId));
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["refreshUserInfo"])(currentUserId));
     },
     createReview: function createReview(review) {
-      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_4__["createReview"])(review));
+      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_5__["createReview"])(review));
     },
     editReview: function editReview(review) {
-      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_4__["editReview"])(review));
+      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_5__["editReview"])(review));
     },
     removeReview: function removeReview(reviewId) {
-      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_4__["removeReview"])(reviewId));
+      return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_5__["removeReview"])(reviewId));
     },
     updateUserWallet: function updateUserWallet(user) {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["updateUserWallet"])(user));
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["updateUserWallet"])(user));
     },
     purchaseGame: function purchaseGame(gameOwnership) {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["purchaseGame"])(gameOwnership));
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["purchaseGame"])(gameOwnership));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_game_purchase_page__WEBPACK_IMPORTED_MODULE_3__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_game_purchase_page__WEBPACK_IMPORTED_MODULE_4__["default"]));
 
 /***/ }),
 
@@ -1723,7 +1748,10 @@ function Header(props) {
     src: window.images.header_logo
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header-center-links-wrapper"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, props.currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+    className: "header-center-link",
+    to: "/library"
+  }, "Your Games")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "header-center-link",
     href: "https://linkedin.com/in/aditya-agarwala"
   }, "Linkedin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -2000,9 +2028,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Library; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _library_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./library_item */ "./frontend/components/library/library_item.jsx");
+
 
 function Library(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Library!"));
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    props.refreshUserInfo(props.currentUserId);
+  }, []);
+  var libraryItems;
+
+  if (props.ownedGames[0]) {
+    libraryItems = props.ownedGames.map(function (ownedGame, index) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_library_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        key: index,
+        titlePhoto: ownedGame.title_photo,
+        title: ownedGame.title,
+        purchaseDate: ownedGame.purchase_date,
+        gameId: ownedGame.id,
+        reviewedText: ownedGame.hasReviewed ? "Reviewed On: ".concat("\xA0", "\n                            ", props.reviews[ownedGame.id]['updatedOn'] ? props.reviews[ownedGame.id]['updatedOn'].slice(0, 10) : props.reviews[ownedGame.id]['createdOn'].slice(0, 10), " ") : '-- Not Reviewed Yet --',
+        reviewButtonText: ownedGame.hasReviewed ? 'Update Review' : 'Write Review',
+        history: props.history
+      });
+    });
+  }
+
+  console.log(libraryItems);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.currentUserId && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "library wrapper"
+  }, props.ownedGames[0] ? libraryItems : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "owned-game-item"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "no-games-owned"
+  }, "You do not own any games yet."))));
 }
 
 /***/ }),
@@ -2024,8 +2081,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var ownedGames = state.entities.ownedGames;
+  ownedGames.forEach(function (ownedGame, index) {
+    if (state.entities.reviews[ownedGame.id]) {
+      ownedGames[index]['hasReviewed'] = true;
+    } else {
+      ownedGames[index]['hasReviewed'] = false;
+    }
+  });
   return {
-    history: ownProps.history
+    history: ownProps.history,
+    currentUserId: state.session.id,
+    ownedGames: state.entities.ownedGames,
+    reviews: state.entities.reviews
   };
 };
 
@@ -2038,6 +2106,55 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_library__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/library/library_item.jsx":
+/*!******************************************************!*\
+  !*** ./frontend/components/library/library_item.jsx ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return LibraryItem; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+function LibraryItem(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "owned-game-item"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "title-image"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: props.titlePhoto
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "title-and-buttons-box"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "title"
+  }, props.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "buttons-row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "library-button-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "right-side-info-row-subtitle"
+  }, "Purchased On: ", props.purchaseDate), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "library-button",
+    onClick: function onClick() {
+      return props.history.push("/game/".concat(props.gameId));
+    }
+  }, "View Store Page")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "library-button-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "right-side-info-row-subtitle"
+  }, props.reviewedText), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "library-button",
+    onClick: function onClick() {
+      return props.history.push("/game/".concat(props.gameId, "#review"));
+    }
+  }, props.reviewButtonText)))));
+}
 
 /***/ }),
 
