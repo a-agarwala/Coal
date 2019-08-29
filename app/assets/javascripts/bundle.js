@@ -894,8 +894,6 @@ function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      console.log('component did update');
-
       if (this.reviewRef && this.props.location.hash.includes('#review')) {
         this.reviewRef.scrollIntoView(true);
       }
@@ -910,8 +908,6 @@ function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      console.log("This is the pathname in the location prop: ".concat(this.props.location.pathname));
-      console.log("this is the hash in the location prop: ".concat(this.props.location.hash));
       var secondRow = {};
 
       if (this.props.gameInfo) {
@@ -2345,7 +2341,6 @@ function (_React$Component) {
       var _this3 = this;
 
       var error_message = null;
-      console.log(this.props.history);
 
       if (this.props.error !== '') {
         error_message = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

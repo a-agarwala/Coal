@@ -25,7 +25,6 @@ class GamePurchasePage extends React.Component {
     }
 
     componentDidUpdate() {
-        console.log('component did update')
         if (this.reviewRef && this.props.location.hash.includes('#review')) {
             this.reviewRef.scrollIntoView(true);
         }
@@ -36,8 +35,6 @@ class GamePurchasePage extends React.Component {
     }
 
     render() {
-        console.log(`This is the pathname in the location prop: ${this.props.location.pathname}`);
-        console.log(`this is the hash in the location prop: ${this.props.location.hash}`)
         let secondRow = {};
         if (this.props.gameInfo) {
             if (this.props.currentUser && this.props.ownsGame && !this.props.hasReviewedGame) {

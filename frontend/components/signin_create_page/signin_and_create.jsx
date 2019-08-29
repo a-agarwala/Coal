@@ -45,9 +45,7 @@ class SignInAndCreate extends React.Component {
     render() {
 
         let error_message = null
-
-        console.log(this.props.history);
-
+        
         if (this.props.error !== '') {
             error_message = (
                 <div id="signin-error-area">
