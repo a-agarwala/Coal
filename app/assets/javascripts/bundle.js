@@ -2694,7 +2694,13 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   ownProps.gameIds.forEach(function (gameId) {
     var gameObject = {};
     gameObject.id = gameId;
-    gameObject.photoUrl = state.entities.storefront[gameId].gridPhoto;
+    var photoUrls = state.entities.storefront[gameId].photoUrls;
+    photoUrls.forEach(function (photoUrl) {
+      if (photoUrl.includes("1.jp") && !photoUrl.includes('11.jp') && !photoUrl.includes("carousel")) {
+        gameObject.photoUrl = photoUrl;
+        return;
+      }
+    });
     gameObject.price = state.entities.storefront[gameId].price;
     gameObject.title = state.entities.storefront[gameId].title;
     gameObjectsArray.push(gameObject);
@@ -3002,8 +3008,25 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   ownProps.gameIds.forEach(function (gameId) {
     var gameObject = {};
     gameObject.id = gameId;
-    gameObject.photoUrls = state.entities.storefront[gameId].photoUrls;
-    gameObject.photoUrls.unshift(state.entities.storefront[gameId].carouselPhoto);
+    var photoUrls = state.entities.storefront[gameId].photoUrls;
+    var carouselPhoto;
+    var refinedPhotoUrls = [];
+    photoUrls.forEach(function (photoUrl) {
+      if (photoUrl.includes("carousel")) {
+        carouselPhoto = photoUrl;
+      } else if (!photoUrl.includes("1.jp")) {
+        refinedPhotoUrls.push(photoUrl);
+      }
+    });
+    gameObject.photoUrls = [];
+
+    if (refinedPhotoUrls.length <= 6) {
+      gameObject.photoUrls = refinedPhotoUrls;
+    } else {
+      gameObject.photoUrls = refinedPhotoUrls.slice(0, 6);
+    }
+
+    gameObject.photoUrls.unshift(carouselPhoto);
     gameObject.price = state.entities.storefront[gameId].price;
     gameObject.title = state.entities.storefront[gameId].title;
     gameObjectsArray.push(gameObject);

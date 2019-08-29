@@ -11,6 +11,7 @@ class Api::GamesController < ApplicationController
             game_id = game.id
             game_title = game.title
             game_price = game.price
+            photo_array = game.photos
 
             game_data = {
                 'title' => game_title,
@@ -20,17 +21,9 @@ class Api::GamesController < ApplicationController
             
             @games[game_id] = game_data
             
-            photo_array = game.photos[1...-1]
-
-            lastidx = (photo_array.length <= 5 ? photo_array.length : 6)
-
-            (0...lastidx).each do |idx|
-                @games[game_id]['photoUrls'] << url_for(photo_array[idx])
+            photo_array.each do |photo|
+                @games[game_id]['photoUrls'] << url_for(photo)
             end
-
-            @games[game_id]['gridPhoto'] = url_for(game.photos[0])
-
-            @games[game_id]['carouselPhoto'] = url_for(game.photos[-1])
 
     end
 
