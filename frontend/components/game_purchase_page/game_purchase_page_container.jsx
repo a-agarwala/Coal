@@ -35,7 +35,8 @@ const mapStateToProps = (state, ownProps) => {
         thisGameReview: thisGameReview,
         gameReviewIdsByDate: state.entities.viewedGame.gameReviewIdsByDate,
         allReviews: allReviews,
-        location: ownProps.location
+        location: ownProps.location,
+        history: ownProps.history
     })
     
 };

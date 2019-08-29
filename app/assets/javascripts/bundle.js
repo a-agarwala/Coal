@@ -943,7 +943,8 @@ function (_React$Component) {
             purchaseGame: this.props.purchaseGame,
             gameTitle: this.props.gameInfo.title,
             gamePrice: this.props.gameInfo.price,
-            gameId: this.props.gameInfo.id
+            gameId: this.props.gameInfo.id,
+            history: this.props.history
           }));
         }
 
@@ -1089,7 +1090,8 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     thisGameReview: thisGameReview,
     gameReviewIdsByDate: state.entities.viewedGame.gameReviewIdsByDate,
     allReviews: allReviews,
-    location: ownProps.location
+    location: ownProps.location,
+    history: ownProps.history
   };
 };
 
@@ -1435,6 +1437,7 @@ function (_React$Component) {
           owner_id: this.props.currentUser.id,
           game_id: this.props.gameId
         });
+        this.props.history.push('/library');
       }
     }
   }, {
@@ -2050,10 +2053,13 @@ function Library(props) {
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.currentUserId && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "library wrapper"
-  }, props.ownedGames[0] ? libraryItems : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Your Games"), props.ownedGames[0] ? libraryItems : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "owned-game-item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-    className: "no-games-owned"
+    className: "no-games-owned",
+    onClick: function onClick() {
+      return props.history.push('/');
+    }
   }, "You do not own any games yet."))));
 }
 
@@ -2688,7 +2694,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   ownProps.gameIds.forEach(function (gameId) {
     var gameObject = {};
     gameObject.id = gameId;
-    gameObject.photoUrl = state.entities.storefront[gameId].photoUrls[0];
+    gameObject.photoUrl = state.entities.storefront[gameId].gridPhoto;
     gameObject.price = state.entities.storefront[gameId].price;
     gameObject.title = state.entities.storefront[gameId].title;
     gameObjectsArray.push(gameObject);
@@ -2997,6 +3003,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     var gameObject = {};
     gameObject.id = gameId;
     gameObject.photoUrls = state.entities.storefront[gameId].photoUrls;
+    gameObject.photoUrls.unshift(state.entities.storefront[gameId].carouselPhoto);
     gameObject.price = state.entities.storefront[gameId].price;
     gameObject.title = state.entities.storefront[gameId].title;
     gameObjectsArray.push(gameObject);

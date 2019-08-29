@@ -10,6 +10,8 @@ gameReviewIdsByDate = Array.new
     gameReviewIdsByDate.unshift(review.id)
 end
 
+purchase_page_photos = @game.photos.first(@game.photos.length - 1)
+
 json.gameReviews gameReviews
 json.gameReviewIdsByDate gameReviewIdsByDate
-json.photoUrls @game.photos.map {|file| url_for(file)}
+json.photoUrls purchase_page_photos.map {|file| url_for(file)}

@@ -8,6 +8,7 @@ const mapStateToProps = (state, ownProps) => {
         let gameObject = {};
         gameObject.id = gameId;
         gameObject.photoUrls = state.entities.storefront[gameId].photoUrls;
+        gameObject.photoUrls.unshift(state.entities.storefront[gameId].carouselPhoto)
         gameObject.price = state.entities.storefront[gameId].price;
         gameObject.title = state.entities.storefront[gameId].title;
         gameObjectsArray.push(gameObject);

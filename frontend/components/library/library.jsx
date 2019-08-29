@@ -38,11 +38,11 @@ export default function Library(props) {
         <div>
             { props.currentUserId &&
                 <div className="library wrapper">
-
+                    <h2>Your Games</h2>
                     {props.ownedGames[0] ?
                         libraryItems :
                         <div className="owned-game-item">
-                            <h1 className="no-games-owned">
+                            <h1 className="no-games-owned" onClick={() => props.history.push('/')}>
                                 You do not own any games yet.
                             </h1>
                         </div>

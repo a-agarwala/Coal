@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => {
     ownProps.gameIds.forEach(gameId => {
         let gameObject = {};
         gameObject.id = gameId;
-        gameObject.photoUrl = state.entities.storefront[gameId].photoUrls[0];
+        gameObject.photoUrl = state.entities.storefront[gameId].gridPhoto;
         gameObject.price = state.entities.storefront[gameId].price;
         gameObject.title = state.entities.storefront[gameId].title;
         gameObjectsArray.push(gameObject);

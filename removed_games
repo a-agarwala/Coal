@@ -1,0 +1,50 @@
+treesim = Game.create(
+    title: "Tree Simulator 2020",
+    price: 199,
+    release_date: "Mar 25, 2019",
+    developer: "Revmatek",
+    publisher: "Revmatek",
+    side_text: "It's exactly what it sounds like. You are the tree! You are equaled by no other. Relax and be the best tree you can be."
+)
+
+treesim1 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/treesim/treesim1.jpg")
+treesim2 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/treesim/treesim2.jpg")
+treesim3 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/treesim/treesim3.jpg")
+treesim4 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/treesim/treesim4.jpg")
+treesim5 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/treesim/treesim5.jpg")
+treesim6 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/treesim/treesim6.jpg")
+
+
+treesim.photos.attach(io: treesim1, filename: 'treesim1.jpg')
+treesim.photos.attach(io: treesim2, filename: 'treesim2.jpg')
+treesim.photos.attach(io: treesim3, filename: 'treesim3.jpg')
+treesim.photos.attach(io: treesim4, filename: 'treesim4.jpg')
+treesim.photos.attach(io: treesim5, filename: 'treesim5.jpg')
+treesim.photos.attach(io: treesim6, filename: 'treesim6.jpg')
+
+Review.create(
+    author_id: 8,
+    game_id: 8,
+    recommended: true,
+    body: "Best 79 cents I have ever spent."
+)
+Review.create(
+    author_id: 3,
+    game_id: 8,
+    recommended: true,
+    body: "I Am Tree. When the morning sun rays hit my rugged bark, I am the happiest. My bark entangles the wind of the meadow. Oh wont you come play?"
+)
+
+Review.create(
+    author_id: 2,
+    game_id: 8,
+    recommended: true,
+    body: "had some trouble with the game being really stuttery, but other than that, it is still a really great game."
+)
+
+Review.create(
+    author_id: 9,
+    game_id: 8,
+    recommended: false,
+    body: "This game has trees in it. "
+)

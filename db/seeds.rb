@@ -104,6 +104,7 @@ tod6 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/tod
 tod7 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/tod/tod7.jpg")
 tod8 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/tod/tod8.jpg")
 tod9 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/tod/tod9.jpg")
+tod_carousel = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/tod/tod_carousel.jpg")
 
 tod.photos.attach(io: tod1, filename: 'tod1.jpg')
 tod.photos.attach(io: tod2, filename: 'tod2.jpg')
@@ -114,6 +115,7 @@ tod.photos.attach(io: tod6, filename: 'tod6.jpg')
 tod.photos.attach(io: tod7, filename: 'tod7.jpg')
 tod.photos.attach(io: tod8, filename: 'tod8.jpg')
 tod.photos.attach(io: tod9, filename: 'tod9.jpg')
+tod.photos.attach(io: tod_carousel, filename: 'tod_carousel.jpg')
 
 Review.create(
     author_id: 2,
@@ -172,6 +174,7 @@ hltwo7 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/h
 hltwo8 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/hltwo/hltwo8.jpg")
 hltwo9 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/hltwo/hltwo9.jpg")
 hltwo10 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/hltwo/hltwo10.jpg")
+hltwo_carousel = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/hltwo/hltwo_carousel.png")
 
 hltwo.photos.attach(io: hltwo1, filename: 'hltwo1.jpg')
 hltwo.photos.attach(io: hltwo2, filename: 'hltwo2.jpg')
@@ -183,6 +186,7 @@ hltwo.photos.attach(io: hltwo7, filename: 'hltwo7.jpg')
 hltwo.photos.attach(io: hltwo8, filename: 'hltwo8.jpg')
 hltwo.photos.attach(io: hltwo9, filename: 'hltwo9.jpg')
 hltwo.photos.attach(io: hltwo10, filename: 'hltwo10.jpg')
+hltwo.photos.attach(io: hltwo_carousel, filename: 'hltwo_carousel.png')
 
 Review.create(
     author_id: 3,
@@ -246,6 +250,7 @@ terr7 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/te
 terr8 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/terr/terr8.jpg")
 terr9 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/terr/terr9.jpg")
 terr10 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/terr/terr10.jpg")
+terr_carousel = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/terr/terr_carousel.jpg")
 
 terr.photos.attach(io: terr1, filename: 'terr1.jpg')
 terr.photos.attach(io: terr2, filename: 'terr2.jpg')
@@ -257,6 +262,7 @@ terr.photos.attach(io: terr7, filename: 'terr7.jpg')
 terr.photos.attach(io: terr8, filename: 'terr8.jpg')
 terr.photos.attach(io: terr9, filename: 'terr9.jpg')
 terr.photos.attach(io: terr10, filename: 'terr10.jpg')
+terr.photos.attach(io: terr_carousel, filename: 'terr_carousel.jpg')
 
 Review.create(
     author_id: 2,
@@ -307,6 +313,7 @@ empires4 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos
 empires5 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/empires/empires5.jpg")
 empires6 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/empires/empires6.jpg")
 empires7 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/empires/empires7.jpg")
+empires_carousel = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/empires/empires_carousel.jpeg")
 
 empires.photos.attach(io: empires1, filename: 'empires1.jpg')
 empires.photos.attach(io: empires2, filename: 'empires2.jpg')
@@ -315,7 +322,7 @@ empires.photos.attach(io: empires4, filename: 'empires4.jpg')
 empires.photos.attach(io: empires5, filename: 'empires5.jpg')
 empires.photos.attach(io: empires6, filename: 'empires6.jpg')
 empires.photos.attach(io: empires7, filename: 'empires7.jpg')
-
+empires.photos.attach(io: empires_carousel, filename: 'empires_carousel.jpeg')
 
 Review.create(
     author_id: 3,
@@ -355,6 +362,7 @@ nier5 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/ni
 nier6 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/nier/nier6.jpg")
 nier7 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/nier/nier7.jpg")
 nier8 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/nier/nier8.jpg")
+nier_carousel = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/nier/nier_carousel.jpg")
 
 nier.photos.attach(io: nier1, filename: 'nier1.jpg')
 nier.photos.attach(io: nier2, filename: 'nier2.jpg')
@@ -364,6 +372,7 @@ nier.photos.attach(io: nier5, filename: 'nier5.jpg')
 nier.photos.attach(io: nier6, filename: 'nier6.jpg')
 nier.photos.attach(io: nier7, filename: 'nier7.jpg')
 nier.photos.attach(io: nier8, filename: 'nier8.jpg')
+nier.photos.attach(io: nier_carousel, filename: 'nier_carousel.jpg')
 
 Review.create(
     author_id: 9,
@@ -411,6 +420,7 @@ witcher7 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos
 witcher8 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/witcher/witcher8.jpg")
 witcher9 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/witcher/witcher9.jpg")
 witcher10 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/witcher/witcher10.jpg")
+witcher_carousel = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/witcher/witcher_carousel.jpg")
 
 witcher.photos.attach(io: witcher1, filename: 'witcher1.jpg')
 witcher.photos.attach(io: witcher2, filename: 'witcher2.jpg')
@@ -422,6 +432,7 @@ witcher.photos.attach(io: witcher7, filename: 'witcher7.jpg')
 witcher.photos.attach(io: witcher8, filename: 'witcher8.jpg')
 witcher.photos.attach(io: witcher9, filename: 'witcher9.jpg')
 witcher.photos.attach(io: witcher10, filename: 'witcher10.jpg')
+witcher.photos.attach(io: witcher_carousel, filename: 'witcher_carousel.jpg')
 
 Review.create(
     author_id: 10,
@@ -481,6 +492,7 @@ blade6 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/b
 blade7 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/blade/blade7.jpg")
 blade8 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/blade/blade8.jpg")
 blade9 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/blade/blade9.jpg")
+blade_carousel = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/blade/blade_carousel.jpg")
 
 blade.photos.attach(io: blade1, filename: 'blade1.jpg')
 blade.photos.attach(io: blade2, filename: 'blade2.jpg')
@@ -491,6 +503,7 @@ blade.photos.attach(io: blade6, filename: 'blade6.jpg')
 blade.photos.attach(io: blade7, filename: 'blade7.jpg')
 blade.photos.attach(io: blade8, filename: 'blade8.jpg')
 blade.photos.attach(io: blade9, filename: 'blade9.jpg')
+blade.photos.attach(io: blade_carousel, filename: 'blade_carousel.jpg')
 
 Review.create(
     author_id: 2,
@@ -519,57 +532,6 @@ Review.create(
     body: "I don't understand how this game has so many great reviews? The game is still incredibly buggy and the hit detection is awful! I understand this is an Early Acces Game but it's been that way for years. Pick it up during a sale if you're still curious. "
 )
 
-treesim = Game.create(
-    title: "Tree Simulator 2020",
-    price: 199,
-    release_date: "Mar 25, 2019",
-    developer: "Revmatek",
-    publisher: "Revmatek",
-    side_text: "It's exactly what it sounds like. You are the tree! You are equaled by no other. Relax and be the best tree you can be."
-)
-
-treesim1 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/treesim/treesim1.jpg")
-treesim2 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/treesim/treesim2.jpg")
-treesim3 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/treesim/treesim3.jpg")
-treesim4 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/treesim/treesim4.jpg")
-treesim5 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/treesim/treesim5.jpg")
-treesim6 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/treesim/treesim6.jpg")
-
-
-treesim.photos.attach(io: treesim1, filename: 'treesim1.jpg')
-treesim.photos.attach(io: treesim2, filename: 'treesim2.jpg')
-treesim.photos.attach(io: treesim3, filename: 'treesim3.jpg')
-treesim.photos.attach(io: treesim4, filename: 'treesim4.jpg')
-treesim.photos.attach(io: treesim5, filename: 'treesim5.jpg')
-treesim.photos.attach(io: treesim6, filename: 'treesim6.jpg')
-
-Review.create(
-    author_id: 8,
-    game_id: 8,
-    recommended: true,
-    body: "Best 79 cents I have ever spent."
-)
-Review.create(
-    author_id: 3,
-    game_id: 8,
-    recommended: true,
-    body: "I Am Tree. When the morning sun rays hit my rugged bark, I am the happiest. My bark entangles the wind of the meadow. Oh wont you come play?"
-)
-
-Review.create(
-    author_id: 2,
-    game_id: 8,
-    recommended: true,
-    body: "had some trouble with the game being really stuttery, but other than that, it is still a really great game."
-)
-
-Review.create(
-    author_id: 9,
-    game_id: 8,
-    recommended: false,
-    body: "This game has trees in it. "
-)
-
 eurotruck = Game.create(
     title: "Euro Truck Simulator 2",
     price: 1999,
@@ -589,6 +551,7 @@ eurotruck7 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphot
 eurotruck8 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/eurotruck/eurotruck8.jpg")
 eurotruck9 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/eurotruck/eurotruck9.jpg")
 eurotruck10 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/eurotruck/eurotruck10.jpg")
+eurotruck_carousel = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/eurotruck/eurotruck_carousel.jpg")
 
 eurotruck.photos.attach(io: eurotruck1, filename: 'eurotruck1.jpg')
 eurotruck.photos.attach(io: eurotruck2, filename: 'eurotruck2.jpg')
@@ -600,30 +563,31 @@ eurotruck.photos.attach(io: eurotruck7, filename: 'eurotruck7.jpg')
 eurotruck.photos.attach(io: eurotruck8, filename: 'eurotruck8.jpg')
 eurotruck.photos.attach(io: eurotruck9, filename: 'eurotruck9.jpg')
 eurotruck.photos.attach(io: eurotruck10, filename: 'eurotruck10.jpg')
+eurotruck.photos.attach(io: eurotruck_carousel, filename: 'eurotruck_carousel.jpg')
 
 Review.create(
     author_id: 4,
-    game_id: 9,
+    game_id: 8,
     recommended: true,
     body: "A game that I really enjoy and would recommend to anyone who enjoys realistic driving sims. The craftsmanship really shows from the developers, it's really top notch stuff..."
 )
 Review.create(
     author_id: 10,
-     game_id: 9,
+     game_id: 8,
     recommended: true,
     body: "Add better weather system."
 )
 
 Review.create(
     author_id: 6,
-     game_id: 9,
+     game_id: 8,
     recommended: true,
     body: "I highly recommend this game. It is one of the best driving simulator games out there."
 )
 
 Review.create(
     author_id: 5,
-     game_id: 9,
+     game_id: 8,
     recommended: false,
     body: "This game has trucks in it."
 )
@@ -646,6 +610,7 @@ heart6 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/h
 heart7 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/heart/heart7.jpg")
 heart8 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/heart/heart8.jpg")
 heart9 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/heart/heart9.jpg")
+heart_carousel = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/heart/heart_carousel.jpg")
 
 heart.photos.attach(io: heart1, filename: 'heart1.jpg')
 heart.photos.attach(io: heart2, filename: 'heart2.jpg')
@@ -656,30 +621,31 @@ heart.photos.attach(io: heart6, filename: 'heart6.jpg')
 heart.photos.attach(io: heart7, filename: 'heart7.jpg')
 heart.photos.attach(io: heart8, filename: 'heart8.jpg')
 heart.photos.attach(io: heart9, filename: 'heart9.jpg')
+heart.photos.attach(io: heart_carousel, filename: 'heart_carousel.jpg')
 
 Review.create(
     author_id: 7,
-    game_id: 10,
+    game_id: 9,
     recommended: true,
     body: "I've never played another game quite like it."
 )
 Review.create(
     author_id: 6,
-    game_id: 10,
+    game_id: 9,
     recommended: true,
     body: "Personal Score: 9/10"
 )
 
 Review.create(
     author_id: 5,
-    game_id: 10,
+    game_id: 9,
     recommended: true,
     body: "An interesting and fun game, but extremely hard to get into if you struggle with concepts like programming as a whole"
 )
 
 Review.create(
     author_id: 4,
-    game_id: 10,
+    game_id: 9,
     recommended: false,
     body: "This game has computers in it."
 )
@@ -701,6 +667,7 @@ miami5 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/m
 miami6 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/miami/miami6.jpg")
 miami7 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/miami/miami7.jpg")
 miami8 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/miami/miami8.jpg")
+miami_carousel = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/miami/miami_carousel.jpg")
 
 miami.photos.attach(io: miami1, filename: 'miami1.jpg')
 miami.photos.attach(io: miami2, filename: 'miami2.jpg')
@@ -710,30 +677,31 @@ miami.photos.attach(io: miami5, filename: 'miami5.jpg')
 miami.photos.attach(io: miami6, filename: 'miami6.jpg')
 miami.photos.attach(io: miami7, filename: 'miami7.jpg')
 miami.photos.attach(io: miami8, filename: 'miami8.jpg')
+miami.photos.attach(io: miami_carousel, filename: 'miami_carousel.jpg')
 
 Review.create(
     author_id: 2,
-    game_id: 11,
+    game_id: 10,
     recommended: true,
     body: "How do I inject Hotline Miami’s soundtrack directly into my veins"
 )
 Review.create(
     author_id: 4,
-    game_id: 11,
+    game_id: 10,
     recommended: true,
     body: "TIP : Confess to the police"
 )
 
 Review.create(
     author_id: 6,
-    game_id: 11,
+    game_id: 10,
     recommended: true,
     body: "Amazing ambience of this game fuelled by its unique visual style and its epic soundtrack. Definitely a must play even if you are not a regular gamer!"
 )
 
 Review.create(
     author_id: 8,
-    game_id: 11,
+    game_id: 10,
     recommended: false,
     body: "This game has music in it. "
 )
@@ -760,6 +728,7 @@ fallout10 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphoto
 fallout11 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/fallout/fallout11.jpg")
 fallout12 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/fallout/fallout12.jpg")
 fallout13 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/fallout/fallout13.jpg")
+fallout_carousel = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/fallout/fallout_carousel.jpg")
 
 fallout.photos.attach(io: fallout1, filename: 'fallout1.jpg')
 fallout.photos.attach(io: fallout2, filename: 'fallout2.jpg')
@@ -774,16 +743,17 @@ fallout.photos.attach(io: fallout10, filename: 'fallout10.jpg')
 fallout.photos.attach(io: fallout11, filename: 'fallout11.jpg')
 fallout.photos.attach(io: fallout12, filename: 'fallout12.jpg')
 fallout.photos.attach(io: fallout13, filename: 'fallout13.jpg')
+fallout.photos.attach(io: fallout_carousel, filename: 'fallout_carousel.jpg')
 
 Review.create(
     author_id: 8,
-    game_id: 12,
+    game_id: 11,
     recommended: true,
     body: "Yo! This game is bomb, Just get it and play."
 )
 Review.create(
     author_id: 7,
-    game_id: 12,
+    game_id: 11,
     recommended: true,
     body: "A first-person rpg set in a post apocalyptic world, filled with mutated monsters, what more do you want ?"
 
@@ -791,14 +761,14 @@ Review.create(
 
 Review.create(
     author_id: 6,
-    game_id: 12,
+    game_id: 11,
     recommended: true,
     body: "Nuked Megaton in the first 30 minutes of the game. No Regrets. None..."
 )
 
 Review.create(
     author_id: 5,
-    game_id: 12,
+    game_id: 11,
     recommended: false,
     body: "This game does not like to work with windows 10,Its about time they remaster it."
 )
@@ -821,6 +791,7 @@ vox6 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/vox
 vox7 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/vox/vox7.jpg")
 vox8 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/vox/vox8.jpg")
 vox9 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/vox/vox9.jpg")
+vox_carousel = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/vox/vox_carousel.jpg")
 
 vox.photos.attach(io: vox1, filename: 'vox1.jpg')
 vox.photos.attach(io: vox2, filename: 'vox2.jpg')
@@ -831,30 +802,31 @@ vox.photos.attach(io: vox6, filename: 'vox6.jpg')
 vox.photos.attach(io: vox7, filename: 'vox7.jpg')
 vox.photos.attach(io: vox8, filename: 'vox8.jpg')
 vox.photos.attach(io: vox9, filename: 'vox9.jpg')
+vox.photos.attach(io: vox_carousel, filename: 'vox_carousel.jpg')
 
 Review.create(
     author_id: 9,
-    game_id: 13,
+    game_id: 12,
     recommended: true,
     body: "One of the best VR games on the market. Great performance, actually fun gameplay and it isn't just a tech-demo. Supports desktop gaming, runs smoothly and looks pretty damn good."
 )
 Review.create(
     author_id: 8,
-    game_id: 13,
+    game_id: 12,
     recommended: true,
     body: "Best mech game I've ever played. Really makes you feel like you're in the cockpit of a giant robot."
 )
 
 Review.create(
     author_id: 5,
-    game_id: 13,
+    game_id: 12,
     recommended: true,
     body: "If you have VR, there's no reason why you should not own this."
 )
 
 Review.create(
     author_id: 2,
-    game_id: 13,
+    game_id: 12,
     recommended: false,
     body: "This game has robots in it. "
 )
@@ -874,6 +846,7 @@ spiderman3 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphot
 spiderman4 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/spiderman/spiderman4.jpg")
 spiderman5 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/spiderman/spiderman5.jpg")
 spiderman6 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/spiderman/spiderman6.jpg")
+spiderman_carousel = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/spiderman/spiderman_carousel.jpg")
 
 spiderman.photos.attach(io: spiderman1, filename: 'spiderman1.jpg')
 spiderman.photos.attach(io: spiderman2, filename: 'spiderman2.jpg')
@@ -881,30 +854,31 @@ spiderman.photos.attach(io: spiderman3, filename: 'spiderman3.jpg')
 spiderman.photos.attach(io: spiderman4, filename: 'spiderman4.jpg')
 spiderman.photos.attach(io: spiderman5, filename: 'spiderman5.jpg')
 spiderman.photos.attach(io: spiderman6, filename: 'spiderman6.jpg')
+spiderman.photos.attach(io: spiderman_carousel, filename: 'spiderman_carousel.jpg')
 
 Review.create(
     author_id: 3,
-    game_id: 14,
+    game_id: 13,
     recommended: true,
     body: "Point and shoot some things; that's about it. Something to use to demonstrate VR to a friend but nothing more to come back to after that."
 )
 Review.create(
     author_id: 9,
-    game_id: 14,
+    game_id: 13,
     recommended: true,
     body: "Get if you are a spiderman fan, but there isn't anything to come back to once it is over."
 )
 
 Review.create(
     author_id: 8,
-    game_id: 14,
+    game_id: 13,
     recommended: false,
     body: "It looks very good but it is just a 3-5 minute tutorial."
 )
 
 Review.create(
     author_id: 4,
-    game_id: 14,
+    game_id: 13,
     recommended: false,
     body: "Tt's just a petty tech demo that isn't worth anything, there are way better free vr experiences out there"
 )
@@ -927,6 +901,7 @@ cuphead6 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos
 cuphead7 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/cuphead/cuphead7.jpg")
 cuphead8 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/cuphead/cuphead8.jpg")
 cuphead9 = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/cuphead/cuphead9.jpg")
+cuphead_carousel = open("https://steamclone-seeds.s3-us-west-1.amazonaws.com/steamphotos/cuphead/cuphead_carousel.jpg")
 
 cuphead.photos.attach(io: cuphead1, filename: 'cuphead1.jpg')
 cuphead.photos.attach(io: cuphead2, filename: 'cuphead2.jpg')
@@ -937,30 +912,31 @@ cuphead.photos.attach(io: cuphead6, filename: 'cuphead6.jpg')
 cuphead.photos.attach(io: cuphead7, filename: 'cuphead7.jpg')
 cuphead.photos.attach(io: cuphead8, filename: 'cuphead8.jpg')
 cuphead.photos.attach(io: cuphead9, filename: 'cuphead9.jpg')
+cuphead.photos.attach(io: cuphead_carousel, filename: 'cuphead_carousel.jpg')
 
 Review.create(
     author_id: 2,
-    game_id: 15,
+    game_id: 14,
     recommended: true,
     body: "This is a really good game! i love it! i am also fricking PRO rn"
 )
 Review.create(
     author_id: 3,
-     game_id: 15,
+     game_id: 14,
     recommended: false,
     body: "Superb but way too hard for me. Sadly had to request a refund, I just couldn't see myself trying any further."
 )
 
 Review.create(
     author_id: 4,
-     game_id: 15,
+     game_id: 14,
     recommended: true,
     body: "There is so much creativity in this game such as character design, colors, level design and music, its hard af but still fun to play"
 )
 
 Review.create(
     author_id: 6,
-     game_id: 15,
+     game_id: 14,
     recommended: true,
     body: "Such a pleasant game to play with my grandchildren."
 )

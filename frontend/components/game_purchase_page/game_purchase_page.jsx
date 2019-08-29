@@ -71,6 +71,7 @@ class GamePurchasePage extends React.Component {
                         gameTitle={this.props.gameInfo.title}
                         gamePrice={this.props.gameInfo.price}
                         gameId={this.props.gameInfo.id}
+                        history={this.props.history}
                          />
                         
                     </div>

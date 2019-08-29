@@ -86,4 +86,20 @@
     color: white;
     text-align: center;
     padding: 40px;
+    cursor: pointer;
+}
+
+.library h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: normal;
+    padding-top: 2px;
+    display: block;
+    max-width: 750px;
 }
