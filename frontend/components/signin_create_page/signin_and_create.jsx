@@ -22,7 +22,8 @@ class SignInAndCreate extends React.Component {
         })
     }
 
-    demoUser() {
+    demoUser(e) {
+        e.preventDefault();
         const user = {username: 'DemoUser', password: 'demopassword'};
         this.props.signin(user);
    
@@ -97,7 +98,7 @@ class SignInAndCreate extends React.Component {
                             <button id="actual-signin-button" className="signin-create-button" type="submit" >Sign In</button>
                             <button className="signin-create-button" 
                             id="demo-user-button" 
-                            onClick={() => this.demoUser()}
+                            onClick={(e) => this.demoUser(e)}
                             >Demo User</button>
 
                         </form>
