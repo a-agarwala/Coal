@@ -2052,7 +2052,6 @@ function Library(props) {
     });
   }
 
-  console.log(libraryItems);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.currentUserId && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "library wrapper"
   }, props.ownedGames[0] ? libraryItems : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

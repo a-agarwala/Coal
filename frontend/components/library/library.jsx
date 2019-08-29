@@ -34,8 +34,6 @@ export default function Library(props) {
         })
     }
 
-    console.log(libraryItems);
-
     return (
         <div>
             { props.currentUserId &&
