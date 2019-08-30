@@ -1990,7 +1990,7 @@ function (_React$Component) {
       }, "Random Game"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "wallet-display",
         className: "upper-right-nav-bar-text"
-      }, "$", (this.props.user.wallet / 100).toFixed(2)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Your Wallet: $", (this.props.user.wallet / 100).toFixed(2)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "dropdown-menu-button upper-right-nav-bar-text",
         onClick: this.showDropdownMenu
       }, this.props.user.username), this.state.showDropdownMenu ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

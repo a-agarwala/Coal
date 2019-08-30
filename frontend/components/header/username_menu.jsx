@@ -47,7 +47,7 @@ class UsernameMenu extends React.Component {
                     className="install-button upper-right-nav-bar-text"
                 >Random Game</Link>
                 <div id="wallet-display" className="upper-right-nav-bar-text">
-                    ${((this.props.user.wallet)/100).toFixed(2)}
+                    Your Wallet: ${((this.props.user.wallet)/100).toFixed(2)}
                 </div>
                 <button className="dropdown-menu-button upper-right-nav-bar-text" onClick={this.showDropdownMenu}>
                     {this.props.user.username}
