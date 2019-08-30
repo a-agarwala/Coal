@@ -6,7 +6,7 @@ class RandomGame extends React.Component {
     }
 
     componentDidMount() {
-        this.props.history.push(`/game/${Math.floor(Math.random() * 15) + 1}`)
+        this.props.history.push(`/game/${Math.floor(Math.random() * 14) + 1}`)
     }
 
     render() {

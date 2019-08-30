@@ -2208,7 +2208,7 @@ function (_React$Component) {
   _createClass(RandomGame, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.history.push("/game/".concat(Math.floor(Math.random() * 15) + 1));
+      this.props.history.push("/game/".concat(Math.floor(Math.random() * 14) + 1));
     }
   }, {
     key: "render",
