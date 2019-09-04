@@ -21,10 +21,7 @@ class PurchaseDisplay extends React.Component {
             this.props.purchaseGame({owner_id: this.props.currentUser.id, game_id: this.props.gameId});
             this.props.history.push('/library');
         }
-
-        
-
-        
+ 
     }
 
     render() {

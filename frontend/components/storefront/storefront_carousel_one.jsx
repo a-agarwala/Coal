@@ -26,7 +26,7 @@ export default function StorefrontCarouselOne(props) {
         if (isCarouselMoving) {
             interval = setInterval(() => {
                 movePosition(1);
-            }, 3000);
+            }, 6000);
         } else {
             clearInterval(interval)
         }

@@ -32,7 +32,9 @@ export default function Header(props) {
                         {/* <Link className="header-center-link" to="/">
                             Sales!
                         </Link> */}
-
+                        <Link className="header-center-link" to="/cart">
+                            Shopping Cart
+                        </Link>
                         <a className="header-center-link" href="https://linkedin.com/in/aditya-agarwala">
                             Linkedin
                         </a>

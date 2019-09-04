@@ -18,7 +18,6 @@ class GamePurchasePage extends React.Component {
 
     componentDidMount() {
         this.props.getGameInfoAndReviews(this.props.gameId);
-
         if (this.props.currentUser) {
             this.props.refreshUserInfo(this.props.currentUser.id);
         }; 
