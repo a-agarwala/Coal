@@ -1756,10 +1756,7 @@ function Header(props) {
   }, props.currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
     className: "header-center-link",
     to: "/library"
-  }, "Your Games")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-    className: "header-center-link",
-    to: "/cart"
-  }, "Shopping Cart"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, "Your Games")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "header-center-link",
     href: "https://linkedin.com/in/aditya-agarwala"
   }, "Linkedin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
