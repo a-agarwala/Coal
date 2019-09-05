@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import StorefrontCarouselBottomSquares from './storefront_carousel_bottom_squares';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
+import ReactCSSTransitionReplace from 'react-css-transition-replace';
 
 export default function StorefrontCarouselOne(props) {
 
     const [position, setPosition] = useState(0);
     const [photoIndex, setPhotoIndex] = useState(0);
     const [isCarouselMoving, setCarouselMoving] = useState(true);
+    const [zCounter, setZCounter] = useState(0);
 
     const limit = props.gamesArray.length - 1;
 
@@ -18,6 +21,7 @@ export default function StorefrontCarouselOne(props) {
             newPosition = 0;
         }
         setPosition(newPosition);
+        setZCounter(zCounter - 1);
         setCarouselMoving(true);
     }
 
@@ -26,7 +30,7 @@ export default function StorefrontCarouselOne(props) {
         if (isCarouselMoving) {
             interval = setInterval(() => {
                 movePosition(1);
-            }, 6000);
+            }, 5000);
         } else {
             clearInterval(interval)
         }
@@ -36,56 +40,71 @@ export default function StorefrontCarouselOne(props) {
     return (
         <div className="storefront-carousel-one-wrapper-one">
         <h2>Featured</h2>
-        <div className="storefront-carousel-one-wrapper-two">
-            
+        <div className="storefront-carousel-one-wrapper-three">
                 <div className={isCarouselMoving ? "storefront-carousel-one-dir-button-left"
                                                  : "storefront-carousel-one-dir-button-left paused"}
                 onClick={() => movePosition(-1)}>
-                <div className="storefront-carousel-one-left-arrow"></div>
-            </div>
-            
-            <div className="storefront-carousel-one-content-box" 
-                onClick={() => props.history.push(`/game/${props.gamesArray[position].id}`)}
-                onMouseEnter={() => setCarouselMoving(false)}
-                onMouseLeave={() => setCarouselMoving(true)}>
+                    <div className="storefront-carousel-one-left-arrow"></div>
 
-                    <div className="storefront-carousel-one-big-photo-box">
-                        <img className="storefront-carousel-one-big-actual-photo" src={props.gamesArray[position].photoUrls[photoIndex]}></img>
-                    </div>
-
-                    <div className="storefront-carousel-one-right-column">
-                        <div className="storefront-carousel-one-title">
-                            {props.gamesArray[position].title}
-                        </div>
-                        
-                        <div className="storefront-carousel-one-thumbnails-box">
-                            {props.gamesArray[position].photoUrls.slice(1).map( (photoUrl, idx) =>
-                                <div className="storefront-carousel-one-thumbnail"
-                                    key={idx}
-                                    onMouseEnter={() => setPhotoIndex(idx + 1)}
-                                    onMouseLeave={() => setPhotoIndex(0)}>
-                                    <img src={photoUrl}></img>
-                                </div>
-                            )}
-                        </div>
-
-                        <div className="storefront-carousel-one-now-available">Now Available</div>
-                        
-                        <div className="storefront-carousel-one-price">${((props.gamesArray[position].price)/100).toFixed(2)}</div>
-                        
-
-                    </div>
-                
                 </div>
 
-                <div className={isCarouselMoving ? "storefront-carousel-one-dir-button-right"
-                                                 : "storefront-carousel-one-dir-button-right paused"}
-                onClick={() => movePosition(1)}>
-                <div className="storefront-carousel-one-right-arrow"></div>
+           
+
+                <ReactCSSTransitionReplace overflowHidden={false} transitionName="cross-fade" transitionEnterTimeout={400} transitionLeaveTimeout={400}> 
+    
+
+            <div key={position} className="storefront-carousel-one-wrapper-two">
+            
+            
+                <div className="storefront-carousel-one-content-box" 
+                    onClick={() => props.history.push(`/game/${props.gamesArray[position].id}`)}
+                    onMouseEnter={() => setCarouselMoving(false)}
+                    onMouseLeave={() => setCarouselMoving(true)}>
+
+                        <div className="storefront-carousel-one-big-photo-box">
+
+                            <img className="storefront-carousel-one-big-actual-photo" src={props.gamesArray[position].photoUrls[photoIndex]}></img>
+            
+                        </div>
+
+                        <div className="storefront-carousel-one-right-column">
+
+                            <div className="storefront-carousel-one-title">
+                                {props.gamesArray[position].title}
+                            </div>
+                            
+                            <div className="storefront-carousel-one-thumbnails-box">
+                                {props.gamesArray[position].photoUrls.slice(1).map( (photoUrl, idx) =>
+                                    <div className="storefront-carousel-one-thumbnail"
+                                        key={idx}
+                                        onMouseEnter={() => setPhotoIndex(idx + 1)}
+                                        onMouseLeave={() => setPhotoIndex(0)}>
+                                        <img src={photoUrl}></img>
+                                    </div>
+                                )}
+                            </div>
+
+                            <div className="storefront-carousel-one-now-available">Now Available</div>
+                            
+                            <div className="storefront-carousel-one-price">${((props.gamesArray[position].price)/100).toFixed(2)}</div>
+                            
+                        </div>
+                        
+                </div>
+
+
             </div>
-
+        
+        </ReactCSSTransitionReplace>
+   
+                <div>
+                    <div className={isCarouselMoving ? "storefront-carousel-one-dir-button-right"
+                                                        : "storefront-carousel-one-dir-button-right paused"}
+                        onClick={() => movePosition(1)}>
+                        <div className="storefront-carousel-one-right-arrow"></div>
+                    </div>
+                </div>
         </div>
-
                 <StorefrontCarouselBottomSquares
                 limit={limit}
                 currentPosition={position}
