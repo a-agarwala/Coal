@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import StorefrontCarouselBottomSquares from './storefront_carousel_bottom_squares';
-import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import ReactCSSTransitionReplace from 'react-css-transition-replace';
 
 export default function StorefrontCarouselOne(props) {
@@ -8,7 +7,6 @@ export default function StorefrontCarouselOne(props) {
     const [position, setPosition] = useState(0);
     const [photoIndex, setPhotoIndex] = useState(0);
     const [isCarouselMoving, setCarouselMoving] = useState(true);
-    const [zCounter, setZCounter] = useState(0);
 
     const limit = props.gamesArray.length - 1;
 
@@ -21,7 +19,6 @@ export default function StorefrontCarouselOne(props) {
             newPosition = 0;
         }
         setPosition(newPosition);
-        setZCounter(zCounter - 1);
         setCarouselMoving(true);
     }
 
@@ -48,11 +45,8 @@ export default function StorefrontCarouselOne(props) {
 
                 </div>
 
-           
-
-                <ReactCSSTransitionReplace overflowHidden={false} transitionName="cross-fade" transitionEnterTimeout={400} transitionLeaveTimeout={400}> 
+        <ReactCSSTransitionReplace overflowHidden={false} transitionName="cross-fade" transitionEnterTimeout={400} transitionLeaveTimeout={400}> 
     
-
             <div key={position} className="storefront-carousel-one-wrapper-two">
             
             
