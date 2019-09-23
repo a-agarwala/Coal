@@ -140,18 +140,22 @@ div#upper-right-nav-bar {
 
 #green-install-button {
     background-color: #5c7e10;
+    cursor: pointer;
 }
 
 #gray-install-button {
     background-color: #616a72;
     height: 24px;
     display: inline-block;
+    cursor: pointer;
 }
 
 #wallet-display {
     display: inline-block;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+    width: 100px;
+    text-align: center;
 }
 
 #logo {

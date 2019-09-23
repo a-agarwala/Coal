@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { goToRandomGame } from '../../util/games_api_util';
 
 class UsernameMenu extends React.Component {
     constructor(props) {
@@ -10,6 +10,9 @@ class UsernameMenu extends React.Component {
 
         this.showDropdownMenu = this.showDropdownMenu.bind(this);
         this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
+        
+        this.goToRandomGame = goToRandomGame.bind(this);
+
     }
 
     showDropdownMenu(event) {
@@ -35,20 +38,27 @@ class UsernameMenu extends React.Component {
     }
 
     render() {
-
         let userclone = Object.assign({}, this.props.user);
         userclone.wallet = userclone.wallet + 2000;
-
+        
         return (
              (
             <div>
-                    <Link to={'/random'} 
+                    <div 
                 id="gray-install-button"
                     className="install-button upper-right-nav-bar-text"
-                >Random Game</Link>
-                <div id="wallet-display" className="upper-right-nav-bar-text">
-                    Your Wallet: ${((this.props.user.wallet)/100).toFixed(2)}
+                        onClick={() => this.goToRandomGame(this.props.viewedGameId)}
+                >Random Game</div>
+
+                <div id="wallet-display" className="upper-right-nav-bar-text"
+                >
+                    {
+                        this.props.user.wallet ? 
+                        `Your Wallet: $${((this.props.user.wallet)/100).toFixed(2)}`
+                                :  "Loading..."        
+                    }
                 </div>
+
                 <button className="dropdown-menu-button upper-right-nav-bar-text" onClick={this.showDropdownMenu}>
                     {this.props.user.username}
                  </button>
@@ -85,3 +95,4 @@ class UsernameMenu extends React.Component {
 
 
 export default UsernameMenu;
+

@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { getGameInfoAndReviews, leaveGamePurchasePage } from '../../actions/game_actions';
 import { refreshUserInfo, updateUserWallet, purchaseGame } from '../../actions/session_actions';
 import GamePurchasePage from './game_purchase_page';
@@ -35,8 +34,6 @@ const mapStateToProps = (state, ownProps) => {
         thisGameReview: thisGameReview,
         gameReviewIdsByDate: state.entities.viewedGame.gameReviewIdsByDate,
         allReviews: allReviews,
-        location: ownProps.location,
-        history: ownProps.history
     })
     
 };

@@ -10,6 +10,7 @@ class GamePurchasePage extends React.Component {
         super(props);
     
     this.setReviewRef = this.setReviewRef.bind(this); 
+    
     }
 
     setReviewRef(node) {
@@ -21,11 +22,14 @@ class GamePurchasePage extends React.Component {
         if (this.props.currentUser) {
             this.props.refreshUserInfo(this.props.currentUser.id);
         }; 
+        if (this.reviewRef && this.props.location.hash.includes('#review')) {
+            this.reviewRef.scrollIntoView({ block: "center", inline: "nearest", behavior: "smooth" });
+        } else { this.props.headerRef.current.scrollIntoView(true); }
     }
 
-    componentDidUpdate() {
-        if (this.reviewRef && this.props.location.hash.includes('#review')) {
-            this.reviewRef.scrollIntoView(true);
+    componentDidUpdate(prevProps) {
+        if (prevProps.location.pathname !== this.props.location.pathname) {
+            this.props.getGameInfoAndReviews(this.props.gameId);
         }
     }
 
@@ -35,7 +39,7 @@ class GamePurchasePage extends React.Component {
 
     render() {
         let secondRow = {};
-        if (this.props.gameInfo) {
+        
             if (this.props.currentUser && this.props.ownsGame && !this.props.hasReviewedGame) {
 
                 secondRow = (
@@ -77,7 +81,6 @@ class GamePurchasePage extends React.Component {
                 );
             };
 
-        }
        
         let gameRating = '';
         let gameRatingCalc = 0;
@@ -160,6 +163,13 @@ class GamePurchasePage extends React.Component {
             </div>
         );
     }
+}
+
+GamePurchasePage.defaultProps = {
+    gameInfo: {},
+    gamePhotos: [],
+    allReviews: [],
+    gameReviewIdsByDate: []
 }
 
 export default GamePurchasePage;

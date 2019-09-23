@@ -49,7 +49,9 @@ export default function Header(props) {
                         <UpperRightNavBar
                             currentUser={props.currentUser}
                             logout={props.logout}
-                            updateUserWallet={props.updateUserWallet} />
+                            updateUserWallet={props.updateUserWallet}
+                            history={props.history}
+                            viewedGameId={props.viewedGameId} />
                     </div>
 
                 </div>

@@ -11,3 +11,11 @@ export const populateStorefront = () => (
         url: '/api/games',
     })
 )
+
+export const goToRandomGame = function(gameId) {
+    let newGameId = gameId;
+    while (newGameId === gameId) {
+        newGameId = (Math.floor(Math.random() * 14) + 1);
+    }
+    this.props.history.push(`/game/${newGameId}`)
+}
