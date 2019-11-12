@@ -16,6 +16,7 @@ const reviewsReducer = (state = {}, action) => {
         case LOGOUT_CURRENT_USER:
             return {};
         case CREATE_NEW_REVIEW:
+
             newState[action.review.id] = action.review;
             return newState;
         case UPDATE_REVIEW:

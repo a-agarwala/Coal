@@ -169,6 +169,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editReview", function() { return editReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeReview", function() { return removeReview; });
 /* harmony import */ var _util_reviews_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/reviews_api_util */ "./frontend/util/reviews_api_util.js");
+/* harmony import */ var _game_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./game_actions */ "./frontend/actions/game_actions.js");
+/* harmony import */ var _session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_actions */ "./frontend/actions/session_actions.js");
+
+
 
 var CREATE_NEW_REVIEW = 'CREATE_NEW_REVIEW';
 var UPDATE_REVIEW = 'UPDATE_REVIEW';
@@ -193,23 +197,41 @@ var deleteReview = function deleteReview(reviewId) {
 };
 var createReview = function createReview(review) {
   return function (dispatch) {
-    return _util_reviews_api_util__WEBPACK_IMPORTED_MODULE_0__["createNewReview"](review).then(function (review) {
-      return dispatch(createNewReview(review));
+    var authorId = review.author_id;
+    var gameId = review.game_id;
+    return _util_reviews_api_util__WEBPACK_IMPORTED_MODULE_0__["createNewReview"](review).then(function () {
+      return dispatch(Object(_session_actions__WEBPACK_IMPORTED_MODULE_2__["refreshUserInfo"])(authorId));
+    }).then(function () {
+      dispatch(Object(_game_actions__WEBPACK_IMPORTED_MODULE_1__["getGameInfoAndReviews"])(gameId));
     });
   };
-};
+}; // export const createReview = review => dispatch => (
+//     ReviewsAPIUtil.createNewReview(review)
+//         .then(review => (dispatch(createNewReview(review))))
+// );
+
 var editReview = function editReview(review) {
   return function (dispatch) {
-    return _util_reviews_api_util__WEBPACK_IMPORTED_MODULE_0__["updateReview"](review).then(function (review) {
-      return dispatch(updateReview(review));
+    var authorId = review.author_id;
+    var gameId = review.game_id;
+    return _util_reviews_api_util__WEBPACK_IMPORTED_MODULE_0__["updateReview"](review).then(function () {
+      return dispatch(Object(_session_actions__WEBPACK_IMPORTED_MODULE_2__["refreshUserInfo"])(authorId));
+    }).then(function () {
+      dispatch(Object(_game_actions__WEBPACK_IMPORTED_MODULE_1__["getGameInfoAndReviews"])(gameId));
     });
   };
 };
-var removeReview = function removeReview(reviewId) {
+var removeReview = function removeReview(_ref) {
+  var id = _ref.id,
+      authorId = _ref.authorId,
+      gameId = _ref.gameId;
   return function (dispatch) {
-    return _util_reviews_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteReview"](reviewId).then(function () {
-      return dispatch(deleteReview(reviewId));
-    });
+    return _util_reviews_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteReview"](id).then(function () {
+      return dispatch(Object(_session_actions__WEBPACK_IMPORTED_MODULE_2__["refreshUserInfo"])(authorId));
+    }).then(function () {
+      dispatch(Object(_game_actions__WEBPACK_IMPORTED_MODULE_1__["getGameInfoAndReviews"])(gameId));
+    }); // ReviewsAPIUtil.deleteReview(reviewId)
+    //     .then(()=> (dispatch(deleteReview(reviewId))))
   };
 };
 
@@ -633,9 +655,9 @@ function (_React$Component) {
     _this.state = {
       author_id: _this.props.currentUser.id,
       game_id: _this.props.gameId,
-      recommended: _this.props.thisGameReview.recommended,
-      body: _this.props.thisGameReview.body,
-      id: _this.props.thisGameReview.id
+      recommended: _this.props.thisGameReview ? _this.props.thisGameReview.recommended : undefined,
+      body: _this.props.thisGameReview ? _this.props.thisGameReview.body : undefined,
+      id: _this.props.thisGameReview ? _this.props.thisGameReview.id : undefined
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.recommend = _this.recommend.bind(_assertThisInitialized(_this));
@@ -673,20 +695,27 @@ function (_React$Component) {
     key: "deleteReview",
     value: function deleteReview(e) {
       e.preventDefault();
-      this.props.removeReview(this.props.thisGameReview.id);
+      this.props.removeReview({
+        id: this.state.id,
+        authorId: this.state.author_id,
+        gameId: this.state.game_id
+      });
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
       var review = Object.assign({}, this.state);
-      this.props.editReview(review);
+      this.props.editReview(review); // this.props.enterThisGamePurchasePage();
     }
   }, {
     key: "render",
     value: function render() {
       var _this3 = this;
 
+      console.log("Edit Review Form:");
+      console.log(this.state);
+      console.log(this.props);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "center_horizontally"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -741,6 +770,19 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review-submit-button-text"
       }, "Delete review"))))));
+    }
+  }], [{
+    key: "getDerivedStateFromProps",
+    value: function getDerivedStateFromProps(props, state) {
+      if ((state.body === undefined || state.recommended === undefined || state.id === undefined) && props.thisGameReview) {
+        return {
+          body: props.thisGameReview.body,
+          recommended: props.thisGameReview.recommended,
+          id: props.thisGameReview.id
+        };
+      } else {
+        return null;
+      }
     }
   }]);
 
@@ -877,6 +919,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(GamePurchasePage).call(this, props));
     _this.setReviewRef = _this.setReviewRef.bind(_assertThisInitialized(_this));
+    _this.enterThisGamePurchasePage = _this.enterThisGamePurchasePage.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -886,9 +929,14 @@ function (_React$Component) {
       this.reviewRef = node;
     }
   }, {
+    key: "enterThisGamePurchasePage",
+    value: function enterThisGamePurchasePage() {
+      this.props.getGameInfoAndReviews(this.props.gameId);
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.getGameInfoAndReviews(this.props.gameId);
+      this.enterThisGamePurchasePage();
 
       if (this.props.currentUser) {
         this.props.refreshUserInfo(this.props.currentUser.id);
@@ -933,7 +981,8 @@ function (_React$Component) {
           createReview: this.props.createReview,
           currentUser: this.props.currentUser,
           gameTitle: this.props.gameInfo.title,
-          gameId: this.props.gameInfo.id
+          gameId: this.props.gameId,
+          enterThisGamePurchasePage: this.enterThisGamePurchasePage
         }));
       } else if (this.props.currentUser && this.props.hasReviewedGame) {
         secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -944,8 +993,9 @@ function (_React$Component) {
           removeReview: this.props.removeReview,
           currentUser: this.props.currentUser,
           gameTitle: this.props.gameInfo.title,
-          gameId: this.props.gameInfo.id,
-          thisGameReview: this.props.thisGameReview
+          gameId: this.props.gameId,
+          thisGameReview: this.props.thisGameReview,
+          enterThisGamePurchasePage: this.enterThisGamePurchasePage
         }));
       } else {
         secondRow = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -957,7 +1007,7 @@ function (_React$Component) {
           purchaseGame: this.props.purchaseGame,
           gameTitle: this.props.gameInfo.title,
           gamePrice: this.props.gameInfo.price,
-          gameId: this.props.gameInfo.id,
+          gameId: this.props.gameId,
           history: this.props.history
         }));
       }
@@ -1324,6 +1374,7 @@ function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var review = Object.assign({}, this.state);
+      if (this.state.recommended === null || this.state.body === null) return;
       this.props.createReview(review);
       this.setState({
         author_id: this.props.currentUser.id,
@@ -1883,7 +1934,6 @@ function (_React$Component) {
       var _this2 = this;
 
       var display = {};
-      console.log(this.props.viewedGameId);
 
       if (this.props.currentUser) {
         display = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

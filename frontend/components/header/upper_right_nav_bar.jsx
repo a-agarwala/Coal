@@ -14,12 +14,12 @@ class UpperRightNavBar extends React.Component {
     render() {
 
         let display = {};
-        console.log(this.props.viewedGameId);
+
 
         if (this.props.currentUser) {
             display = (
                 <div className="upper-right-nav-bar">
-                    < UsernameMenu user={this.props.currentUser} 
+                    <UsernameMenu user={this.props.currentUser} 
                     logout={this.props.logout} 
                     updateUserWallet={this.props.updateUserWallet}
                     history={this.props.history}

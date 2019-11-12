@@ -10,15 +10,19 @@ class GamePurchasePage extends React.Component {
         super(props);
     
     this.setReviewRef = this.setReviewRef.bind(this); 
-    
+    this.enterThisGamePurchasePage = this.enterThisGamePurchasePage.bind(this)
     }
 
     setReviewRef(node) {
         this.reviewRef = node;
     }
 
-    componentDidMount() {
+    enterThisGamePurchasePage() {
         this.props.getGameInfoAndReviews(this.props.gameId);
+    }
+
+    componentDidMount() {
+        this.enterThisGamePurchasePage();
         if (this.props.currentUser) {
             this.props.refreshUserInfo(this.props.currentUser.id);
         }; 
@@ -38,6 +42,7 @@ class GamePurchasePage extends React.Component {
     }
 
     render() {
+
         let secondRow = {};
         
             if (this.props.currentUser && this.props.ownsGame && !this.props.hasReviewedGame) {
@@ -47,7 +52,8 @@ class GamePurchasePage extends React.Component {
                         <NewReviewForm createReview={this.props.createReview}
                             currentUser={this.props.currentUser}
                             gameTitle={this.props.gameInfo.title}
-                            gameId={this.props.gameInfo.id}/>
+                            gameId={this.props.gameId} 
+                            enterThisGamePurchasePage={this.enterThisGamePurchasePage} />
                     </div>
                 );
 
@@ -59,8 +65,9 @@ class GamePurchasePage extends React.Component {
                             removeReview={this.props.removeReview}
                             currentUser={this.props.currentUser}
                             gameTitle={this.props.gameInfo.title}
-                            gameId={this.props.gameInfo.id}
-                            thisGameReview={this.props.thisGameReview} />
+                            gameId={this.props.gameId}
+                            thisGameReview={this.props.thisGameReview} 
+                            enterThisGamePurchasePage={this.enterThisGamePurchasePage} />
                     </div>
                 );
 
@@ -73,10 +80,8 @@ class GamePurchasePage extends React.Component {
                         purchaseGame={this.props.purchaseGame}
                         gameTitle={this.props.gameInfo.title}
                         gamePrice={this.props.gameInfo.price}
-                        gameId={this.props.gameInfo.id}
-                        history={this.props.history}
-                         />
-                        
+                        gameId={this.props.gameId}
+                        history={this.props.history}/>
                     </div>
                 );
             };

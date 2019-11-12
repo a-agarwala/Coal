@@ -6,14 +6,24 @@ class EditReviewForm extends React.Component {
         this.state = {
             author_id: this.props.currentUser.id,
             game_id: this.props.gameId,
-            recommended: this.props.thisGameReview.recommended,
-            body: this.props.thisGameReview.body,
-            id: this.props.thisGameReview.id,
+            recommended: (this.props.thisGameReview ? this.props.thisGameReview.recommended : undefined),
+            body: (this.props.thisGameReview ? this.props.thisGameReview.body : undefined),
+            id: (this.props.thisGameReview ? this.props.thisGameReview.id : undefined),
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.recommend = this.recommend.bind(this);
         this.notrecommend = this.notrecommend.bind(this);
         this.deleteReview = this.deleteReview.bind(this);
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        if ((state.body === undefined || state.recommended === undefined || state.id === undefined) && props.thisGameReview) {
+            return {body: props.thisGameReview.body,
+                    recommended: props.thisGameReview.recommended,
+                    id: props.thisGameReview.id}
+        } else {
+            return null;
+        }
     }
 
     update(field) {
@@ -38,17 +48,24 @@ class EditReviewForm extends React.Component {
 
     deleteReview(e) {
         e.preventDefault();
-        this.props.removeReview(this.props.thisGameReview.id);
+        this.props.removeReview({
+            id: this.state.id,
+            authorId: this.state.author_id,
+            gameId: this.state.game_id
+        });
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const review = Object.assign({}, this.state);
         this.props.editReview(review);
+        // this.props.enterThisGamePurchasePage();
     }
 
     render() {
-
+        console.log("Edit Review Form:");
+        console.log(this.state);
+        console.log(this.props);
         return (
         <div className="center_horizontally">
             

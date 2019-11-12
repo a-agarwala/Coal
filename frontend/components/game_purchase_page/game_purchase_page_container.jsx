@@ -10,7 +10,9 @@ const mapStateToProps = (state, ownProps) => {
 
     const allReviews = state.entities.viewedGame.gameReviews;
     let thisGameReview = {};
+    
     let hasReviewedGame = !!(state.entities.reviews[gameIdNumber]);
+
     let ownsGame = false;
     const ownedGameIds = state.entities.ownedGames.map((ownedGame) => {
         return ownedGame.id.toString();

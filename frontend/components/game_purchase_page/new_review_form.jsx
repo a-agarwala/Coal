@@ -22,13 +22,15 @@ class NewReviewForm extends React.Component {
     
     recommend(e) {
         e.preventDefault();
+
         this.setState({
             recommended: true
         })
     }
-
+    
     notrecommend(e) {
         e.preventDefault();
+ 
         this.setState({
             recommended: false
         })
@@ -37,7 +39,9 @@ class NewReviewForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const review = Object.assign({}, this.state);
+        if (this.state.recommended === null || this.state.body === null) return        
         this.props.createReview(review);
+
         this.setState({
             author_id: this.props.currentUser.id,
             game_id: this.props.gameId,
